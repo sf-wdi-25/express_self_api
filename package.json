@@ -1,22 +1,19 @@
 {
-  "name": "express-practice",
+  "name": "express_self_api",
   "version": "1.0.0",
-  "description": "### Base Challenges - Build an Express App",
+  "description": "Building an API about yourself",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sf-wdi-25/express-intro.git"
+    "url": "git+https://github.com/sf-wdi-25/express_self_api.git"
   },
-  "author": "",
+  "author": "WDI 25",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sf-wdi-25/express-intro/issues"
+    "url": "https://github.com/sf-wdi-25/express_self_api/issues"
   },
-  "homepage": "https://github.com/sf-wdi-25/express-intro#readme",
-  "dependencies": {
-    "express": "^4.13.3"
-  }
+  "homepage": "https://github.com/sf-wdi-25/express_self_api#readme",
 }
