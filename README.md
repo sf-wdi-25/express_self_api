@@ -50,12 +50,12 @@ Get creative!  You can add hobbies, favorite books (or comics or tv shows or win
 
 * You can use your **github user name** as the route.  E.g. if my github account is `jsnow`, use `localhost:3000/api/jsnow`
 * Implement **GET**, **POST**, **DELETE**, and **PUT** routes.
-  * Think about CRUD
+  * Think about CRUD.
 
 ### GET
 
 * Your API should support GET on all(?) routes.
- * index routes like `GET /api/jstudent/wardrobe` should return an array or wardrobe objects
+ * index routes like `GET /api/jstudent/wardrobe` should return an array of wardrobe objects.
  * individual resources like `GET /api/jstudent/wardrobe` should return a single wardrobe object.
    * Note: it's very reasonable for an object to contain an array of other objects.  `{brand: 'Zara', colors: ['blue', 'grey']}`
 
@@ -63,6 +63,7 @@ Get creative!  You can add hobbies, favorite books (or comics or tv shows or win
 
 * Your API should implement POST to create new items and add them to the collection.
   * `POST /api/jsnow/swords` with a body `{name: 'Long Claw', material: 'Valyrian Steel'}` should add a new sword to the array of swords.
+  * If a user ran the above and then ran `GET /api/jsnow/swords` they should expect to see the new sword in the output.
 
 ### DELETE
 
@@ -74,16 +75,18 @@ Get creative!  You can add hobbies, favorite books (or comics or tv shows or win
 
 * Add Update functionality.
   * Update should change the named resource.  
-    * Ex: PUT /api/json/family/1 with body `{}`
+    * Ex: PUT /api/json/family/1 with body `{ name: 'Arya Stark', relationship: 'half-sister' }` should change that particular object, not add a new one.
+  * You can't do PUT on an array, only on a specific item.
 
-### More 
+### More
 
-* Use both types of params
+* Use both types of parameters
   * query params   `/search?q=Kittens`
   * URL or route params: `/projects/:id`  
-  * _CHALLENGE_: use both on a single route
+  * _CHALLENGE_: use both on a single route!
 * Try to always return an object or array of objects.  (On API routes.)
   * Avoid returning a simple string most of the time.  Eg: use `{ name: 'Sansa Stark' }` rather than `'Sansa Stark'`
+* Serve static (public) assets.
 * Serve the `index.html` page at the _your-name_ route.  E.g.: `localhost:3000/jstudent` should show jstudent's info.
   * Use jQuery to get *some* of your data on the page.  You don't have to display it all.
 
