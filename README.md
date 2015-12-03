@@ -15,10 +15,12 @@ An example for a 'Jon Snow' might have endpoints like:
 <details><summary>Caution, spoiler alert!</summary>
 ```
 ├──  /api/jsnow/family     // [ { name: 'Arya Stark', relationship: 'sister' }, { name: 'Bran Stark', relationship: 'brother' }]
-│                └── /1    // {name: 'Arya Stark', relationship: 'sister' }
+│          └── /family?relationship=sister    // [ {name: 'Arya Stark', relationship: 'sister' }, { name: 'Sansa Stark', relationship: 'sister' }
 ├──  /api/jsnow/hobbies    // [ { name: 'fighting', tools: ['sword', 'bow'] }, { name: 'riding', tools: ['horse'] } ]
 │                └── /1    // riding
-├──  /api/jsnow/projects   // [ { name: 'defeating the wildlings', opponents: ['all the wildlings', 'Mance Rayder', 'Lord of Bones'] }, { name: 'saving the wildlings', opponents: ['the Night Watch', 'the Others'] } ]
+├──  /api/jsnow/projects   // [ { name: 'defeating the wildlings', opponents: [ 'Mance Rayder', 'Lord of Bones'] }, { name: 'saving the wildlings', opponents: ['the Night Watch', 'the Others'] } ]
+│                └── /1    // { name: 'defeating the wildlings', opponents: [ 'Mance Rayder', 'Lord of Bones'] }
+
 ```
 </details>
 
@@ -46,15 +48,44 @@ An example for a student might have endpoints like:
 
 Get creative!  You can add hobbies, favorite books (or comics or tv shows or wines), personality or physical attributes, almost anything you can think of.
 
-* Try to always return an object or array of objects.  (On API routes.)
-  * Avoid returning a simple string most of the time.  Eg: use `{ name: 'Sansa Stark' }` rather than `'Sansa Stark'`
+* You can use your **github user name** as the route.  E.g. if my github account is `jsnow`, use `localhost:3000/api/jsnow`
+* Implement **GET**, **POST**, **DELETE**, and **PUT** routes.
+  * Think about CRUD
+
+### GET
+
+* Your API should support GET on all(?) routes.
+ * index routes like `GET /api/jstudent/wardrobe` should return an array or wardrobe objects
+ * individual resources like `GET /api/jstudent/wardrobe` should return a single wardrobe object.
+   * Note: it's very reasonable for an object to contain an array of other objects.  `{brand: 'Zara', colors: ['blue', 'grey']}`
+
+### POST
+
+* Your API should implement POST to create new items and add them to the collection.
+  * `POST /api/jsnow/swords` with a body `{name: 'Long Claw', material: 'Valyrian Steel'}` should add a new sword to the array of swords.
+
+### DELETE
+
+* Add Delete functionality.
+  * Delete should remove the item from the collection.
+    * Ex: `DELETE /api/json/family/1`  would remove Arya from the family Array.
+
+### PUT
+
+* Add Update functionality.
+  * Update should change the named resource.  
+    * Ex: PUT /api/json/family/1 with body `{}`
+
+### More 
+
 * Use both types of params
   * query params   `/search?q=Kittens`
   * URL or route params: `/projects/:id`  
   * _CHALLENGE_: use both on a single route
+* Try to always return an object or array of objects.  (On API routes.)
+  * Avoid returning a simple string most of the time.  Eg: use `{ name: 'Sansa Stark' }` rather than `'Sansa Stark'`
 * Serve the `index.html` page at the _your-name_ route.  E.g.: `localhost:3000/jstudent` should show jstudent's info.
   * Use jQuery to get *some* of your data on the page.  You don't have to display it all.
-* You can use your **github user name** as the route.  E.g. if my github account is `jsnow`, use `localhost:3000/api/jsnow`
 
 
 
