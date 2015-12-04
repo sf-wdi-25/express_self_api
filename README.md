@@ -1,18 +1,55 @@
-# <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Express Practice
+# <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Personal API - Weekend Lab
 
-# Build an API in Express
+Your goal is to build a API about yourself. Your API will incorporate:
+* some basic details about you
+* `/api` endpoints that return JSON
+* RESTful Routing (GET, POST, UPDATE, DELETE)
+* CRUDing (of at least one resource)
 
-We're going to build an API about ourselves.  Ideally, your API should be RESTful and support proper CRUD operations.
-We'll be using hard-coded data, which you'll be adding yourself.  
+## Part 1. Personal API
 
+#### Minimum Requirements
 
-## Self-API
+- **Documentation**: You must create a readme file that specifies what endpoints are available on your API, what your endpoints expect from the request (verb + route + data), and what they will respond with (structure of JSON). _We highly recommend that you do this first_!
+- A **contact endpoint** (`/api/YOUR-GITHUB-USERNAME/contact`) that responds with:
+    + `name` - a string
+    + `github_link` - a url to your github profile
+    + `github_profile_image` - the url of your github profile image
+    + `current_city`
+    + `family_members` - an array of family member objects
+        + e.g. `[{name: "foo", relationship: "father"}, {name: "bar", relationship: "mother"}]`
+- **At least one resource** that you can _*CRUD*_ using _*RESTful Routes*_
+    - That means endpoints for `index`, `show`, `create` `update`, `delete`!
+    - Here are some ideas:
+        * Wish list (e.g. `gifts` or `wishes`)
+            - _id, description, price, amazon_link
+        * `books` you've read
+            - _id, title, author, genre, notes
+        * `quotes` you like, or `tweets`
+            - _id, text, date, author
+        * `movies` or `shows` you like
+            - _id, title, season, director
+        * `projects` or `poems`
+            - _id, title, body, date
 
-The API we're building is about _you_.  You're API will make things about yourself available to anyone who makes the appropriate API call (whether that be in a browser, AJAX or Postman).
+All API Endpoints must return JSON.
 
+#### API Stretch Goals
+* Contact info stretch goals
+    * Add a `days_old` field that calculates how many days old you are.
+    * Add an `is_awake` field that's only `true` between 8am and 10pm!
+    * Add an `is_hungry` field that's only `true` around lunch and dinner!
+* CRUD resource stretch goals
+    * Use query parameters to filter results from one of your CRUD endpoints:
+        - e.g. `?limit=2` only return two results
+    * Create a `/search` endpoint
+        - e.g. `?q=mad+men` only returns tv shows with that in the title
+        - e.g. `?type=romance` only returns romance novels
+
+## Examples 
 An example for a 'Jon Snow' might have endpoints like:
 
-<details><summary>Caution, spoiler alert!</summary>
+<details><summary>Caution, spoiler alert! (click here)</summary>
 ```
 ├──  /api/jsnow/family     // [ { name: 'Arya Stark', relationship: 'sister' }, { name: 'Bran Stark', relationship: 'brother' }]
 │          └── /family?relationship=sister    // [ {name: 'Arya Stark', relationship: 'sister' }, { name: 'Sansa Stark', relationship: 'sister' }
@@ -25,8 +62,9 @@ An example for a 'Jon Snow' might have endpoints like:
 </details>
 
 An example for a student might have endpoints like:
+
 ```
-├──  /api/jstudent/favorites  // [ all favorites? ]
+├──  /api/jstudent/favorites  // [ {}, ... ]
 │             ├── /favorites?limit=2          // [ { type: 'beverage', name: 'Philharmonic' maker: 'Philz Coffee', subtype: 'coffee' },
 │             │                                    { type: 'game', name: 'Exploding Kittens' }]
 │             └── /favorites/beverages    // [ { type: 'beverage', name: 'Philharmonic' maker: 'Philz Coffee', subtype: 'coffee' },
@@ -43,56 +81,26 @@ An example for a student might have endpoints like:
 │             ├── /commute_times/20151203    // [ { am: 20, method: 'BART' }, {pm: 40, method: 'BART', delay: true} ]
 │             └── /commute_times/20151204    // [ { am: 40, method: 'MUNI' } ]
 ```
+</details>
 
-## Requirements
+## Part 2. Personal Dashboard
 
-Get creative!  You can add hobbies, favorite books (or comics or tv shows or wines), personality or physical attributes, almost anything you can think of.
+#### Minimum Requirements
+Consume the Personal API you just created, and use it to build your own personal dashboard.
 
-* You can use your **github user name** as the route.  E.g. if my github account is `jsnow`, use `localhost:3000/api/jsnow`
-* Implement **GET**, **POST**, **DELETE**, and **PUT** routes.
-  * Think about CRUD.
-
-### GET
-
-* Your API should support GET on all(?) routes.
- * index routes like `GET /api/jstudent/wardrobe` should return an array of wardrobe objects.
- * individual resources like `GET /api/jstudent/wardrobe` should return a single wardrobe object.
-   * Note: it's very reasonable for an object to contain an array of other objects.  `{brand: 'Zara', colors: ['blue', 'grey']}`
-
-### POST
-
-* Your API should implement POST to create new items and add them to the collection.
-  * `POST /api/jsnow/swords` with a body `{name: 'Long Claw', material: 'Valyrian Steel'}` should add a new sword to the array of swords.
-  * If a user ran the above and then ran `GET /api/jsnow/swords` they should expect to see the new sword in the output.
-
-### DELETE
-
-* Add Delete functionality.
-  * Delete should remove the item from the collection.
-    * Ex: `DELETE /api/json/family/1`  would remove Arya from the family Array.
-
-### PUT
-
-* Add Update functionality.
-  * Update should change the named resource.  
-    * Ex: PUT /api/json/family/1 with body `{ name: 'Arya Stark', relationship: 'half-sister' }` should change that particular object, not add a new one.
-  * You can't do PUT on an array, only on a specific item.
-
-### More
-
-* Use both types of parameters
-  * query params   `/search?q=Kittens`
-  * URL or route params: `/projects/:id`  
-  * _CHALLENGE_: use both on a single route!
-* Try to always return an object or array of objects.  (On API routes.)
-  * Avoid returning a simple string most of the time.  Eg: use `{ name: 'Sansa Stark' }` rather than `'Sansa Stark'`
-* Serve static (public) assets.
-* Serve the `index.html` page at the _your-name_ route.  E.g.: `localhost:3000/jstudent` should show jstudent's info.
-  * Use jQuery to get *some* of your data on the page.  You don't have to display it all.
+* Create an `index.html` **homepage** that's linked to your main javascript and css files.
+* Use **jQuery** and **AJAX** to consume your Personal API.
+* Display **at least one image/gif** that you retrieved from your Personal API.
+* Create **at least one form**, so you can CRUD at least one of your resources.
+* **Make your momma proud**.
 
 
+## Part 3. Go Crazy Stretch Goals
+* What's the `current_weather` like in your `current_city`? Use this [Weather API](https://developer.forecast.io/). You can decide whether you want to do a front-end (client-side) integration, or a back-end (server-side) integration with the API.
+* Add a `most_recent_tweet` or a `most_recent_instagram` field and consume the [Twitter API] or the [Instagram API] _on the server side_ (hint, you'll need to use the [Request library](https://github.com/request/request)).
+* Embed your favorite youtube videos or soundcloud/spotify tracks.
 
-**File Structure**
+##Recommended File Structure
 
 _A good express file tree structure_:
 
