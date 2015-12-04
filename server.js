@@ -36,7 +36,7 @@ app.get('/api', function api_index (req, res){
     endpoints: [
       {method: "GET", path: "/api", description: "Describes available endpoints"}
     ]
-  })
+  });
 });
 
 /**********
@@ -44,6 +44,8 @@ app.get('/api', function api_index (req, res){
  **********/
 
 // listen on port 3000
+//either at process.env.PORT(heroku) or 3000
+//boilerplate
 app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is running on http://localhost:3000/');
 });
