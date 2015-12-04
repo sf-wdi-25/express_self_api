@@ -1,20 +1,19 @@
 # <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Personal API - Weekend Lab
 
-Your goal is to build a API about yourself. Your API will incorporate:
-* some basic details about you
+My API incorporates:
+* some basic details about me
 * `/api` endpoints that return JSON
 * RESTful Routing (GET, POST, UPDATE, DELETE)
 * CRUDing (of at least one resource)
 
-It's common for code to break "in production" (broken links, different environment, missing dependenies...), so do your best to debug!
 
-## Part 1. Personal API
-Now that we're deployed, it's time to start coding your "personal" api!
+## API
+The list below specifies what endpoints are available on my API.
 
-#### Minimum Requirements
+#### Endpoints
 
-- **Documentation**: You must create a README.md file that specifies what endpoints are available on your API, what your endpoints expect from the request (verb + route + data), and what they will respond with (structure of JSON). We really want to know how to use your API! And we _highly recommend that you do this first_!
-- A **profile endpoint** (`/api/profile`) that responds with:
+- **(`/api/profile`)**: (`/api/profile`) expects to get FILLINTHISBLANK from the request (verb + route + data), and what will respond with (structure of JSON). To use this API, see the documentation below:
+- **(`/api/profile`)** responds with:
     + `name` - a string
     + `github_link` - a url to your github profile
     + `github_profile_image` - the url of your github profile image
