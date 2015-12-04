@@ -72,11 +72,11 @@ An example for a student might have endpoints like:
 ├──  /api/jstudent/projects  // index route, return all projects
 │             ├── /projects?limit=2          // [ { name: 'tictactoe', js: true, ruby: false, css: true, theme: 'Star Wars', description .... },
 │             │                                    { name: 'racing game 1', js: true, ruby: false, css: true, theme: 'Mario Bros', desc..... }]
-│             ├── /projects/3                // { name: 'tictactoe', js: true, ruby: false, css: true, theme: 'Star Wars', description .... }
+│             └── /projects/3                // { name: 'tictactoe', js: true, ruby: false, css: true, theme: 'Star Wars', description .... }
 ├──  /api/jstudent/is_awake   // true if between 8AM-12AM
 ├──  /api/jstudent/is_hungry  // true if between 11AM-12PM or 5PM-6PM
 ├──  /api/jstudent/wardrobe   // all wardrobe items  [ {color: 'dark blue', type: 'pants', ...}, {}, ...]
-│             ├── /wardrobe/3                // { color: 'dark blue', type: 'pants', brand: 'Levis' },
+│             └── /wardrobe/3                // { color: 'dark blue', type: 'pants', brand: 'Levis' },
 ├──  /api/jstudent/commute_times   //
 │             ├── /commute_times/20151203    // [ { am: 20, method: 'BART' }, {pm: 40, method: 'BART', delay: true} ]
 │             └── /commute_times/20151204    // [ { am: 40, method: 'MUNI' } ]
@@ -110,7 +110,7 @@ _A good express file tree structure_:
 ├── public  // i.e. client-side
 │   ├── images  // images to serve to client
 │   ├── javascripts
-│       └── app.js   // client-side javascript file
+│   │   └── app.js   // client-side javascript file
 │   └── stylesheets
 │       └── style.css
 ├── vendor // includes jQuery & bootstrap if we choose not to use CDN
