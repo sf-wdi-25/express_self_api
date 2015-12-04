@@ -8,7 +8,12 @@ app.use(express.static(__dirname + '/public'));
 /************
  * DATABASE *
  ************/
-
+  // Allow CORS: we'll use this today to reduce security so we can more easily test our code in the browser.
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 // your hardcoded data here
 
 /**********
