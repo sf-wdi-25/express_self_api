@@ -19,6 +19,13 @@ app.use(express.static(__dirname + '/public'));
  * HTML Endpoints
  */
 
+ // Allow CORS: we'll use this today to reduce security so we can more easily test our code in the browser.
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.get('/', function homepage (req, res) {  res.sendFile(__dirname + '/views/index.html');
 });
 
