@@ -17,6 +17,21 @@ app.use(express.static(__dirname + '/public'));
  ************/
 
 // your hardcoded data here
+var profile = [
+  {name: "Kayvon Ranjbar"},
+  {github_link: "https://github.com/Kranjbar"},
+  {github_profile_image: "https://avatars2.githubusercontent.com/u/14255298?v=3&s=460"},
+  {current_city: 'San Francisco'},
+  {family_members: [{name: 'Hossein Ranjbar', relationship: 'father'},
+    {name: 'Maria Ranjbar', relationship: 'mother'},
+    {name: 'Noshene Ranjbar', relationship: 'sister'}]}
+];
+
+var movies = [
+  {_id: 1, title: "The Lion King", director: "Roger Allers"},
+  {_id: 2, title: "Pocahontas", director: "Mike Gabriel"},
+  {_id: 3, title: "Aladdin", director: "Ron Clements"}
+  ];
 
 /**********
  * ROUTES *
@@ -44,6 +59,10 @@ app.get('/api', function api_index (req, res){
       {method: "GET", path: "/api", description: "Describes available endpoints"}
     ]
   });
+});
+
+app.get('/api/profile', function profile_index (req, res) {
+  res.json(profile);
 });
 
 /**********
