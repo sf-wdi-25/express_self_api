@@ -16,6 +16,30 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
+var videogames = [
+  {
+    title: "Super Mario Bros. 3",
+    developer: "Nintendo",
+    year: 1988,
+    description: "A platformer with genius design." 
+  },
+
+  {
+    title:"Super Mario RPG: Legend of the Seven Stars",
+    developer: "Squaresoft",
+    year: 1996,
+    description: "One of the best RPGs of the 90s."
+  },
+
+  {
+    title:"Super Smash Bros. Melee",
+    developer: "Nintendo",
+    year: 2001,
+    description: "Fighting game with an unexpected life span."
+  }
+
+];
+
 // your hardcoded data here
 
 /**********
