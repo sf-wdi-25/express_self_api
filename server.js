@@ -65,6 +65,10 @@ app.get('/api/profile', function profile_index (req, res) {
   res.json(profile);
 });
 
+app.get('/api/movies', function profile_index (req, res) {
+  res.json(movies);
+});
+
 /**********
  * SERVER *
  **********/
