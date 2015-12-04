@@ -32,11 +32,11 @@ app.get('/api', function api_index (req, res){
   res.json({
     message: "Welcome to my personal api!",
     documentation_url: "https://github.com/kehontas/express_self_api.git", // CHANGE THIS TO LINK TO YOUR README.md
-    base_url: "http://stormy-temple-5256.herokuapp.com",
+    base_url: "http://stormy-temple-5156.herokuapp.com",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes available endpoints"}
     ]
-  })
+  });
 });
 
 /**********
