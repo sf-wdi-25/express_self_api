@@ -6,11 +6,30 @@ Your goal is to build a API about yourself. Your API will incorporate:
 * RESTful Routing (GET, POST, UPDATE, DELETE)
 * CRUDing (of at least one resource)
 
+Please fork & clone this repo to get started.
+
+## Part 0. Deploy to Heroku
+Before we start coding, our first goal together is to configure our application so that it can be deployed to Heroku (a web application host).
+
+Follow the instructions here: [Deploying Express Apps to Heroku](#Pending)
+
+As you continue to work on this project, you'll need to remember to push your changes to heroku (just like you would with github!):
+
+```bash
+# git add . -A
+# git commit -m "detailed description of what I changed"
+git push heroku master
+heroku open
+```
+
+It's common for code to break "in production" (broken links, different environment, missing dependenies...), so do your best to debug!
+
 ## Part 1. Personal API
+Now that we're deployed, it's time to start coding your "personal" api!
 
 #### Minimum Requirements
 
-- **Documentation**: You must create a readme file that specifies what endpoints are available on your API, what your endpoints expect from the request (verb + route + data), and what they will respond with (structure of JSON). _We highly recommend that you do this first_!
+- **Documentation**: You must create a README.md file that specifies what endpoints are available on your API, what your endpoints expect from the request (verb + route + data), and what they will respond with (structure of JSON). We really want to know how to use your API! And we _highly recommend that you do this first_!
 - A **profile endpoint** (`/api/profile`) that responds with:
     + `name` - a string
     + `github_link` - a url to your github profile
