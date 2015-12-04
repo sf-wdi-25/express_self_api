@@ -105,8 +105,6 @@ An example API for 'Jon Snow' might have endpoints like:
     PUT /api/projects/2         etc
     DELETE /api/projects/2      etc
 
-    POST /api/projects/2/mark_complete
-
 
 ## Part 2. Personal Dashboard
 
