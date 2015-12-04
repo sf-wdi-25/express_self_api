@@ -31,7 +31,7 @@ app.get('/', function homepage (req, res) {
 app.get('/api', function api_index (req, res){
   res.json({
     message: "Welcome to my personal api!",
-    documentation_url: "https://github.com/kranjbar/express_self_api/blob/master/how-tos/deploy-nodejs-app-to-heroku.md", // CHANGE THIS TO LINK TO YOUR README.md
+    documentation_url: "https://github.com/Kranjbar/express_self_api/blob/master/README.md", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "http://secret-beyond-7591.herokuapp.com",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes available endpoints"}
