@@ -41,7 +41,8 @@ app.get('/api', function api_index (req, res){
     documentation_url: "https://github.com/isangieri/express_self_api/blob/master/APIREADME.md", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "http://gentle-shore-4526.herokuapp.com",
     endpoints: [
-      {method: "GET", path: "/api", description: "Describes available endpoints"}
+      {method: "GET", path: "/api", description: "Describes available endpoints"},
+      {method: "POST", path: "/api", description: "Route for adding a new api"}
     ]
   });
 });
