@@ -11,7 +11,7 @@ Your goal is to build a API about yourself. Your API will incorporate:
 #### Minimum Requirements
 
 - **Documentation**: You must create a readme file that specifies what endpoints are available on your API, what your endpoints expect from the request (verb + route + data), and what they will respond with (structure of JSON). _We highly recommend that you do this first_!
-- A **contact endpoint** (`/api/YOUR-GITHUB-USERNAME/contact`) that responds with:
+- A **profile endpoint** (`/api/profile`) that responds with:
     + `name` - a string
     + `github_link` - a url to your github profile
     + `github_profile_image` - the url of your github profile image
@@ -35,7 +35,7 @@ Your goal is to build a API about yourself. Your API will incorporate:
 All API Endpoints must return JSON.
 
 #### API Stretch Goals
-* Contact info stretch goals
+* Profile info stretch goals
     * Add a `days_old` field that calculates how many days old you are.
     * Add an `is_awake` field that's only `true` between 8am and 10pm!
     * Add an `is_hungry` field that's only `true` around lunch and dinner!
@@ -46,42 +46,48 @@ All API Endpoints must return JSON.
         - e.g. `?q=mad+men` only returns tv shows with that in the title
         - e.g. `?type=romance` only returns romance novels
 
-## Examples 
-An example for a 'Jon Snow' might have endpoints like:
+#### Examples
+An example API for 'Jon Snow' might have endpoints like:
 
-<details><summary>Caution, spoiler alert! (click here)</summary>
-```
-├──  /api/jsnow/family     // [ { name: 'Arya Stark', relationship: 'sister' }, { name: 'Bran Stark', relationship: 'brother' }]
-│          └── /family?relationship=sister    // [ {name: 'Arya Stark', relationship: 'sister' }, { name: 'Sansa Stark', relationship: 'sister' }
-├──  /api/jsnow/hobbies    // [ { name: 'fighting', tools: ['sword', 'bow'] }, { name: 'riding', tools: ['horse'] } ]
-│                └── /1    // riding
-├──  /api/jsnow/projects   // [ { name: 'defeating the wildlings', opponents: [ 'Mance Rayder', 'Lord of Bones'] }, { name: 'saving the wildlings', opponents: ['the Night Watch', 'the Others'] } ]
-│                └── /1    // { name: 'defeating the wildlings', opponents: [ 'Mance Rayder', 'Lord of Bones'] }
+    JSON API Endpoint           Response JSON
+    =============               =============
+    GET /api/profile            {
+                                  name: "Jon Snow",
+                                  github_link: "http://github.com/u-know-nothing-jon-snow",
+                                  current_city: "The Wall",
+                                  is_awake: false,
+                                  family_members: [ { name: 'Arya Stark', relationship: 'sister' }, { name: 'Bran Stark', relationship: 'brother' }]
+                                }
 
-```
-</details>
+    GET /api/projects           [
+                                 {
+                                    _id: 2,
+                                    name: 'Defeat the wildlings',
+                                    type: 'quest',
+                                    opponents: [ 'Mance Rayder', 'Lord of Bones'],
+                                    status: 'resolved'
+                                 },
+                                 { 
+                                    _id: 3,
+                                    name: 'Save the wildlings',
+                                    type: 'campaign',
+                                    opponents: ['the Night Watch', 'the Others'],
+                                    status: 'pending'
+                                 }
+                                ]
+    
+    GET /api/projects?limit=1   [ { _id: 2, name:'Defeat...' } ]
 
-An example for a student might have endpoints like:
+    GET /api/projects?status=pending
+                                [ { _id: 3, name:'Save...' } ]                                
+    GET /api/projects/2         { _id: 2, name:'Defeat...' }
 
-```
-├──  /api/jstudent/favorites  // [ {}, ... ]
-│             ├── /favorites?limit=2          // [ { type: 'beverage', name: 'Philharmonic' maker: 'Philz Coffee', subtype: 'coffee' },
-│             │                                    { type: 'game', name: 'Exploding Kittens' }]
-│             └── /favorites/beverages    // [ { type: 'beverage', name: 'Philharmonic' maker: 'Philz Coffee', subtype: 'coffee' },
-│                                              { type: 'beverage', name: 'Breakfast Stout', subtype: 'beer', maker: 'Founders Brewing' } ]
-├──  /api/jstudent/projects  // index route, return all projects
-│             ├── /projects?limit=2          // [ { name: 'tictactoe', js: true, ruby: false, css: true, theme: 'Star Wars', description .... },
-│             │                                    { name: 'racing game 1', js: true, ruby: false, css: true, theme: 'Mario Bros', desc..... }]
-│             └── /projects/3                // { name: 'tictactoe', js: true, ruby: false, css: true, theme: 'Star Wars', description .... }
-├──  /api/jstudent/is_awake   // true if between 8AM-12AM
-├──  /api/jstudent/is_hungry  // true if between 11AM-12PM or 5PM-6PM
-├──  /api/jstudent/wardrobe   // all wardrobe items  [ {color: 'dark blue', type: 'pants', ...}, {}, ...]
-│             └── /wardrobe/3                // { color: 'dark blue', type: 'pants', brand: 'Levis' },
-├──  /api/jstudent/commute_times   //
-│             ├── /commute_times/20151203    // [ { am: 20, method: 'BART' }, {pm: 40, method: 'BART', delay: true} ]
-│             └── /commute_times/20151204    // [ { am: 40, method: 'MUNI' } ]
-```
-</details>
+    POST /api/projects          etc
+    PUT /api/projects/2         etc
+    DELETE /api/projects/2      etc
+
+    POST /api/projects/2/mark_complete
+
 
 ## Part 2. Personal Dashboard
 
