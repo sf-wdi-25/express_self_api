@@ -31,6 +31,7 @@ app.get('/', function homepage (req, res) {
 app.get('/api', function api_index (req, res){
   res.json({
     message: "Welcome to my personal api!",
+    documentation_url: "https://github.com/sf-wdi-25/express_self_api/README.md", // CHANGE THIS TO LINK TO YOUR README.md
     endpoints: [
       {method: "GET", path: "/api", description: "Describes available endpoints"}
     ]
