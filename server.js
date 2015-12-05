@@ -17,15 +17,14 @@ app.use(express.static(__dirname + '/public'));
  ************/
 
 // your hardcoded data here
-var profile = [
-  {name: "Kayvon Ranjbar"},
-  {github_link: "https://github.com/Kranjbar"},
-  {github_profile_image: "https://avatars2.githubusercontent.com/u/14255298?v=3&s=460"},
-  {current_city: 'San Francisco'},
-  {family_members: [{name: 'Hossein Ranjbar', relationship: 'father'},
+var profile = {name: "Kayvon Ranjbar",
+  github_link: "https://github.com/Kranjbar",
+  github_profile_image: "https://avatars2.githubusercontent.com/u/14255298?v=3&s=460",
+  current_city: 'San Francisco',
+  family_members: [{name: 'Hossein Ranjbar', relationship: 'father'},
     {name: 'Maria Ranjbar', relationship: 'mother'},
-    {name: 'Noshene Ranjbar', relationship: 'sister'}]}
-];
+    {name: 'Noshene Ranjbar', relationship: 'sister'}
+    ]};
 
 var movies = [
   {_id: 1, title: "The Lion King", director: "Roger Allers"},
