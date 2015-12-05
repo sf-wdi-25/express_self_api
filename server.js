@@ -18,7 +18,7 @@ app.use(express.static(__dirname + '/public'));
   var profile = [{
     name: "Josh", 
      github_link: "https://github.com/JDe-Lora",
-     github_profile_image:"http://bbsimg.ngfiles.com/1/22523000/ngbbs4d6ec8b6c2013.jpg" ,
+     github_profile_image:"https://avatars2.githubusercontent.com/u/15679196?v=3&s=460" ,
      current_city: "Oakland",
      family_members: [{
       name: 'Dad', relationship: 'father'} , {name: 'Mom', relationship: 'Mother'}, 
