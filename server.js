@@ -42,12 +42,22 @@ var api = [
   {_id: 5, method: "GET", path: "/api/:id", description: "retrieve specific api"}
 ];
 
+//retrieve all apis
 app.get('/api', function api_index (req, res){
   res.json({
     message: "Is Angieri's first api",
     documentation_url: "https://github.com/isangieri/express_self_api/blob/master/APIREADME.md", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "http://gentle-shore-4526.herokuapp.com",
     endpoints: api,
+  });
+});
+
+//retrieve api by id
+app.get('/api/:id', function show(req, res) {
+  api.forEach(function (element, index) {
+    if (element._id == req.params.id) {
+      res.json(todos[index]);
+    }
   });
 });
 
