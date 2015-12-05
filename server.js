@@ -35,11 +35,11 @@ app.get('/', function homepage (req, res) {
  * JSON API Endpoints
  */
 var api = [
-  {method: "GET", path: "/api", description: "retrieve all apis"},
-  {method: "POST", path: "/api", description: "create new api"},
-  {method: "PUT", path: "/api/:id", description: "update existing api"},
-  {method: "DELETE", path: "/api/:id", description: "delete existing api"},
-  {method: "GET", path: "/api/:id", description: "retrieve specific api"}
+  {_id: 1, method: "GET", path: "/api", description: "retrieve all apis"},
+  {_id: 2, method: "POST", path: "/api", description: "create new api"},
+  {_id: 3, method: "PUT", path: "/api/:id", description: "update existing api"},
+  {_id: 4, method: "DELETE", path: "/api/:id", description: "delete existing api"},
+  {_id: 5, method: "GET", path: "/api/:id", description: "retrieve specific api"}
 ];
 
 app.get('/api', function api_index (req, res){
