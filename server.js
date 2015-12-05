@@ -55,7 +55,7 @@ app.get('/api', function api_index (req, res){
 //retrieve api by id
 app.get('/api/:id', function show(req, res) {
   api.forEach(function (element, index) {
-    if (element._id == req.params.id) {
+    if (element._id == req.params.id + 1) {
       res.json(todos[index]);
     }
   });
