@@ -18,8 +18,8 @@ app.use(express.static(__dirname + '/public'));
 
  //put data here
  var info = ({   name: 'Kehontas',
-      github_link: 'http://githib.com/kehontas',
-      github_profile_image: '',
+      github_link: 'http://github.com/kehontas',
+      github_profile_image: 'https://avatars3.githubusercontent.com/u/2671587?v=3&u=f3485ecd3032ed0201dcf7bd173e98c4f3bbfbd2&s=140',
       current_city: 'San Francisco',
       family_members: [{
         name: 'Charice', relationship: 'mother'}, {name: 'Doug', relationship: 'father'}]
