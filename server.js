@@ -16,6 +16,15 @@ app.use(express.static(__dirname + '/public'));
  * DATABASE *
  ************/
 
+ //put data here
+ var info = ({   name: 'Kehontas',
+      github_link: 'http://githib.com/kehontas',
+      github_profile_image: '',
+      current_city: 'San Francisco',
+      family_members: [{
+        name: 'Charice', relationship: 'mother'}, {name: 'Doug', relationship: 'father'}]
+    });
+
 // your hardcoded data here
 
 /**********
@@ -44,6 +53,10 @@ app.get('/api', function api_index (req, res){
       {method: "GET", path: "/api", description: "Describes available endpoints"}
     ]
   });
+});
+
+app.get('/api/profile', function profile (re, res){
+        res.send(info);
 });
 
 /**********
