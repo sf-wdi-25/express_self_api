@@ -15,7 +15,20 @@ app.use(express.static(__dirname + '/public'));
     next();
   });
 // your hardcoded data here
+  var profile = [
+    {name: Josh, 
+     github_link: "https://github.com/JDe-Lora",
+     github_profile_image:"http://bbsimg.ngfiles.com/1/22523000/ngbbs4d6ec8b6c2013.jpg" ,
+     current_city: "Oakland",
+     family_members: [{
+      {name: "Dad", relationship: "father"}, {name: "Mom", relationship: "Mother"}, 
+      {name: "Ben" relationship: "Brother", } {name: "Emily" relationship: "Sister",}
+      {name: "Chris" , relationship: "Brother"}  
+     }]
 
+
+
+}];
 /**********
  * ROUTES *
  **********/
@@ -44,6 +57,7 @@ app.get('/api', function api_index (req, res){
   });
 });
 
+//app.get('/')
 /**********
  * SERVER *
  **********/
