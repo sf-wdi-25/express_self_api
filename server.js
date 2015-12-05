@@ -34,19 +34,20 @@ app.get('/', function homepage (req, res) {
 /*
  * JSON API Endpoints
  */
+var api = [
+  {method: "GET", path: "/api", description: "retrieve all apis"},
+  {method: "POST", path: "/api", description: "create new api"},
+  {method: "PUT", path: "/api/:id", description: "update existing api"},
+  {method: "DELETE", path: "/api/:id", description: "delete existing api"},
+  {method: "GET", path: "/api/:id", description: "retrieve specific api"}
+];
 
 app.get('/api', function api_index (req, res){
   res.json({
     message: "Is Angieri's first api",
     documentation_url: "https://github.com/isangieri/express_self_api/blob/master/APIREADME.md", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "http://gentle-shore-4526.herokuapp.com",
-    endpoints: [
-      {method: "GET", path: "/api", description: "retrieve all apis"},
-      {method: "POST", path: "/api", description: "create new api"},
-      {method: "PUT", path: "/api/:id", description: "update existing api"},
-      {method: "DELETE", path: "/api/:id", description: "delete existin api"},
-      {method: "GET", path: "/api/:id", description: "retrieve specific api"}
-    ]
+    endpoints: api,
   });
 });
 
