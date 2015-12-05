@@ -11,6 +11,18 @@ app.use(express.static(__dirname + '/public'));
 
 // your hardcoded data here
 
+var personalProfile = {
+  name: "Noah Wimmer",
+  github_link : "https://github.com/nwimmer123",
+  github_profile_image: "https://avatars3.githubusercontent.com/u/14186697?v=3&s=460",
+  current_city: "Berkeley",
+  family_members:[
+    {name: "Rachel", relationship: "wife"},
+    {name: "Eloise", relationship: "daughter"},
+    {name: "Felix", relationship: "son"}
+  ]
+};
+
 /**********
  * ROUTES *
  **********/
@@ -40,10 +52,16 @@ app.get('/api', function api_index (req, res){
     documentation_url: "https://github.com/nwimmer123/test-driven-todo-api.git", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "sheltered-dusk-2675.herokuapp.com/",
     endpoints: [
-      {method: "GET", path: "/api", description: "Describes available endpoints"}
+      {method: "GET", path: "/api", description: "Describes available endpoints"},
+      {method: "GET", path: "/api/personalProfile", description: "Provides personal data about me"}
     ]
   })
 });
+
+app.get('/api/personalProfile', function personalProfile_index (req, res){
+  res.json({personalProfile: personalProfile});
+});
+
 
 /**********
  * SERVER *
