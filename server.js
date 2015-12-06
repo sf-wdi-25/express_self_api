@@ -62,10 +62,10 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/profile', function (req , res) {
+app.get('/api/profile', function (req , res) {
   res.json(profile);
  });
-// api.get('/api/favoritemovies', function (req, res) {
+// api.get('/api/profile/favoritemovies', function (req, res) {
 //   res.json(favoritemovies);
 // });
 /*
