@@ -103,24 +103,24 @@ app.get('/api/books/:id', function books_show(req, res){
 
 
 
-// //doesn't work, problem probably lies in app.js and index.html
-// app.put('/api/books/:id', function books_update(req, res){
-//   var id = parseInt(req.params.id);
-//   books.forEach(function(element, index) {
-//     if (element._id === id) {
-//       element.contributor = req.body.contributor;
-//       element.title = req.body.title;
-//       element.author = req.body.author;
-//       element.genre = req.body.genre;
-//       element.notes = req.body.notes;
-//       element.synopsis = req.body.synopsis;
-//       res.send(element);
+//doesn't work, problem probably lies in app.js and index.html
+app.put('/api/books/:id', function books_update(req, res){
+  var id = parseInt(req.params.id);
+  books.forEach(function(element, index) {
+    if (element._id === id) {
+      element.contributor = req.body.contributor;
+      element.title = req.body.title;
+      element.author = req.body.author;
+      element.genre = req.body.genre;
+      element.notes = req.body.notes;
+      element.synopsis = req.body.synopsis;
+      res.send(element);
 
-//     }
-//   });
+    }
+  });
 
 
-// });
+});
 
 
 /**********

@@ -36,48 +36,70 @@
     </div>
   </div>
 
-  <body>
-  <form>
-  </form>
-  <div class = "bookList">
-         <<form class="form-inline" id="create-book">
+<!--   <body>
+         <form class="form-inline" id="create-book">
           <div class="form-group">
-            <input type="text" name="contributor" class="form-control" placeholder="Contributor" autofocus>
+            <input type="text" name="contributor" id="contributor" class="form-control" placeholder="Contributor" autofocus>
           </div>
           <div class="form-group">
-            <input type="text" name="title" class="form-control" placeholder="Title">
+            <input type="text" name="title" id="title" class="form-control" placeholder="Title">
           </div>
           <div class="form-group">
-            <input type="text" name="author" class="form-control" placeholder="Author">
+            <input type="text" name="author" id="author" class="form-control" placeholder="Author">
           </div>
           <div class="form-group">
-            <input type="text" name="genre" class="form-control" placeholder="Genre">
+            <input type="text" name="genre" id="genre" class="form-control" placeholder="Genre">
           </div>
          <div class="form-group">
-            <input type="text" name="notes" class="form-control" placeholder="Notes">
+            <input type="text" name="notes" id="notes" class="form-control" placeholder="Notes">
           </div>
           <div class="form-group">
-            <input type="text" name="synopsis" class="form-control" placeholder="Synopsis">
+            <input type="text" name="synopsis" id="synopsis" class="form-control" placeholder="Synopsis">
           </div>
           <div class="form-group">
             <input type="submit" class="btn btn-default" value="Add Book">
           </div>
         </form>
-        <br>
-  </div>
+      <div class = "bookList">
 
+            <br>
+      </div>
+  </body>
+  <body>
 <!--   <div class="container">
     <div class="row">
       <div class="col-md-12">
         
         <!-- new books form-->
-
+         <<form class="form-inline" id="create-book">
+          <div class="form-group">
+            <input type="text" name="contributor" id="contributor" class="form-control" placeholder="Contributor" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="title" id="title" class="form-control" placeholder="Title">
+          </div>
+          <div class="form-group">
+            <input type="text" name="author" id="author" class="form-control" placeholder="Author">
+          </div>
+          <div class="form-group">
+            <input type="text" name="genre" id="genre" class="form-control" placeholder="Genre">
+          </div>
+         <div class="form-group">
+            <input type="text" name="notes" id="notes" class="form-control" placeholder="Notes">
+          </div>
+          <div class="form-group">
+            <input type="text" name="synopsis" id="synopsis" class="form-control" placeholder="Synopsis">
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-default" value="Add Book">
+          </div>
+        </form>
 
         <!-- list of books -->
-      <!--   <ul class="list-group" id="books-list">
+         <ul class="list-group" id="books-list">
           
           <!-- handlebars template -->
-      <!--     <script id="books-template" type="text/x-handlebars-template">
+         <script id="books-template" type="text/x-handlebars-template">
             {{#each books}}
               <li class="list-group-item book" data-id="{{_id}}">
                 // <img source = {{coverImage}}
@@ -90,18 +112,18 @@
                 
                 
                   <!-- pencil icon to toggle update form -->
-         <!--          <a href="javascript:void(0)" data-toggle="collapse" data-target="#update-{{_id}}">
+                 <a href="javascript:void(0)" data-toggle="collapse" data-target="#update-{{_id}}">
                     <span class="glyphicon glyphicon-pencil"></span>
                   </a>
                   
                   <!-- trash can icon to delete book -->
-              <!--      <a href="javascript:void(0)" class="delete-book">
+                <a href="javascript:void(0)" class="delete-book">
                     <span class="glyphicon glyphicon-trash"></span>
                   </a>
                 </div>
                 
                 <!-- form to update book -->
-              <!--   <div class="collapse" id="update-{{_id}}">
+              <div class="collapse" id="update-{{_id}}">
                   <br>
                   <form class="form-inline update-book">
                     <div class="form-group">
