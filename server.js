@@ -8,8 +8,15 @@ app.use(express.static(__dirname + '/public'));
 /************
  * DATABASE *
  ************/
+var profile = {
+  name: "Rich Rizzo",
+  github_link: "https://github.com/bw-giraffe",
+  github_profile_image: "https://pixabay.com/static/uploads/photo/2012/04/18/03/05/giraffe-36716_960_720.png",
+  current_city: "Oakland",
+  family_members: [{name: "Erich", relationship: "partner"}, {name: "Joule", relationship: "Minister of Hay"}, {name: "Newton", relationship: "Secretary of Greens"}]
+}
 
-// your hardcoded data here
+var places = ["Singapore", "Taiwan", "Okinawa", "South Africa", "Slovenia", "France", "Zion National Park", "Volcanoes National Park", "Canyonlands National Park", "Yosemite National Park", "Seattle", "Australia", "Berlin", "Chile", "Peru", "Argentina", "Costa Rica", "Aruba"];
 
 /**********
  * ROUTES *
@@ -41,6 +48,13 @@ app.get('/api', function api_index (req, res){
     endpoints: [
       {method: "GET", path: "/api", description: "Describes available endpoints"}
     ]
+  })
+});
+
+app.get('/api/profile', function api_index (req, res){
+  res.json({
+    message: "hay gurl hayyy",
+    takeThisObject: profile;
   })
 });
 
