@@ -41,7 +41,8 @@ app.get('/api', function api_index (req, res){
     documentation_url: "https://github.com/jroers/express_self_api/blob/master/README.md", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "http://damp-retreat-5020.herokuapp.com",
     endpoints: [
-      {method: "GET", path: "/api", description: "Describes available endpoints"}
+      {method: "GET", path: "/api", description: "Describes available endpoints"},
+      {method: "GET", path: "/shows", description: "Lists out recent marathon'd TV shows"}
     ]
   });
 });
