@@ -97,6 +97,9 @@ app.get('/api/profile', function api_index (req, res){
   //Profile
   app.get('/api/profile', function (req, res) {
     res.json();
+
+  app.get('/api/profile/favoriteMovies', function (req, res) {
+    res.json(favoriteMovies);  
   });
 
 /**********
