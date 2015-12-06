@@ -49,16 +49,16 @@
           <div class="form-group">
             <input type="text" name="title" class="form-control" placeholder="Title">
           </div>
-                    <div class="form-group">
+          <div class="form-group">
             <input type="text" name="author" class="form-control" placeholder="Author">
           </div>
-                    <div class="form-group">
+          <div class="form-group">
             <input type="text" name="genre" class="form-control" placeholder="Genre">
           </div>
-                    <div class="form-group">
+         <div class="form-group">
             <input type="text" name="notes" class="form-control" placeholder="Notes">
           </div>
-                    <div class="form-group">
+          <div class="form-group">
             <input type="text" name="synopsis" class="form-control" placeholder="Synopsis">
           </div>
           <div class="form-group">
@@ -74,13 +74,14 @@
           <script id="books-template" type="text/x-handlebars-template">
             {{#each books}}
               <li class="list-group-item book" data-id="{{_id}}">
-
+                // <img source = {{coverImage}}
                 <p><b>Contributor: </b>{{contributor}}</p>
                 <p><b>Title:  </b>{{title}}</p>
                 <p><b>Author:  </b>{{author}}</p>
                 <p><b>Genre:  </b>{{genre}}</p>
                 <p><b>Notes:  </b>{{notes}}</p>
                 <p><b>Synopsis:  </b>{{synopsis}}</p>
+                
                 <div class="pull-right">
                   <!-- pencil icon to toggle update form -->
                   <a href="javascript:void(0)" data-toggle="collapse" data-target="#update-{{_id}}">
@@ -98,10 +99,24 @@
                   <br>
                   <form class="form-inline update-book">
                     <div class="form-group">
-                      <input type="text" name="task" class="form-control" placeholder="Task" value="{{task}}">
+
+                    <div class="form-group">
+                      <input type="text" name="contributor" class="form-control" placeholder="Contributor" value="{{contributor}}">
                     </div>
                     <div class="form-group">
-                      <input type="text" name="description" class="form-control" placeholder="Description" value="{{description}}">
+                      <input type="text" name="title" class="form-control" placeholder="Title" value="{{title}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="author" class="form-control" placeholder="Author" value="{{author}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="genre" class="form-control" placeholder="Genre" value="{{genre}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="notes" class="form-control" placeholder="Notes" value="{{notes}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="synopsis" class="form-control" placeholder="Synopsis" value="{{synopsis}}">
                     </div>
                     <div class="form-group">
                       <input type="submit" class="btn btn-block btn-default" value="Update">

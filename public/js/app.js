@@ -44,7 +44,7 @@ $(document).ready(function(){
 			var bookId = $(this).closest('.book').attr('data-id');
 			var bookToUpdate = allBooks.filter(function (book) {
 				return book._id == bookId;
-			}) [0];
+			}) //[0];
 
 			var updatedBook = $(this).seralize();
 
