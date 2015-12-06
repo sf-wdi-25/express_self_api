@@ -63,7 +63,7 @@ app.get('/', function homepage (req, res) {
 });
 
 app.get('/api/profile', function (req , res) {
-  res.json({profile : profile});
+  res.json(profile);
  });
 api.get('/api/favoritemovies', function (req, res) {
   res.json(favoritemovies);
