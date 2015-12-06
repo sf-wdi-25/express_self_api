@@ -75,7 +75,6 @@ app.get('/api/personalProfile', function personalProfile_index (req, res){
   res.json({personalProfile: personalProfile});
 });
 
-//doesn't work, creates an ID but doesn't populate from the other fields
 app.post('/api/books/', function create_book(req, res) {
   var newBook = {};
   newBook.contributor = req.body.contributor;
