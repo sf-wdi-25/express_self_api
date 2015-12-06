@@ -101,9 +101,69 @@ app.get('/api', function api_index (req, res){
   });
 });
 
-app.get('/api/profile', function api_index (req, res){
+//Sends Information on Profile
+app.get('/api/profile', function readProfile (req, res){
   res.json(my_profile);
 });
+
+//Sends Information on ALL Videogames
+app.get('/api/videogames', function readVideoGames(req, res){
+  console.log(videogames);
+  res.json(videogames);
+});
+
+//Creates a new Videogame and send it back
+//Code based on our lecture notes
+app.post('/api/videogames', function createVideoGames (req, res){
+  var newVideoGame = req.body;
+
+  if(videogames.length > 0) {
+    newVideoGame._id = videogames[videogames.length - 1]._id + 1;
+  } else {
+    newVideoGame._id = 1;
+  }
+
+  videogames.push(newVideoGame);
+
+  console.log(newVideoGame);
+  res.json(newVideoGame);
+
+});
+
+//Updates a new Videogame
+//Code based on our lecture notes
+app.post('/api/videogames/:id', function updateVideoGames (req, res){
+  var vgID = parseInt(req.params.id);
+  
+  var updatedVideoGame = videogames.filter(function (videoGame){ //creates new array with elements that pass test of function
+    return videogame._id == vgID; //No strict equality here?
+  })[0];
+
+  updatedVideoGame.title = req.body.title;
+  updatedVideoGame.developer = req.body.developer;
+  updatedVideoGame.year = req.body.year;
+  updatedVideoGame.description = req.body.description;
+
+  console.log(updatedVideoGame);
+  res.json(updatedVideoGame);
+});
+
+//Deletes a new Videogame
+//Code based on our lecture notes
+app.delete('/api/videogames/:id', function deleteVideoGames (req, res){
+  var vgID = parseInt(req.params.id);
+
+  var videogameToDelete = videogames.filter(function (videoGame){ 
+    return videogame._id == vgID; //No strict equality here?
+  })[0];
+
+  videogames.splice(videogames.indexOf(videogameToDelete), 1);
+
+  console.log(videogameToDelete);
+  console.log("Deleted");
+
+  res.json(videogameToDelete);
+}
 
 
 /**********
