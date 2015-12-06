@@ -54,7 +54,7 @@ app.get('/api', function api_index (req, res){
 app.get('/api/profile', function api_index (req, res){
   res.json({
     message: "hay gurl hayyy",
-    takeThisObject: profile;
+    takeThisObject: profile
   })
 });
 
