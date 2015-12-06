@@ -48,13 +48,12 @@ app.get('/api', function api_index (req, res){
 
 app.get('/api/profile', function api_index (req, res){
   res.json({
-    message: "Welcome to my personal api!",
-    documentation_url: "https://github.com/trebloc/express_self_api/blob/master/README.md", // CHANGE THIS TO LINK TO YOUR README.md
-    base_url: "http://ancient-peak-3033.herokuapp.com",
-    endpoints: [
-      {method: "GET", path: "/api", description: "Describes available endpoints"}
-    ]
-  })
+      name: "Jon Snow",
+      github_link: "http://github.com/u-know-nothing-jon-snow",
+      current_city: "The Wall",
+      is_awake: false,
+      family_members: [ { name: 'Arya Stark', relationship: 'sister' }, { name: 'Bran Stark', relationship: 'brother' }]
+                            })
 });
 
 /**********
