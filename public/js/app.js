@@ -9,12 +9,12 @@ $(document).ready(function(){
 	url: "https://stormy-temple-5156.herokuapp.com/api/profile",
   	success: function (data) {
    
-	function render(info) {
-    	messages.forEach(function (info){
-       	$("div#target").append("<p>" + message.message + "</p>");
-    	});
-  	}
-  	render(response.data);
+// 	function render(info) {
+//     	.forEach(function (info){
+//        	$("div#target").append("<p>" + message.message + "</p>");
+//     	});
+//   	}
+//   	//render(response.data);
 	}
-});
-});
+ });
+ });
