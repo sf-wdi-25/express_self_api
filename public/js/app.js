@@ -3,11 +3,25 @@ console.log("Sanity Check: JS is working!");
 $(document).ready(function(){
 
 $.ajax({
+	method: 'POST',
+	url: '/api/books',
+	data: {
+		title: "a",
+		author: "b",
+		genre: "c",
+		notes: "d",
+		synopsis: "e",
+	},
+	success: function (book) {
+		console.log("BOOK CREATED");
+		console.log("The books id is", book._id);
+	}
+});
+
+$.ajax({
 	method: 'GET',
 	url: '/api/books',
 	success: function show_books (data) {
-		console.log(data);
-		console.log(data.books);
 		data.books.forEach(function (element){
 			$(".bookList").append("<p>" + "<b>Contributor:  </b>" + element.contributor + "</p>");
 			$(".bookList").append("<p>" + "<b>Title:  </b>" + element.title + "</p>");
@@ -18,6 +32,8 @@ $.ajax({
 		});
 	}
 });
+
+
 
 
 	// var baseUrlBooks = '/api/books';
