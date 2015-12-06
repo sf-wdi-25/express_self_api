@@ -27,28 +27,28 @@ app.use(express.static(__dirname + '/public'));
   
 ]}];
 
-  // var favoritemovies = [
-  //           { _id: 1,
-  //             title: 'How the Grinch stole christmas',
-  //             theme: 'holiday',
-  //             director: 'Ron Howard'
-  //           },
-  //           {  _id: 2,
-  //             title: 'Finding Nemo',
-  //             theme: 'Ocean',
-  //             director: 'Andrew Stanton , Lee Unkrich',
-  //           },
-  //           { _id: 3,
-  //             title: 'Princess Bride',
-  //             theme: 'Love-Adverture story' ,
-  //             director: 'Rob Reiner'
-  //           },
-  //           { _id: 4,
-  //             title: 'Robin Hood Men in tights',
-  //             theme: 'Romance-Comedy',
-  //             director: 'Mel Brooks'
-  //           }
-  // ]; 
+  var favoritemovies = [
+            { _id: 1,
+              title: 'How the Grinch stole christmas',
+              theme: 'holiday',
+              director: 'Ron Howard'
+            },
+            {  _id: 2,
+              title: 'Finding Nemo',
+              theme: 'Ocean',
+              director: 'Andrew Stanton , Lee Unkrich',
+            },
+            { _id: 3,
+              title: 'Princess Bride',
+              theme: 'Love-Adverture story' ,
+              director: 'Rob Reiner'
+            },
+            { _id: 4,
+              title: 'Robin Hood Men in tights',
+              theme: 'Romance-Comedy',
+              director: 'Mel Brooks'
+            }
+  ]; 
 /**********
  * ROUTES *
  **********/
@@ -65,9 +65,9 @@ app.get('/', function homepage (req, res) {
 app.get('/api/profile', function (req , res) {
   res.json(profile);
  });
-// api.get('/api/profile/favoritemovies', function (req, res) {
-//   res.json(favoritemovies);
-// });
+      app.get('/api/profile/favoritemovies', function (req, res) {
+        res.json(favoritemovies);
+      });
 /*
  * JSON API Endpoints
  */
