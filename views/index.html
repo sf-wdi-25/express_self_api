@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" href="css/styles.css">
 
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -47,6 +49,18 @@
           <div class="form-group">
             <input type="text" name="title" class="form-control" placeholder="Title">
           </div>
+                    <div class="form-group">
+            <input type="text" name="author" class="form-control" placeholder="Author">
+          </div>
+                    <div class="form-group">
+            <input type="text" name="genre" class="form-control" placeholder="Genre">
+          </div>
+                    <div class="form-group">
+            <input type="text" name="notes" class="form-control" placeholder="Notes">
+          </div>
+                    <div class="form-group">
+            <input type="text" name="synopsis" class="form-control" placeholder="Synopsis">
+          </div>
           <div class="form-group">
             <input type="submit" class="btn btn-default" value="Add Book">
           </div>
@@ -61,12 +75,12 @@
             {{#each books}}
               <li class="list-group-item book" data-id="{{_id}}">
 
-                <!-- book label (contributor) -->
-                <span class="label label-default">{{contributor}}</span>
-                
-                <!-- book title -->
-                {{title}}
-
+                <p><b>Contributor: </b>{{contributor}}</p>
+                <p><b>Title:  </b>{{title}}</p>
+                <p><b>Author:  </b>{{author}}</p>
+                <p><b>Genre:  </b>{{genre}}</p>
+                <p><b>Notes:  </b>{{notes}}</p>
+                <p><b>Synopsis:  </b>{{synopsis}}</p>
                 <div class="pull-right">
                   <!-- pencil icon to toggle update form -->
                   <a href="javascript:void(0)" data-toggle="collapse" data-target="#update-{{_id}}">
