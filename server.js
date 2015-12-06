@@ -16,6 +16,37 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
+var my_profile = [
+  {
+    name: "Doug",
+    github_link: "https://github.com/bachtsui",
+    github_profile_image:"www.google.com",
+    current_city: "Palo Alto",
+    family_members: 
+      [
+        {name: "CT",
+         relationship: "Dad"
+        },
+        
+        {name: "AT",
+         relationship: "Mom"
+        },
+
+        {name: "Denise Tsui",
+         relationship: "Sister"
+        },
+
+        {name: "Kelly Tsui",
+         relationship: "Sister"
+        },
+
+        {name: "Jackie Tsui",
+         relationship: "Sister"
+        }
+      ]
+  }
+]; 
+
 var videogames = [
   {
     title: "Super Mario Bros. 3",
@@ -37,7 +68,6 @@ var videogames = [
     year: 2001,
     description: "Fighting game with an unexpected life span."
   }
-
 ];
 
 // your hardcoded data here
@@ -59,6 +89,7 @@ app.get('/', function homepage (req, res) {
  * JSON API Endpoints
  */
 
+
 app.get('/api', function api_index (req, res){
   res.json({
     message: "Welcome to my personal api!",
@@ -67,8 +98,13 @@ app.get('/api', function api_index (req, res){
     endpoints: [
       {method: "GET", path: "/api", description: "Describes available endpoints"}
     ]
-  })
+  });
 });
+
+app.get('/api/profile', function api_index (req, res){
+  res.json(my_profile);
+});
+
 
 /**********
  * SERVER *
