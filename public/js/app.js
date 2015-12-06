@@ -9,8 +9,7 @@ $.ajax({
          url: 'http://localhost:3000/api/profile',
          success: function(data) {
          	data.forEach(function (element){
-         		// $('#profile').append("<p>" + element.name + "</p>")
-         		// $('#profile').append("<p>" + element.current_city + "</p>")
+         		$('#profile').append("<p>" + element.name + "</p>")
 
          
          })

@@ -17,6 +17,38 @@ app.use(express.static(__dirname + '/public'));
  ************/
 
 // your hardcoded data here
+var favoriteMovies = [
+    { _id: 1,
+      title: "Citizen Kane",
+      genre: "Drama",
+      director: "Orson Welles",
+      year: "1941"
+    },
+    { _id: 2,
+      title: "Up",
+      genre: "Animation",
+      director: "Peter Docter",
+      year: "2009"      
+    },
+    { _id: 3,
+      title: "Back to the Future",
+      genre: "Adventure",
+      director: "Robert Zemeckis",
+      year: "1985"      
+    },
+    { _id: 4,
+      title: "Indiana Jones: Raiders of the Lost Ark",
+      genre: "Action",
+      director: "Steven Spielberg",
+      year: "1981"      
+    },
+    { _id: 5,
+      title: "Amélie",
+      genre: "Drama",
+      director: "Jean-Pierre Jeunet",
+      year: "2001"      
+    }
+];
 
 /**********
  * ROUTES *
@@ -60,6 +92,11 @@ app.get('/api/profile', function api_index (req, res){
   app.get('/', function (req, res) {
     //console.log(req);
     res.sendFile('views/index.html' , { root : __dirname});
+  });
+
+  //Profile
+  app.get('/api/profile', function (req, res) {
+    res.json();
   });
 
 /**********
