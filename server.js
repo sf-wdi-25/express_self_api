@@ -1,6 +1,7 @@
 // require express and other modules
 var express = require('express'),
     app = express();
+    app.use(express.static('public'));
     
 	// Allow CORS: we'll use this today to reduce security so we can more easily test our code in the browser.
 	app.use(function(req, res, next) {
@@ -28,14 +29,47 @@ var profileInfo = [
       {
         name: "Papa Bear",
         relationship: "Father",
-        photo: "http://4.bp.blogspot.com/-2TiLn_WHK7o/UwFyc96Bl9I/AAAAAAAAHRk/ZqDBK0eF_Vg/s1600/polar-bear-with-cub-1134-1920x1200.jpg"
+        photo: "<a href = 'http://4.bp.blogspot.com/-2TiLn_WHK7o/UwFyc96Bl9I/AAAAAAAAHRk/ZqDBK0eF_Vg/s1600/polar-bear-with-cub-1134-1920x1200.jpg' target='_blank'>Dad</a>"
       },
       {
         name: "Mama Bear",
         relationship: "Mother",
-        photo: "http://i.dailymail.co.uk/i/pix/2014/12/18/2423FC8100000578-0-image-a-31_1418912663847.jpg"
+        photo: "<a href = 'http://i.dailymail.co.uk/i/pix/2014/12/18/2423FC8100000578-0-image-a-31_1418912663847.jpg' target='_blank'>Mom</a>"
       }
     ]
+  }
+];
+
+
+var goodMuzac = [
+  {
+    artist: "Tropicana",
+    track: "Things to Come",
+    youtube: "https://www.youtube.com/watch?v=TH0R2YRnpe0"
+  },
+  { artist: "Hanz Zimmer",
+    track: "He\'s a Pirate (Tiesto Remix)",
+    youtube: "https://www.youtube.com/watch?v=_R1jRAe-asU"
+  },
+  { artist: "Aram Khachaturian",
+    track: "Masquerade: Waltz",
+    youtube: "https://www.youtube.com/watch?v=YCoLUMURunQ"
+  },
+  { artist: "The Beatles",
+    track: "For No One",
+    youtube: "https://www.youtube.com/watch?v=4t-qlgF_vwY"
+  },
+  { artist: "Cosmic Gate",
+    track: "Tomorrow - 12 Inch version",
+    youtube: "https://www.youtube.com/watch?v=wUG0vPILIWA"
+  },
+  { artist: "Bones Domingo",
+    track: "Violate",
+    youtube: "https://www.youtube.com/watch?v=_Ierk_i6Sd4"
+  },
+  { artist: "Yngwie Malmsteen",
+    track: "Asylum I: Asylum",
+    youtube: "https://www.youtube.com/watch?v=h_iTHKVEbAs"
   }
 ];
 
@@ -50,6 +84,10 @@ var profileInfo = [
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
+
+app.get('/api/profile', function profile(req, res) {
+  
+})
 
 
 /*
