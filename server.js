@@ -85,14 +85,20 @@ app.get('/api/profile', function show(req, res) {
 ANIMES
 
 */
-app.post('api/animes', function newAnime(req, res) {
+
+app.get('/api/animes', function index(req, res) {
+  res.json({favAnimes: favAnimes});
+});
+
+
+app.post('/api/animes', function newAnime(req, res) {
   var anime = req.body;
   if (favAnimes > 0) {
     anime._id = favAnimes[favAnimes.length - 1] + 1;
   }else{
     anime._id = 1;
   }
-  myAnimes.push(anime);
+  favAnimes.push(anime);
   res.json(anime);
 });
 /*This is getting the anime by the id 
