@@ -2,6 +2,7 @@ console.log("Sanity Check: JS is working!");
 
 $(document).ready(function(){
 
-// your code
+
+	$(".col-md-8").append("Hello");
 
 });

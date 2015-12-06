@@ -58,7 +58,15 @@ app.get('/api', function api_index (req, res){
     documentation_url: "http://secret-beyond-7591.herokuapp.com/README.md", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "http://secret-beyond-7591.herokuapp.com",
     endpoints: [
-      {method: "GET", path: "/api", description: "Describes available endpoints"}
+      {method: "GET", path: "/api", description: "Describes available endpoints"},
+      {method: "GET", path: "/", description: "Opens homepage"},
+      {method: "GET", path: "/README.md", description: "Documentation url"},
+      {method: "GET", path: "/api/profile", description: "Index of profile"},
+      {method: "GET", path: "/api/movies", description: "Index of movies"},
+      {method: "GET", path: "/api/movies/:id", description: "Shows selected movie"},
+      {method: "POST", path: "/api/movies", description: "Creates movie"},
+      {method: "PUT", path: "/api/movies/:id", description: "Updates selected movie"},
+      {method: "DELETE", path: "/api/movies/:id", description: "Deletes selected movie"}
     ]
   });
 });
@@ -90,7 +98,7 @@ app.post('/api/movies', function movies_create (req, res) {
   res.json(newMovie);
 });
 
-app.put('/api/movies', function movies_update (req, res) {
+app.put('/api/movies/:id', function movies_update (req, res) {
   var movieId = parseInt(req.params.id);
   var movieToUpdate = movies.filter(function (movie) {
     return movie._id == movieId;
