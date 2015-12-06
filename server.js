@@ -27,7 +27,7 @@ var pInfo = {
     familyMembers: [
       {
         fname: 'Maya',
-        relationship: 'sister'
+        relationship: 'Sister'
       },
       {
         fname: 'Tania',
@@ -77,6 +77,7 @@ app.get('/api', function api_index(req, res) {
   My Profile!!!
 */
 app.get('/api/profile', function show(req, res) {
+
     res.json(pInfo);
 });
 /*

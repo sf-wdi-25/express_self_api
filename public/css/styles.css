@@ -8,3 +8,23 @@ h1 {
   margin-top: 100px;
   text-align: center;
 }
+
+.fam{
+	border: 1px solid white;
+	background-color: white;
+	width: 50%;
+}
+
+.divcolor{
+background: #02f7ad;
+background: -moz-linear-gradient(45deg, #02f7ad 0%, #00bee9 100%);
+background: -webkit-gradient(left bottom, right top, color-stop(0%, #02f7ad), color-stop(100%, #00bee9));
+background: -webkit-linear-gradient(45deg, #02f7ad 0%, #00bee9 100%);
+background: -o-linear-gradient(45deg, #02f7ad 0%, #00bee9 100%);
+background: -ms-linear-gradient(45deg, #02f7ad 0%, #00bee9 100%);
+background: linear-gradient(45deg, #02f7ad 0%, #00bee9 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#02f7ad', endColorstr='#00bee9', GradientType=1 );
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
+}
