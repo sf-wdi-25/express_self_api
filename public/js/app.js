@@ -6,6 +6,7 @@ $.ajax({
 	method: 'POST',
 	url: '/api/books',
 	data: {
+		contributor: "z",
 		title: "a",
 		author: "b",
 		genre: "c",

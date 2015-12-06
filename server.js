@@ -1,6 +1,10 @@
 // require express and other modules
 var express = require('express'),
     app = express();
+    bodyParser = require('body-parser');
+
+// configure bodyParser (for receiving form data)
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
@@ -71,6 +75,20 @@ app.get('/api/personalProfile', function personalProfile_index (req, res){
   res.json({personalProfile: personalProfile});
 });
 
+//doesn't work, creates an ID but doesn't populate from the other fields
+app.post('/api/books/', function create_book(req, res) {
+  var newBook = {};
+  newBook.contributor = req.body.contributor;
+  newBook.title = req.body.title;
+  newBook.author = req.body.author;
+  newBook.genre = req.body.genre;
+  newBook.notes = req.body.notes;
+  newBook.synopsis = req.body.synopsis;
+  newBook._id = (books.length + 1);
+  books.push(newBook);
+  res.json(newBook);
+});
+
 app.get('/api/books', function books_index(req, res){
   res.json({books: books});
 });
@@ -85,20 +103,6 @@ app.get('/api/books/:id', function books_show(req, res){
 });
 
 
-
-//doesn't work, creates an ID but doesn't populate from the other fields
-app.post('/api/books', function create_book(req, res) {
-  var newBook = {};
-  newBook.contributor = req.params.contributor;
-  newBook.title = req.params.title;
-  newBook.author = req.params.author;
-  newBook.genre = req.params.genre;
-  newBook.notes = req.params.notes;
-  newBook.synopsis = req.params.synopsis;
-  newBook._id = (books.length + 1);
-  books.push(newBook);
-  res.send(newBook);
-});
 
 // //doesn't work, problem probably lies in app.js and index.html
 // app.put('/api/books/:id', function books_update(req, res){
