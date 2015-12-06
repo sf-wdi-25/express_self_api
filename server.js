@@ -70,10 +70,18 @@ app.get('/api/profile', function (req , res) {
 
     });
 });
-    app.get('/api/favoriteMovies', function index(req, rex) {
+    app.get('/api/favoriteMovies', function index(req, res) {
       res.json({favoriteMovies: favoriteMovies});
     }
 );
+    app.get('/api/favoriteMovies/:id', function show( req , res) {
+     //trying to add index from using the expample from weeks example
+        var favoriteMoviesId = parseInt(req.params.id);
+        var foundfavoriteMovies = favoriteMovies.filter(function(favoriteMovies) {
+          return favoriteMovies._id == favoriteMoviesId;
+        }
+    );
+    });
 /*
  * JSON API Endpoints
  */
