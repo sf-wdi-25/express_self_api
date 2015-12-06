@@ -84,20 +84,21 @@ app.get('/api/books/:id', function books_show(req, res){
   });
 });
 
-app.post('/api/books', function create_book(req, res) {
-  var newBook = {};
-  newBook.contributor = req.body.contributor;
-  newBook.title = req.body.title;
-  newBook.author = req.body.author;
-  newBook.genre = req.body.genre;
-  newBook.notes = req.body.notes;
-  newBook.synopsis = req.body.synopsis;
-  newBook._id = (books.length + 1);
-  books.push(newBook);
-  res.send(newBook);
-});
+// //doesn't work, creates an ID but doesn't populate from the other fields
+// app.post('/api/books', function create_book(req, res) {
+//   var newBook = {};
+//   newBook.contributor = req.params.contributor;
+//   newBook.title = req.body.title;
+//   newBook.author = req.body.author;
+//   newBook.genre = req.body.genre;
+//   newBook.notes = req.body.notes;
+//   newBook.synopsis = req.body.synopsis;
+//   newBook._id = (books.length + 1);
+//   books.push(newBook);
+//   res.send(newBook);
+// });
 
-//doesn't work, problem probably lies in app.js and index.html
+// //doesn't work, problem probably lies in app.js and index.html
 // app.put('/api/books/:id', function books_update(req, res){
 //   var id = parseInt(req.params.id);
 //   books.forEach(function(element, index) {
@@ -114,7 +115,7 @@ app.post('/api/books', function create_book(req, res) {
 //   });
 
 
-//});
+// });
 
 
 /**********

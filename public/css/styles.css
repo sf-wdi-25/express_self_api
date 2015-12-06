@@ -12,3 +12,8 @@ h1 {
 p {
 	font-family: 'Oswald', sans-serif;
 }
+
+
+li {
+	margin-bottom: 15px;
+}
