@@ -48,12 +48,11 @@ app.get('/api', function api_index (req, res){
 
 app.get('/api/profile', function api_index (req, res){
   res.json({
-      name: "Jon Snow",
-      github_link: "http://github.com/u-know-nothing-jon-snow",
-      current_city: "The Wall",
-      is_awake: false,
-      family_members: [ { name: 'Arya Stark', relationship: 'sister' }, { name: 'Bran Stark', relationship: 'brother' }]
-                            })
+      name: "Colbert Tse",
+      github_link: "https://github.com/trebloc",
+      current_city: "San Francisco",
+      family_members: [ { name: 'Taffany Hwang', relationship: 'fiańce' }, { name: 'Ankey Tse', relationship: 'mother' }, { name: 'Nicole Tse', relationship: 'sister' } ]
+      })
 });
 
 /**********
