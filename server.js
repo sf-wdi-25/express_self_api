@@ -50,10 +50,17 @@ app.get('/api/profile', function api_index (req, res){
   res.json({
       name: "Colbert Tse",
       github_link: "https://github.com/trebloc",
+      github_profile_image: "https://avatars1.githubusercontent.com/u/6238249?v=3&u=d66fb4b7d60254f849f08c8dee354f0a5b74cc91&s=140",
       current_city: "San Francisco",
       family_members: [ { name: 'Taffany Hwang', relationship: 'fiańce' }, { name: 'Ankey Tse', relationship: 'mother' }, { name: 'Nicole Tse', relationship: 'sister' } ]
       })
 });
+
+//Sending the Message to the Web Page.
+  app.get('/', function (req, res) {
+    //console.log(req);
+    res.sendFile('views/index.html' , { root : __dirname});
+  });
 
 /**********
  * SERVER *
