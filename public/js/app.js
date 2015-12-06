@@ -5,17 +5,17 @@ $(document).ready(function(){
 $.ajax({
 	method: 'GET',
 	url: '/api/books',
-	success: function (data) {
+	success: function show_books (data) {
 		console.log(data);
 		console.log(data.books);
 		data.books.forEach(function (element){
-			$(".bookList").append("<p>" + element.contributor + "</p>");
-			$(".bookList").append("<p>" + element.title + "</p>");
-			$(".bookList").append("<p>" + element.author + "</p>");
-			$(".bookList").append("<p>" + element.genre + "</p>");
-			$(".bookList").append("<p>" + element.notes + "</p>");
-			$(".bookList").append("<p>" + element.synopsis + "</p>");
-		})
+			$(".bookList").append("<p>" + "<b>Contributor:  </b>" + element.contributor + "</p>");
+			$(".bookList").append("<p>" + "<b>Title:  </b>" + element.title + "</p>");
+			$(".bookList").append("<p>" + "<b>Author:  </b>" + element.author + "</p>");
+			$(".bookList").append("<p>" + "<b>Genre:  </b>" + element.genre + "</p>");
+			$(".bookList").append("<p>" + "<b>Notes:  </b>" + element.notes + "</p>");
+			$(".bookList").append("<p>" + "<b>Synopsis:  </b>" + element.synopsis + "</p>" + "<br><br>");
+		});
 	}
 });
 
