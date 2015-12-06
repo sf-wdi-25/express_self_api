@@ -18,6 +18,27 @@ app.use(express.static(__dirname + '/public'));
 
 // your hardcoded data here
 
+var profileInfo = [
+  {
+    name: "Nathan",
+    githubLink: "https://github.com/anonym0us3",
+    githubProfilePic: "https://avatars1.githubusercontent.com/u/15662297?v=3&s=460",
+    city: "San Francisco",
+    family: [
+      {
+        name: "Papa Bear",
+        relationship: "Father",
+        photo: "http://4.bp.blogspot.com/-2TiLn_WHK7o/UwFyc96Bl9I/AAAAAAAAHRk/ZqDBK0eF_Vg/s1600/polar-bear-with-cub-1134-1920x1200.jpg"
+      },
+      {
+        name: "Mama Bear",
+        relationship: "Mother",
+        photo: "http://i.dailymail.co.uk/i/pix/2014/12/18/2423FC8100000578-0-image-a-31_1418912663847.jpg"
+      }
+    ]
+  }
+];
+
 /**********
  * ROUTES *
  **********/

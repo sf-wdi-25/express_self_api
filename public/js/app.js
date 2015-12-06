@@ -1,4 +1,4 @@
-console.log("Sanity Check: JS is working!");
+console.log("Sanity Check: Braaaaaaaaaaaaiiiiiiiins!");
 
 $(document).ready(function(){
 
