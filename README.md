@@ -140,3 +140,23 @@ _A good express file tree structure_:
 ├── views  // html files that we'll serve
 │   ├── index.html
 ```
+
+
+                    <div class="form-group">
+                      <input type="text" name="contributor" class="form-control" placeholder="Contributor" value="{{contributor}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="title" class="form-control" placeholder="Title" value="{{title}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="author" class="form-control" placeholder="Author" value="{{author}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="genre" class="form-control" placeholder="Genre" value="{{genre}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="notes" class="form-control" placeholder="Notes" value="{{notes}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="synopsis" class="form-control" placeholder="Synopsis" value="{{synopsis}}">
+                    </div>
