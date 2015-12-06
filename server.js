@@ -21,7 +21,7 @@ app.use(express.static(__dirname + '/public'));
      github_profile_image:"https://avatars2.githubusercontent.com/u/15679196?v=3&s=460" ,
      current_city: "Oakland",
      family_members: [{
-      name: 'Dad', relationship: 'father'} , {name: 'Mom', relationship: 'Mother'}, 
+      name: 'Eric', relationship: 'father'} , {name: 'Robin', relationship: 'Mother'}, 
       {name: 'Ben' , relationship: 'Brother'} , {name: 'Emily', relationship: 'Sister'},
       {name: 'Chris' , relationship: 'Brother'}
   
@@ -36,7 +36,7 @@ app.use(express.static(__dirname + '/public'));
             {  _id: 2,
               title: 'Finding Nemo',
               theme: 'Ocean',
-              director: 'Andrew Stanton , Lee Unkrich',
+              director: 'Andrew Stanton , Lee Unkrich'
             },
             { _id: 3,
               title: 'Princess Bride',
