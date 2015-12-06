@@ -8,10 +8,10 @@ $(document).ready(function(){
   	method: "GET",
 	url: "https://stormy-temple-5156.herokuapp.com/api/profile",
   	success: function (data) {
-   
-// 	function render(info) {
-//     	.forEach(function (info){
-//        	$("div#target").append("<p>" + message.message + "</p>");
+   cobsole.log(data.profile);
+	// function render(info) {
+    	// info.forEach(function (info){
+       	// $("div#target").append("<p>" + message.message + "</p>");
 //     	});
 //   	}
 //   	//render(response.data);
