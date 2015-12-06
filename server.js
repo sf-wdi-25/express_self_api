@@ -40,7 +40,6 @@ var profileInfo = [
   }
 ];
 
-
 var goodMuzac = [
   {
     artist: "Tropicana",
@@ -86,8 +85,8 @@ app.get('/', function homepage (req, res) {
 });
 
 app.get('/api/profile', function profile(req, res) {
-  
-})
+
+});
 
 
 /*
