@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 	$.ajax({
   	method: "GET",
-	url: "https://super-crud.herokuapp.com/api/profile",
+	url: "https://stormy-temple-5156.herokuapp.com/api/profile",
   	success: function (data) {
    
 	function render(info) {
