@@ -23,6 +23,10 @@ var personalProfile = {
   ]
 };
 
+var books = [
+  { _id: 1, contributor: 'Noah', title: 'Pandoras Star', author: 'Peter Hamilton', genre: 'Science Fiction', notes: 'One of my favorite book of all times. Space opera meets satanism and zombies. Need I say more?', synopsis: 'Space is not the only void... /n In AD 2600 the human race is finally beginning to realize its full potential. Hundreds of colonized planets scattered across the galaxy host a multitude of prosperous and wildly diverse cultures. Genetic engineering has pushed evolution far beyond nature\'s boundaries, defeating disease and producing extraordinary spaceborn creatures. Huge fleets of sentient trader starships thrive on the wealth created by the industrialization of entire star systems. And throughout inhabited space the Confederation Navy keeps the peace. A true golden age is within our grasp. /n But now something has gone catastrophically wrong. On a primitive colony planet a renegade criminal\'s chance encounter with an utterly alien entity unleashes the most primal of all our fears. An extinct race which inhabited the galaxy aeons ago called it "The Reality Dysfunction." It is the nightmare which has prowled beside us since the beginning of history.' }
+];
+
 /**********
  * ROUTES *
  **********/
@@ -53,13 +57,18 @@ app.get('/api', function api_index (req, res){
     base_url: "sheltered-dusk-2675.herokuapp.com/",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes available endpoints"},
-      {method: "GET", path: "/api/personalProfile", description: "Provides personal data about me"}
+      {method: "GET", path: "/api/personalProfile", description: "Provides personal data about me"},
+      {method: "GET", path: "/api/books", description: "Books we should all read!"}
     ]
-  })
+  });
 });
 
 app.get('/api/personalProfile', function personalProfile_index (req, res){
   res.json({personalProfile: personalProfile});
+});
+
+app.get('/api/books', function books_index (req, res){
+  res.json({books: books});
 });
 
 
