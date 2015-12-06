@@ -5,12 +5,14 @@ $(document).ready(function(){
 // // your code
 	$.ajax ({
 		method:'GET',
-		url:'http://localhost:3000/api/profile/favoritemovies',
+		url: '/api/profile/',
 		success: function(data) {
-		console.log()
-		// 	data.forEach(function (element) {
-		// }
-	})
-	})
-		
+		data.data.forEach( function (e){
+			$('.profile').append("<p>" + e.name + "</p>" + "<br>" + "<p>" + e.current_city + "</p>" + "</br>" + "<br>" + "<p>" + e.family_members[{}] + "</p>" + "</br>");
 
+		});
+		
+	}
+	});
+		
+});

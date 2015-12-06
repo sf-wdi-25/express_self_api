@@ -15,19 +15,9 @@ app.use(express.static(__dirname + '/public'));
     next();
   });
 // your hardcoded data here
-  var profile = [{
-    name: "Josh", 
-     github_link: "https://github.com/JDe-Lora",
-     github_profile_image:"https://avatars2.githubusercontent.com/u/15679196?v=3&s=460" ,
-     current_city: "Oakland",
-     family_members: [{
-      name: 'Eric', relationship: 'father'} , {name: 'Robin', relationship: 'Mother'}, 
-      {name: 'Ben' , relationship: 'Brother'} , {name: 'Emily', relationship: 'Sister'},
-      {name: 'Chris' , relationship: 'Brother'}
   
-]}];
 
-  var favoritemovies = [
+  var favoriteMovies = [
             { _id: 1,
               title: 'How the Grinch stole christmas',
               theme: 'holiday',
@@ -63,11 +53,27 @@ app.get('/', function homepage (req, res) {
 });
 
 app.get('/api/profile', function (req , res) {
-  res.json(profile);
- });
-      app.get('/api/profile/favoritemovies', function (req, res) {
-        res.json(favoritemovies);
-      });
+    res.json({
+      url: 'localhost:3000',
+      data: [{
+    name: "Josh", 
+    url: 'localhost:3000',
+     github_link: "https://github.com/JDe-Lora",
+     github_profile_image:"https://avatars2.githubusercontent.com/u/15679196?v=3&s=460" ,
+     current_city: "Oakland",
+     family_members: [{
+      name: 'Eric', relationship: 'father'} , {name: 'Robin', relationship: 'Mother'}, 
+      {name: 'Ben' , relationship: 'Brother'} , {name: 'Emily', relationship: 'Sister'},
+      {name: 'Chris' , relationship: 'Brother'}
+        ]}
+      ]
+
+    });
+});
+    app.get('/api/favoriteMovies', function index(req, rex) {
+      res.json({favoriteMovies: favoriteMovies});
+    }
+);
 /*
  * JSON API Endpoints
  */
@@ -75,7 +81,7 @@ app.get('/api/profile', function (req , res) {
 app.get('/api', function api_index (req, res){
   res.json({
     message: "Welcome to my personal api!",
-    documentation_url: "https://github.com/JDe-Lora/express_self_api/blob/master/README.md", // CHANGE THIS TO LINK TO YOUR README.md
+    documentation_url: "https://github.com/JDe-Lora/express_self_api/blob/master/Readme.md", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "http://calm-depths-5756.herokuapp.com",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes available endpoints"}
