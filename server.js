@@ -42,7 +42,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/', function homepage (req, res) {  res.sendFile(__dirname + '/views/index.html');
+app.get('/', function homepage (req, res) {  
+  res.sendFile(__dirname + '/views/index.html');
 });
 
 
@@ -67,9 +68,18 @@ app.get('/api/personalProfile', function personalProfile_index (req, res){
   res.json({personalProfile: personalProfile});
 });
 
-app.get('/api/books', function books_index (req, res){
+app.get('/api/books', function books_index(req, res){
   res.json({books: books});
 });
+
+// app.get('/api/books/:id', function books_show(req, res){
+//   var id = parseInt(req.params.id);
+//   books.forEach(function(element) {
+//     if(element._id === id) {
+//       res.send(element);
+//     }
+//   });
+// });
 
 
 /**********

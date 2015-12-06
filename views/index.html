@@ -39,33 +39,33 @@
     <div class="row">
       <div class="col-md-12">
         
-        <!-- new todo form-->
-        <form class="form-inline" id="create-todo">
+        <!-- new books form-->
+        <form class="form-inline" id="create-book">
           <div class="form-group">
-            <input type="text" name="task" class="form-control" placeholder="Task" autofocus>
+            <input type="text" name="contributor" class="form-control" placeholder="Contributor" autofocus>
           </div>
           <div class="form-group">
-            <input type="text" name="description" class="form-control" placeholder="Description">
+            <input type="text" name="title" class="form-control" placeholder="Title">
           </div>
           <div class="form-group">
-            <input type="submit" class="btn btn-default" value="Add To Do">
+            <input type="submit" class="btn btn-default" value="Add Book">
           </div>
         </form>
         <br>
 
-        <!-- list of todos -->
-        <ul class="list-group" id="todos-list">
+        <!-- list of books -->
+        <ul class="list-group" id="books-list">
           
           <!-- handlebars template -->
-          <script id="todos-template" type="text/x-handlebars-template">
-            {{#each todos}}
-              <li class="list-group-item todo" data-id="{{_id}}">
+          <script id="books-template" type="text/x-handlebars-template">
+            {{#each books}}
+              <li class="list-group-item book" data-id="{{_id}}">
 
-                <!-- todo label (task) -->
-                <span class="label label-default">{{task}}</span>
+                <!-- book label (contributor) -->
+                <span class="label label-default">{{contributor}}</span>
                 
-                <!-- todo description -->
-                {{description}}
+                <!-- book title -->
+                {{title}}
 
                 <div class="pull-right">
                   <!-- pencil icon to toggle update form -->
@@ -73,16 +73,16 @@
                     <span class="glyphicon glyphicon-pencil"></span>
                   </a>
                   
-                  <!-- trash can icon to delete todo -->
-                   <a href="javascript:void(0)" class="delete-todo">
+                  <!-- trash can icon to delete book -->
+                   <a href="javascript:void(0)" class="delete-book">
                     <span class="glyphicon glyphicon-trash"></span>
                   </a>
                 </div>
                 
-                <!-- form to update todo -->
+                <!-- form to update book -->
                 <div class="collapse" id="update-{{_id}}">
                   <br>
-                  <form class="form-inline update-todo">
+                  <form class="form-inline update-book">
                     <div class="form-group">
                       <input type="text" name="task" class="form-control" placeholder="Task" value="{{task}}">
                     </div>
@@ -101,5 +101,16 @@
       </div>
     </div>
   </div>
+
+  <!-- jquery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <!-- handlebars -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+
+
   </body>
 </html>
