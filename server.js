@@ -44,6 +44,9 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/README.md', function documentation (req, res){
+  res.sendFile(__dirname + '/README.md');
+});
 
 /*
  * JSON API Endpoints
@@ -52,7 +55,7 @@ app.get('/', function homepage (req, res) {
 app.get('/api', function api_index (req, res){
   res.json({
     message: "Welcome to my personal api!",
-    documentation_url: "https://github.com/Kranjbar/express_self_api/blob/master/README.md", // CHANGE THIS TO LINK TO YOUR README.md
+    documentation_url: "http://secret-beyond-7591.herokuapp.com/README.md", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "http://secret-beyond-7591.herokuapp.com",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes available endpoints"}
@@ -64,8 +67,46 @@ app.get('/api/profile', function profile_index (req, res) {
   res.json(profile);
 });
 
-app.get('/api/movies', function profile_index (req, res) {
+app.get('/api/movies', function movies_index (req, res) {
   res.json(movies);
+});
+
+app.get('/api/movies/:id', function movies_show (req, res) {
+  var movieId = parseInt(req.params.id);
+  var foundMovie = movies.filter(function(movie) {
+    return movie._id == movieId;
+  })[0];
+  res.json(foundMovie);
+});
+
+app.post('/api/movies', function movies_create (req, res) {
+  var newMovie = req.body;
+  if (movies.length > 0) {
+    newMovie._id = movies[movies.length - 1]._id + 1;
+  } else {
+    newMovie._id = 1;
+  }
+  movies.push(newMovie);
+  res.json(newMovie);
+});
+
+app.put('/api/movies', function movies_update (req, res) {
+  var movieId = parseInt(req.params.id);
+  var movieToUpdate = movies.filter(function (movie) {
+    return movie._id == movieId;
+  })[0];
+  movieToUpdate.title = req.body.title;
+  movieToUpdate.director = req.body.director;
+  res.json(movieToUpdate);
+});
+
+app.delete('/api/movies/:id', function movies_delete (req, res) {
+  var movieId = parseInt(req.params.id);
+  var movieToDelete = movies.filter(function (movie) {
+    return movie._id == movieId;
+  })[0];
+  movies.splice(movies.indexOf(movieToDelete), 1);
+  res.json(movieToDelete);
 });
 
 /**********
