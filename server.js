@@ -66,7 +66,7 @@ app.get('/api/profile', function (req , res) {
   res.json({profile : profile});
  });
 api.get('/api/favoritemovies', function (req, res) {
-  res.json({favoritemovies: favoritemovies});
+  res.json(favoritemovies);
 });
 /*
  * JSON API Endpoints
