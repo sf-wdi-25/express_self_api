@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 	$.ajax({
   	method: "GET",
-	url: "http://stormy-temple-5156.herokuapp.com/api/profile",
+	url: "api/profile",
   	success: function (data) {
 
   		$("div#profile").append("<img id='selfie' src=" + data.github_profile_image + "</img>");
@@ -20,7 +20,7 @@ $(document).ready(function(){
 
 $.ajax({
   	method: "GET",
-	url: "http://stormy-temple-5156.herokuapp.com/api/movies",
+	url: "api/movies",
   	success: function (data) { 	
   	console.log(data);	
    		$("div#movies").append("<p>" + data.data[0].title + "</p>");
