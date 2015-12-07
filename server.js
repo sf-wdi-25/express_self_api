@@ -28,21 +28,21 @@ var articles = [
   {_id: 1, 
     image: "/images/dubois-ambedkar-letter.jpg",
     title: "What B.R. Ambedkar Wrote to W.E.B. Du Bois",
-    author: "",
+    author: "Manan Desai",
     article_link: "https://www.saada.org/tides/article/20140422-3553"
   },
 
   {_id: 2, 
     image: "/images/jim-crow.png",
     title: "The Aesthetic Beauty of Oppression: Jim Crow, Darkies, and Aunt Jemima",
-    author: "",
+    author: "Connie Young-Johnson",
     article_link: "https://www.academia.edu/6076346/The_Aesthetic_Beauty_of_Oppression_Jim_Crow_Darkies_and_Aunt_Jemima"
   },
 
     {_id: 3, 
     image: "/images/black-asian-solidarity.jpg",
     title: "Why Asian Americans Might Not Talk About Ferguson",
-    author: "",
+    author: "Liz Lin",
     article_link: "http://thesaltcollective.org/asian-americans-might-talk-ferguson/"
   }
 ];
@@ -84,9 +84,28 @@ app.get('/api/articles', function index(req,res){
   res.json({articles})
 });
 
+app.get('/search', function searchpage (req, res) {
+  res.sendFile(__dirname + '/views/search.html');
+});
 
-// app.get('/api/articles', function show(req,res){
-//   //show CRUD
+app.get('/api/articles/:id', function show(req, res) {
+  var articleByID = parseInt(req.params.id);
+  var foundArticle = articles.find( function(e) {
+    if(articleByID === e._id) {
+      return e;
+    }
+  });
+  res.send(foundArticle);
+});
+
+// app.get('/api/articles/search', function search(req,res){
+//   var searchTitle = req.body.title;
+//   var searchArticle = articles.forEach( function(e) {
+//     if (searchTitle === e.title) {
+//       res.json(data);
+//     }
+//   });
+//   res.json({articles})
 // });
 
 
@@ -121,6 +140,7 @@ app.delete('/api/articles/:id', function destroy(req,res){
     }
   });
   res.send(newArray);
+  console.log("you deleted correctly")
 });
 
 /**********
@@ -129,5 +149,5 @@ app.delete('/api/articles/:id', function destroy(req,res){
 
 // listen on port 3000
 app.listen(process.env.PORT || 3000, function () {
-  console.log('Express server is running on http://murmuring-chamber-7862.herokuapp.com');
+  console.log('Express server is running on http://localhost:3000/');
 });
