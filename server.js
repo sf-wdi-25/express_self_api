@@ -72,7 +72,7 @@ app.get('/api/places', function add_place(req, res) {
 app.post('/api/places', function add_place(req, res) {
   var newPlace = req.body; 
   console.log(newPlace);
-  res.send("good job you added" + newPlace);
+  res.send(newPlace);
 });
 
 app.create 
