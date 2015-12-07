@@ -70,6 +70,18 @@ app.get('/api/profile', function profile (req, res){
       res.send(movies);
   });
 
+ app.delete('/api/movies', function destroy(req, res) {
+  
+  var id = parseInt(req.params.id);
+  var newArr = movies.find(function (element, index){
+    if (element.title === title) {
+      movies.splice(index, 1);
+      return movies;
+    }
+    
+  }); 
+  res.send(newArr);
+});
 /**********
  * SERVER *
  **********/
