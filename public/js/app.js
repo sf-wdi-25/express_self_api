@@ -5,6 +5,10 @@ $(document).ready(function() {
   $(".about-me").hide();
   $(".shows-list").hide();
 
+  var dataToUse = {};
+  var methodToUse;
+  var url;
+
   $(".about").click(function handler() {
   	$(".shows-list").hide();
   	$(".about-me").show();
@@ -23,48 +27,54 @@ $(document).ready(function() {
   	});
   });
 
+  function updateShowData(data) {
+  	$(".shows-list.data").empty();
+  	data.forEach(function (element) {
+		$(".shows-list.data").append("<h1>" + element.name + " - " + element.creator + "</h1>");
+	});
+  }
+
   $(".shows").click(function handler() {
   	$(".about-me").hide();
   	$(".shows-list").show();
   	$.ajax({
-  		method: "POST",
+  		method: "GET",
   		url: "/api/shows",
-  		data: {
-			    name: 'The Grand Test',
-			    creator: "Sir Testerson III",
-			    series_status: 'ongoing',
-			    marathon_status: 'up to date'
-    		  },
-	    success: function (data) {
-	    	console.log(data);
-	    	data.forEach(function (element) {
-	    		$(".shows-list").append("<h1>" + element.name + " - " + element.creator + "</h1>");
-	    	});
-	    	
-	    },
-	    error: function (error) {
-	    	console.log(error);
-	    }
+  		success: function (data) {
+  			updateShowData(data);
+  		},
+  		error: function (error) {
+  			console.log(error);
+  			$(".shows-list.data").html("<h1>Oops! Looks like something went wrong. This data is currently unavailable.</h1>");
+  		}
   	});
-  	
   });
-
-  // $(".shows-list").on("click", $(".post"), function handler() {
-  // 	$.ajax({
-  // 		method: "POST",
-  // 		url: "/api/shows",
-  // 		data: {
-		// 	    name: ,
-		// 	    creator: ,
-		// 	    series_status: 'ongoing',
-		// 	    marathon_status: 'up to date'
-  //   		  },
-	 //    success: function (data) {
-	 //    	console.log(data);
-	 //    },
-	 //    error: function (error) {
-	 //    	console.log(error);
-	 //    }
-  // 	});
-  // });
+  	
+  $(".btn.post").click(function handler() {
+  	methodToUse = "POST";
+  	url = "/api/shows";
+	if ($(".name.post").val() !== "" && $(".creator.post").val() !== "" && $(".show_status.post").val() !== "" && $(".marathon_status.post").val() !== "") {
+		dataToUse.name = $(".name.post").val();
+		dataToUse.creator = $(".creator.post").val();
+		dataToUse.show_status = $(".show_status.post").val();
+		dataToUse.marathon_status = $(".marathon_status.post").val();
+	  	$.ajax({
+	  		method: methodToUse,
+	  		url: url,
+	  		data: dataToUse,
+		    success: function (data) {
+		    	updateShowData(data);
+		    	$(".name.post").val("");
+		    	$(".creator.post").val("");
+		    	$(".show_status.post").val("");
+		    	$(".marathon_status.post").val("");
+		    },
+		    error: function (error) {
+		    	console.log(error);
+		    }
+	  	});
+  	} else {
+  		alert("Please ensure all fields are populated.");
+  	}
+  });
 });
