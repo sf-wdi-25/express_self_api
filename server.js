@@ -1,6 +1,10 @@
 // require express and other modules
 var express = require('express'),
     app = express();
+    bodyParser = require('body-parser');
+
+ //bddy parser config
+ app.use(bodyParser.urlencoded({ extended: true }));
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
@@ -66,7 +70,9 @@ app.get('/api/places', function add_place(req, res) {
 });
 
 app.post('/api/places', function add_place(req, res) {
-  console.log(req);
+  var newPlace = req.body; 
+  console.log(newPlace);
+  res.send("good job you added" + newPlace);
 });
 
 app.create 
