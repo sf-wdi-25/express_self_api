@@ -75,12 +75,17 @@ app.get('/api/profile', function (req , res) {
     }
 );
     app.get('/api/favoriteMovies/:id', function show( req , res) {
-     //trying to add index from using the expample from weeks example
+     //trying to add index from using the expample from weeks example it only shows objects sadly.
         var favoriteMoviesId = parseInt(req.params.id);
         var foundfavoriteMovies = favoriteMovies.filter(function(favoriteMovies) {
           return favoriteMovies._id == favoriteMoviesId;
-        }
-    );
+        }[1]
+        );
+          res.json(foundfavoriteMovies);
+    
+    });
+    app.post('/api/favoriteMovies', function create (req, res) {
+
     });
 /*
  * JSON API Endpoints

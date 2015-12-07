@@ -7,12 +7,30 @@ $(document).ready(function(){
 		method:'GET',
 		url: '/api/profile/',
 		success: function(data) {
-		data.data.forEach( function (e){
-			$('.profile').append("<p>" + e.name + "</p>" + "<br>" + "<p>" + e.current_city + "</p>" + "</br>" + "<br>" + "<p>" + e.family_members + "</p>" + "</br>");// I am adding the array to the container and add it to the website but I havent been able to show it just undefined.
-
-		});
-		
-	}
+			console.log(data.data[0]);
+			var profile = data.data[0];
+			$('.profile').append("<p>" + profile.name + "</p>" + "<br>" + "<p>" + profile.current_city + "</p>" + "</br>");
+			$('.profile').append('<h4><u>Family members</u></h4>');
+			profile.family_members.forEach(function (member) {
+			  $('.profile').append('<p>' + member.name + " - " + member.relationship + '</p><br>');
+			});
+	    }
 	});
-		
+	    $.ajax ({
+	    	mehthod: 'GET',
+	    	url: '/api/favoriteMovies',
+	    	success: function() {
+	    		console.log(favoriteMovies.favoriteMovies);
+	    		$('.favoriteMovies').forEach(favoriteMovies.movies);
+	    	}
+	    });
+	   		
+	 
+	// $.ajax ({
+	// 	method: "POST",
+	// 	url: '/api/favoriteMovies',
+	// 	success: function(data) {
+
+	// 	}
+	// 	});
 });
