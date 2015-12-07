@@ -110,7 +110,6 @@ $(document).ready(function(){
     // for delete: click event on `.delete-todo` button
     .on('click', '.delete-book', function (event) {
       event.preventDefault();
-
       // find the todo's id (stored in HTML as `data-id`)
       var bookId = $(this).closest('.book').attr('data-id');
 
