@@ -6,6 +6,7 @@ $(document).ready(function() {
   $(".shows-list").hide();
 
   $(".about").click(function handler() {
+  	$(".shows-list").hide();
   	$(".about-me").show();
   	$.ajax({
   		method: "GET",
@@ -23,6 +24,7 @@ $(document).ready(function() {
   });
 
   $(".shows").click(function handler() {
+  	$(".about-me").hide();
   	$(".shows-list").show();
   	$.ajax({
   		method: "POST",
