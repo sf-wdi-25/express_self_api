@@ -167,17 +167,6 @@ app.put('/api/design_projects/:id', function update(req, res) {
   });
 });
 
-// app.post('/api/design_projects', function create(req, res) {
-//   // var previous_id = design_projects[design_projects.length-1]._id;
-//   // var data = {_id: previous_id + 1, title: 'Walk Dog', description: 'Take Fluffy for a walk'};
-//   // res.json(data);
-//   var previous_id = design_projects[design_projects.length-1]._id;
-//   var data = req.body;
-//   var newToDo = {_id: previous_id + 1, title: data.title, description: data.description};
-//   res.json(newToDo);
-//   design_projects.push(newToDo);
-// });
-
 /**********
  * SERVER *
  **********/
