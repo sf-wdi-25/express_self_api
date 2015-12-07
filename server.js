@@ -65,15 +65,22 @@ app.get('/api/profile', function api_index (req, res){
   res.json(profile)
 });
 
-app.get('/api/places', function add_place(req, res) {
-  res.json(places);
+app.get('/api/places/:id', function aget_place(req, res) {
+  //res.json(places);
 });
 
 app.post('/api/places', function add_place(req, res) {
   var newPlace = req.body; 
+  newPlace.id = parseInt(newPlace.id);
   console.log(newPlace);
   places.push(newPlace);
   res.send(newPlace);
+});
+
+app.delete('/api/place/:id'), function delete_place (req, res) {
+  var id = req.params.id; 
+  console.log(id);
+  res.send(id);
 });
 
 app.create 
