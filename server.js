@@ -18,10 +18,10 @@ app.use(function(req, res, next) {
 
 // your hardcode here
 var profile = {
-  name: "Reva Bhatt",
-  current_city: "Cupertino",
-  github_link: "https://github.com/revalidate",
+  name: "Reva",
+  current_location: "California",
   github_profile_image: "/images/tumblr.jpg"
+  hobbies: ""
 };
 
 var articles = [
@@ -75,12 +75,12 @@ app.get('/api', function api_index (req, res){
   })
 });
 
-app.get('http://murmuring-chamber-7862.herokuapp.com/api/profile', function api_profile(req,res){
+app.get('/api/profile', function api_profile(req,res){
   res.json(profile);
 });
 
 
-app.get('http://murmuring-chamber-7862.herokuapp.com/api/articles', function index(req,res){
+app.get('/api/articles', function index(req,res){
   res.json({articles})
 });
 
@@ -90,7 +90,7 @@ app.get('http://murmuring-chamber-7862.herokuapp.com/api/articles', function ind
 // });
 
 
-app.post('http://murmuring-chamber-7862.herokuapp.com/api/articles', function create(req,res){
+app.post('/api/articles', function create(req,res){
   var newArticle = req.body;
   if (articles.length > 0) {
     newArticle._id = articles[articles.length - 1]._id + 1;
@@ -102,7 +102,7 @@ app.post('http://murmuring-chamber-7862.herokuapp.com/api/articles', function cr
 });
 
 
-app.put('http://murmuring-chamber-7862.herokuapp.com/api/articles', function update(req,res){
+app.put('/api/articles', function update(req,res){
   var newImage = req.body.image;
   var newTitle = req.body.title;
   var newLink = req.body.article_link;
@@ -112,7 +112,7 @@ app.put('http://murmuring-chamber-7862.herokuapp.com/api/articles', function upd
 });
 
 
-app.delete('http://murmuring-chamber-7862.herokuapp.com/api/articles/:id', function destroy(req,res){
+app.delete('/api/articles/:id', function destroy(req,res){
   var deleteArticleId = parseInt(req.params.id);
   var newArray = articles.find (function (e, i){
     if (deleteArticleId === e._id) {
