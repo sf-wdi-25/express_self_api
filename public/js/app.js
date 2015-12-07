@@ -23,9 +23,21 @@ $(document).ready(function(){
 // and to append new shows as well.
 
 function muzac (data) {
-	data.forEach(function (ele) {
-		$('#muzac').append("<p>" + data.goodMuzac.artist + " - " + data.goodMuzac.track + ":" + data.goodMuzac.youtube + "</p><br\>");
+	data.goodMuzac.forEach(function (ele) {
+		$('#muzac').append("<p>" + ele.artist + " - " + ele.track + ": <a href = '" + ele.youtube + "' target='_blank'>" +
+			ele.youtube + "</a></p><br\>");
 	});
 }
+
+$.ajax({
+	method: "GET",
+	url: "/api/muzac",
+	success: function goodMuzac (data) {
+		muzac(data);
+	},
+	error: function (error) {
+		console.log("404 - w3bsit3 h@s ph@il3d");
+	}
+});
 
 });
