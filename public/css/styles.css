@@ -8,6 +8,12 @@ h1 {
   color: black;
 }
 
+h2 {
+  margin: 0;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 p {
   font-size: 20px;
 }
