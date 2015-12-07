@@ -6,7 +6,7 @@ $(document).ready(function(){
 		url: "/api/profile",
 		success: function profileInfo (data) {
 			console.log(data);
-			$('#col1').append("<p>Name: " + data.profileInfo[0].name + "</p><br\>" +
+			$('#profile').append("<p>Name: " + data.profileInfo[0].name + "</p><br\>" +
 				"<p>github " + data.profileInfo[0].githubLink + "</p><br\>" +
 				"<p>Photo: " + data.profileInfo[0].githubProfilePic + "</p><br\>" +
 				"<p>City: " + data.profileInfo[0].city + "</p><br\>" +
@@ -21,4 +21,11 @@ $(document).ready(function(){
 // This section will contain the AJAX code to CRUD stuff, specifically showing the list of TV shows that I watch (haven't decided yet whether or
 // not I'd alpha-sort 'em, or leave them disordered as they are in server.js). CRUD would allow for me to delete shows that I've finished watching,
 // and to append new shows as well.
+
+function muzac (data) {
+	data.forEach(function (ele) {
+		$('#muzac').append("<p>" + data.goodMuzac.artist + " - " + data.goodMuzac.track + ":" + data.goodMuzac.youtube + "</p><br\>");
+	});
+}
+
 });
