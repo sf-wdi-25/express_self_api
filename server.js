@@ -2,6 +2,9 @@
 var express = require('express'),
     app = express();
 
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({extended: true})); // parse POSTed data
+
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
 
@@ -19,7 +22,36 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-// your hardcoded data here
+var shows = [
+    {
+      _id: 1,
+      name: 'Sense8',
+      creator: 'J. Michael Straczynski',
+      series_status: 'season break',
+      marathon_status: 'up to date'
+    },
+    { 
+      _id: 2,
+      name: 'Criminal Minds',
+      creator: 'Jeff Davis',
+      series_status: 'ongoing',
+      marathon_status: 'behind'
+    },
+    {
+      _id: 3,
+      name: "30 Rock",
+      creator: "Tina Fey",
+      series_status: "ended",
+      marathon_status: "up to date"
+    },
+    {
+      _id: 4,
+      name: "How to Get Away With Murder",
+      creator: "Shonda Rhimes",
+      series_status: "season break",
+      marathon_status: "up to date"
+    }
+  ];
 
 /**********
  * ROUTES *
@@ -73,36 +105,16 @@ app.get('/api/profile', function api_profile (req, res) {
 });
 
 app.get('/api/shows', function api_shows (req, res) {
- res.json([
-    {
-      _id: 1,
-      name: 'Sense8',
-      creator: 'J. Michael Straczynski',
-      series_status: 'season break',
-      marathon_status: 'up to date'
-    },
-    { 
-      _id: 2,
-      name: 'Criminal Minds',
-      creator: 'Jeff Davis',
-      series_status: 'ongoing',
-      marathon_status: 'behind'
-    },
-    {
-      _id: 3,
-      name: "30 Rock",
-      creator: "Tina Fey",
-      series_status: "ended",
-      marathon_status: "up to date"
-    },
-    {
-      _id: 4,
-      name: "How to Get Away With Murder",
-      creator: "Shonda Rhimes",
-      series_status: "season break",
-      marathon_status: "up to date"
-    }
-  ]);
+  res.json(shows);
+});
+
+app.post('/api/shows', function (req, res) {
+  console.log(req.body);
+  var newItem = req.body;
+  newItem._id = shows.length + 1;
+  shows.push(req.body);
+
+  res.json(shows);
 });
 
 /**********
