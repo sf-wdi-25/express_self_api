@@ -21,7 +21,7 @@ var profile = {
   name: "Reva",
   current_location: "California",
   github_profile_image: "/images/tumblr.jpg",
-  hobbies: ""
+  hobbies: "coloring books, football, politics"
 };
 
 var articles = [
