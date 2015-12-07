@@ -70,6 +70,44 @@ Here's a list of what I did!
 										marathon_status: "up to date"
                          	   	   }
                             ]
+    POST /api/shows			 [
+                                 {
+										_id: 1,
+										name: 'Sense8',
+										creator: 'J. Michael Straczynski',
+										series_status: 'season break',
+										marathon_status: 'up to date'
+                                 },
+                                 { 
+										_id: 2,
+										name: 'Criminal Minds',
+										creator: 'Jeff Davis',
+										series_status: 'ongoing',
+										marathon_status: 'behind'
+                                 },
+                                 {
+										_id: 3,
+										name: "30 Rock",
+										creator: "Tina Fey",
+										series_status: "ended",
+										marathon_status: "up to date"
+                             	   },
+                             	   {
+										_id: 4,
+										name: "How to Get Away With Murder",
+										creator: "Shonda Rhimes",
+										series_status: "season break",
+										marathon_status: "up to date"
+                         	   	   },
+                         	   	   {
+                         	   	   _id: 5,
+                         	   	   name: "Unbreakable Kimmy Schmidt",
+                         	   	   creator: "Tina Fey",
+                         	   	   series_status: "season break",
+                         	   	   marathon_status: "up to date"
+                            ]
+    
+    FUTURE GOALS
     
     GET /api/shows?limit=1   [ { _id: 1, name:'Sense8', creator: ... } ]
 
@@ -79,9 +117,8 @@ Here's a list of what I did!
     
     GET /api/shows/2         { _id: 2, name:'Criminal...' }
 
-    POST /api/projects          etc
-    PUT /api/projects/2         etc
-    DELETE /api/projects/2      etc
+    PUT /api/shows/2         etc
+    DELETE /api/shows/2      etc
 
 
 
