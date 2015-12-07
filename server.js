@@ -93,13 +93,9 @@ app.get('/api/animes', function index(req, res) {
 
 app.post('/api/animes', function newAnime(req, res) {
   var anime = req.body;
-  console.log("The request: " + JSON.stringify(req));
+  console.log("The request: " + JSON.stringify(req.body));
   console.log("The anime: " + JSON.stringify(anime));
-<<<<<<< Updated upstream
   if (favAnimes > 0) {
-=======
-  if (favAnimes > 0) {  
->>>>>>> Stashed changes
     anime._id = favAnimes[favAnimes.length - 1] + 1;
   }else{
     anime._id = 1;
