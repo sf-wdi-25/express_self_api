@@ -78,7 +78,7 @@ app.post('/api/places', function add_place(req, res) {
 });
 
 app.delete('/api/place/:id', function delete_place (req, res) {
-  var id = req.params; 
+  var id = parseInt(req.params.id); 
   console.log(id);
   res.send(id);
 });
