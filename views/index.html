@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Blank</title>
-
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="css/styles.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -16,14 +17,129 @@
 
     <!-- APPLICATION SCRIPTS -->
     <script src="js/app.js"></script>
+
+     <title>Noahs Page</title>
+
   </head>
-  <body>
+
+    <!-- header -->
+ <body>
+  <div class="well">
     <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h1>Under Construction</h1>
-        </div>
+      <div class="page-header">
+        <h1>Recommended Books <small>Please add your own!</small></h1>
       </div>
     </div>
-  </body>
+  </div>
+ 
+ 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        
+        <!-- new books form-->
+         <form class="form-inline" id="create-book">
+          <div class="form-group">
+            <input type="text" name="contributor" class="form-control" placeholder="Contributor" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="title" class="form-control" placeholder="Title" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="author" class="form-control" placeholder="Author" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="genre" class="form-control" placeholder="Genre" autofocus>
+          </div>
+         <div class="form-group">
+            <input type="text" name="notes" class="form-control" placeholder="Notes" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="synopsis" class="form-control" placeholder="Synopsis" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="image" class="form-control" placeholder="Image url here" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-default" value="Add Book">
+          </div>
+        </form>
+        <br>
+
+        <!-- list of books -->
+         <ul class="list-group" id="books-list">
+          
+          <!-- handlebars template -->
+         <script id="books-template" type="text/x-handlebars-template">
+            {{#each books}}
+              <li class="list-group-item book" data-id="{{_id}}">
+                <img src={{image}} alt="Book Jacket">
+                <p><b>Contributor: </b>{{contributor}}</p>
+                <p><b>Title:  </b>{{title}}</p>
+                <p><b>Author:  </b>{{author}}</p>
+                <p><b>Genre:  </b>{{genre}}</p>
+                <p><b>Notes:  </b>{{notes}}</p>
+                <p><b>Synopsis:  </b>{{synopsis}}</p>
+                
+                
+                  <!-- pencil icon to toggle update form -->
+                  <a href="javascript:void(0)" data-toggle="collapse" data-target="#update-{{_id}}">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                  </a>
+                  
+                  <!-- trash can icon to delete book -->
+                  <a href="javascript:void(0)" class="delete-book">
+                    <span class="glyphicon glyphicon-trash"></span>
+                  </a>
+                
+                <!-- form to update book -->
+                <div class="collapse" id="update-{{_id}}">
+                  <br>
+                  <form class="form-inline update-book">
+                   
+                    <div class="form-group">
+                      <input type="text" name="image" class="form-control" placeholder="Image url here" value="{{image}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="contributor" class="form-control" placeholder="Contributor" value="{{contributor}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="title" class="form-control" placeholder="Title" value="{{title}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="author" class="form-control" placeholder="Author" value="{{author}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="genre" class="form-control" placeholder="Genre" value="{{genre}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="notes" class="form-control" placeholder="Notes" value="{{notes}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="synopsis" class="form-control" placeholder="Synopsis" value="{{synopsis}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="submit" class="btn btn-block btn-default" value="Update">
+                    </div>
+                  </form>
+                </div>
+              </li>
+            {{/each}}
+          </script>
+        </ul>
+      </div>
+    </div>
+  </div> 
+
+  <!-- jquery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <!-- handlebars -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+
+
+</body>
 </html>
