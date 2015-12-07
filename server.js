@@ -65,12 +65,12 @@ app.get('/api/profile', function api_index (req, res){
   res.json(profile)
 });
 
-app.get('/api/places/:id', function aget_place(req, res) {
+app.get('/api/places', function aget_place(req, res) {
   res.json(places);
 });
 
 app.post('/api/places', function add_place(req, res) {
-  var newPlace = req.body; 
+  var newPlace = req.body; s
   newPlace.id = parseInt(newPlace.id);
   console.log(newPlace);
   places.push(newPlace);
