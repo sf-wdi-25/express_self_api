@@ -1,10 +1,46 @@
 body {
   color: #333;
-  font-family: Helvetica, Arial, sans-serif;
-  background-color: skyblue; /* Sanity Check! */
+  font-family: Helvetica, Arial, sans-serif; 
+  /* Sanity Check! */
 }
 
-h1 {
+h2 {
   margin-top: 100px;
   text-align: center;
+}
+
+img {
+	height: 200px;
+	display: block;
+	margin: 0 auto;
+}
+
+p {
+	display: block;
+	margin: 0 auto;
+	vertical-align: center;
+}
+
+#profile {
+	text-align: center;
+}
+
+.article-divs#article-image, 
+.article-divs#article-list {
+	display: inline-block;
+	width: 50%;
+	height: 200px;
+	vertical-align: middle;
+}
+
+.btn-primary {
+	background-color: white;
+	color: black;
+	border: 1px solid black;
+	margin-left: 2px;
+}
+
+.btn-block {
+	background-color: black;
+	color: white;
 }
