@@ -13,3 +13,8 @@ img {
 	max-width: 200px;
 	max-height: 200px;
 }
+
+li {
+	list-style: none;
+	list-style-type: none;
+}

@@ -16,12 +16,12 @@ $.ajax({
          	$('#profile').append("<p><strong>GitHub Link:</strong> " + data.github_link + "</p>")
          	$('#profile').append("<p><img src=" + data.github_profile_image + "</img>")
          	$('#profile').append("<p><strong>City:</strong> " + data.current_city + "</p>")
-         	$('#profile').append("<p><strong>Family Members:</strong>" + 
+         	$('#profile').append("<p><strong>Family Members:</strong></p>" + 
          	 	"<li>" + 
-         	 		"<ol>"+ data.family_members[0].name + " -" + data.family_members[0].relationship + "</ol>" +
-         	 		data.family_members[1].name + " -" + data.family_members[1].relationship + "\n" +
-         	 		data.family_members[2].name + " -" + data.family_members[2].relationship + "</ol>" +
-         	 	"</li></p>")
+         	 		"<ul>" + data.family_members[0].name + " - " + data.family_members[0].relationship + "</ul>" +
+         	 		"<ul>" + data.family_members[1].name + " - " + data.family_members[1].relationship + "</ul>" +
+         	 		"<ul>" + data.family_members[2].name + " - " + data.family_members[2].relationship + "</ul>" + 
+         	 	"</li>")
            }
 });
 
@@ -31,8 +31,7 @@ $.ajax({
          success: function(data) {
          	data.forEach(function (movie){
          		console.log(movie.year);
-         	$('#movie').append("<p>" + movie.title + "</p>" )	
-         	$('#movie').append("<p>" + movie.year + "</p>"	)	
+         	$('#movie').append("<p>" + movie._id + "." + " " + movie.title + " " + "\(" + movie.year + "\)" + " - " + movie.director + "</p>" )		
          	});
          	//data.data.forEach(function (element){
          		//$('#profile').append("<p>" + element.name + "</p>")

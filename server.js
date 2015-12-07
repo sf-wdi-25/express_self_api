@@ -104,6 +104,10 @@ app.get('/api/profile', function api_profile (req, res){
     res.json(favoriteMovies);  
   });
 
+  app.delete('/api/favoriteMovies/:id', function destroy(req, res) {
+    // How do you know which todo to delete?
+});
+
 /**********
  * SERVER *
  **********/
