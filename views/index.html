@@ -9,6 +9,7 @@
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Francois+One' rel='stylesheet' type='text/css'>
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -20,8 +21,19 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h1>Under Construction</h1>
+        <div class="col-md-12 pull-left divcolor"  id="myInfo">
+        </div>
+        </div>
+      <div class="row">
+         <div class="col-md-6">
+          <form>
+              <label for="anime">Add a new Anime!</label>
+              <input id="name" type="text" name="page_name" />
+              <button id="create-anime">New Anime</button>
+              <input type="submit" value="Find" />
+          </form>
+        <div class="col-md-6"  id ="anime-list">
+      </div>
         </div>
       </div>
     </div>
