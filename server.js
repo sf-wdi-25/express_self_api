@@ -61,7 +61,7 @@ app.get('/', function homepage (req, res) {
 app.get('/api', function api_index (req, res){
   res.json({
     message: "Welcome to my personal api!",
-    documentation_url: "https://github.com/nwimmer123/test-driven-todo-api.git", // CHANGE THIS TO LINK TO YOUR README.md
+    documentation_url: "sheltered-dusk-2675.herokuapp.com/REDME.md", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "sheltered-dusk-2675.herokuapp.com/",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes available endpoints"},
