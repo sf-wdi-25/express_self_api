@@ -77,10 +77,10 @@ app.post('/api/places', function add_place(req, res) {
   res.send(newPlace);
 });
 
-app.delete('/api/place/:id'), function delete_place (req, res) {
-  var id = req.params.id; 
-  console.log(id);
-  res.send(id);
+app.delete('/api/place/:id', function delete_place (req, res) {
+ // var id = req.params.id; 
+ // console.log(id);
+  //res.send(id);
 });
 
 app.create 
