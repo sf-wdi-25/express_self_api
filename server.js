@@ -65,13 +65,12 @@ app.get('/api/profile', function api_index (req, res){
   res.json(profile)
 });
 
-app.get('/api/places', function aget_place(req, res) {
+app.get('/api/places', function get_place(req, res) {
   res.json(places);
 });
 
-app.get('/api/places/:id', function aget_place(req, res) {
+app.get('/api/places/:id', function get_place(req, res) {
   var placeId = parseInt(req.params.id);
-  placeId = placeId - 1;
   res.send(places[placeId]);
 });
 
@@ -85,8 +84,12 @@ app.post('/api/places', function add_place(req, res) {
 
 app.delete('/api/place/:id', function delete_place (req, res) {
   var id = parseInt(req.params.id); 
-  console.log(id);
-  res.send(id);
+  indexes = $.map(places, function(elem, index) {
+    if(obj.id === id) {
+      return index;
+    }
+  })
+  res.send();
 });
 
 app.create 
