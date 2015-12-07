@@ -7,7 +7,10 @@ $(document).ready(function(){
 		method: "GET",
 		url:"/api/videogames",
 		success: function(pizza){
-			console.log(pizza.videogames);
+
+			pizza.forEach(function (element){
+				console.log(element);
+			});	
 		},
 
 		error: function(){
@@ -15,9 +18,22 @@ $(document).ready(function(){
 		}
 	});
 
+	$.ajax({
+		method: "GET",
+		url:"/api/videogames/1",
+		success: function(pizza){
+			console.log(pizza);
+		},
+
+		error: function(){
+			console.log("Error with Videogame READ/GET One Video Game");
+		}
+	});
+
 	// CREATE for Videogame DataStructure
 	// Hardcoded for now
 	// Server side haven't made a path yet
+
 	$.ajax({
 		method: "POST",
 		url:"/api/videogames",
@@ -29,6 +45,7 @@ $(document).ready(function(){
 		},
 		success: function(pizza){
 			console.log("Your videogame was added!");
+			console.log(pizza);
 		},
 
 		error: function(){
@@ -39,6 +56,7 @@ $(document).ready(function(){
 	// UPDATE for Videogame DataStructure
 	// Hardcoded for now
 	// Server side haven't made a path yet
+	
 	$.ajax({
 		method:"PUT",
 		url:"/api/videogames/1",
@@ -49,6 +67,7 @@ $(document).ready(function(){
 	    	description: "Mario's first foray into 3D graphics."
 		},
 		success: function(pizza){
+			console.log(pizza);
 			console.log("Your videogame was updated");
 		},
 

@@ -1,6 +1,7 @@
 // require express and other modules
 var express = require('express'),
-    app = express();
+    app = express(); 
+    bodyParser = require('body-parser');
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
@@ -11,6 +12,9 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+// configure bodyParser (for receiving form data)
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /************
  * DATABASE *
@@ -49,6 +53,7 @@ var my_profile = [
 
 var videogames = [
   {
+    _id: 1,
     title: "Super Mario Bros. 3",
     developer: "Nintendo",
     year: 1988,
@@ -56,6 +61,7 @@ var videogames = [
   },
 
   {
+     _id: 2,
     title:"Super Mario RPG: Legend of the Seven Stars",
     developer: "Squaresoft",
     year: 1996,
@@ -63,6 +69,7 @@ var videogames = [
   },
 
   {
+     _id: 3,
     title:"Super Smash Bros. Melee",
     developer: "Nintendo",
     year: 2001,
@@ -112,10 +119,22 @@ app.get('/api/videogames', function readVideoGames(req, res){
   res.json(videogames);
 });
 
+app.get('/api/videogames/:id', function readOneVideoGames (req, res){
+  var vgID = parseInt(req.params.id);
+  
+  var oneVideoGame = videogames.filter(function (videoGame){ //creates new array with elements that pass test of function
+    return videoGame._id == vgID; //No strict equality here?
+  })[0];
+
+  console.log(oneVideoGame);
+  res.json(oneVideoGame);
+});
+
 //Creates a new Videogame and send it back
 //Code based on our lecture notes
 app.post('/api/videogames', function createVideoGames (req, res){
   var newVideoGame = req.body;
+  console.log(req.body);
 
   if(videogames.length > 0) {
     newVideoGame._id = videogames[videogames.length - 1]._id + 1;
@@ -132,11 +151,11 @@ app.post('/api/videogames', function createVideoGames (req, res){
 
 //Updates a new Videogame
 //Code based on our lecture notes
-app.post('/api/videogames/:id', function updateVideoGames (req, res){
+app.put('/api/videogames/:id', function updateVideoGames (req, res){
   var vgID = parseInt(req.params.id);
   
   var updatedVideoGame = videogames.filter(function (videoGame){ //creates new array with elements that pass test of function
-    return videogame._id == vgID; //No strict equality here?
+    return videoGame._id == vgID; //No strict equality here?
   })[0];
 
   updatedVideoGame.title = req.body.title;
@@ -154,7 +173,7 @@ app.delete('/api/videogames/:id', function deleteVideoGames (req, res){
   var vgID = parseInt(req.params.id);
 
   var videogameToDelete = videogames.filter(function (videoGame){ 
-    return videogame._id == vgID; //No strict equality here?
+    return videoGame._id == vgID; //No strict equality here?
   })[0];
 
   videogames.splice(videogames.indexOf(videogameToDelete), 1);
@@ -163,7 +182,7 @@ app.delete('/api/videogames/:id', function deleteVideoGames (req, res){
   console.log("Deleted");
 
   res.json(videogameToDelete);
-}
+});
 
 
 /**********
