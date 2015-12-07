@@ -34,6 +34,11 @@ app.get('/', function homepage (req, res) {
 /*
  * JSON API Endpoints
  */
+
+ /**********
+ * /api *
+ **********/
+
 var api = [
   {_id: 1, method: "GET", path: "/api", description: "retrieve all apis"},
   {_id: 2, method: "POST", path: "/api", description: "create new api"},
@@ -42,26 +47,13 @@ var api = [
   {_id: 5, method: "GET", path: "/api/:id", description: "retrieve specific api"}
 ];
 
-var profile = [
-  {name: "Nicolette", relationship: "mother"},
-  {name: "Gabriele", relationship: "father"},
-  {name: "Faith", relationship: "step-mother"},
-  {name: "Dominic", relationship: "brother"},
-  {name: "Gabriel", relationship: "brother"},
-  {name: "Yvonne", relationship: "sister"},
-  {name: "Ghislaine", relationship: "sister"},
-  {name: "Jean-Paul", relationship: "brother"},
-  {name: "Denise", relationship: "sister"},
-  {name: "Clementina", relationship: "sister"}
-];
-
 //retrieve all apis
 app.get('/api', function api_index (req, res){
   res.json({
     message: "Is Angieri's first api",
     documentation_url: "https://github.com/isangieri/express_self_api/blob/master/APIREADME.md", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "http://gentle-shore-4526.herokuapp.com",
-    endpoints: api,
+    endpoints: api + profile,
   });
 });
 
@@ -72,6 +64,30 @@ app.get('/api/:id', function show(req, res) {
       res.json(api[index]);
     }
   });
+});
+
+ /**********
+ * /api/profile *
+ **********/
+
+ var profile = [
+  {firstname: "Is"},
+  {lastname: "Angieri"},
+  { family_members: [{name: "Nicolette", relationship: "mother"},
+  {name: "Gabriele", relationship: "father"},
+  {name: "Faith", relationship: "step-mother"},
+  {name: "Dominic", relationship: "brother"},
+  {name: "Gabriel", relationship: "brother"},
+  {name: "Yvonne", relationship: "sister"},
+  {name: "Ghislaine", relationship: "sister"},
+  {name: "Jean-Paul", relationship: "brother"},
+  {name: "Denise", relationship: "sister"},
+  {name: "Clementina", relationship: "sister"}]}
+];
+
+//retrieve all apis
+app.get('/api/profile', function api_index (req, res){
+  res.json(profile);
 });
 
 /**********
