@@ -40,28 +40,68 @@ $.ajax({
 	method: 'GET',
 	url: '/api/travel',
 	success: function (data) {
-		console.log(data);
-		$('#travel').append("<p>" + "Destination: " + data.travel[0].destination + "<br\>" +
-		 " Reasons I want to visist: " + data.travel[0].Reasons + "</p>" );
-		$('#travel').append("<p>" + "Destination: " + data.travel[0].destination + "<br\>" +
-		 " Reasons I want to visist: " + data.travel[0].Reasons + "</p>" );
-		 $('#travel').append("<p>" + "Destination: " + data.travel[0].destination + "<br\>" +
-		 " Reasons I want to visist: " + data.travel[0].Reasons + "</p>" );	
-		 $('#travel').append("<p>" + "Destination: " + data.travel[0].destination + "<br\>" +
-		 " Reasons I want to visist: " + data.travel[0].Reasons + "</p>" );
-	}	
+		data.travel.forEach(function (i){
+			var travel = i.destination;
+			var reason = i.reason;
+		
+		$('#travel').append("<p>" + "Destination: " + travel + "<br\>" +
+		 " Reasons I want to visit: " + reason + "</p>" );
+		});
+			}	
 });
 $.ajax({
 	method: 'GET',
 	url: '/api/skills',
 	success: function (data) {
+	data.skills.forEach(function (i){
+		var skills = i.skills;
 		console.log(data);
-		$('#skills').append("<p>" + "Skills: " + data.skills[0].skills + "</p>" );
-		$('#skills').append("<p>" + "Skills: " + data.skills[0].skills + "</p>" );
-		$('#skills').append("<p>" + "Skills: " + data.skills[0].skills + "</p>" );
-		$('#skills').append("<p>" + "Skills: " + data.skills[0].skills + "</p>" );
-	}	
+		$('#skills').append("<p>" + "Skills: " + skills + "</p>" );
+	});
+		
+		}	
 });
+
+// $.ajax({
+//   method: "DELETE",
+//   url: '/api/skills',
+//   success: function (data) {
+//     console.log("your skill was deleted.");
+//   },
+//   error: function () {
+//     console.error("Failed to delete.");
+//   }
+// });
+
+// $.ajax({
+//   method: "PUT",
+//   url: '/api/skills',
+//   data: {
+//     skills:'',
+//   },
+//   success: function (data) {
+//     console.log("your skill was updated.");
+//   },
+//   error: function () {
+//     console.error("Failed to update your skill.");
+//   }
+// });
+
+// $.ajax({
+//   method: "POST",
+//   url: '/api/skills',
+//   data: {
+//     skills:'',
+//   },
+//   success: function (data) {
+//     console.log("your skill was created");
+//     console.log("your book has an id of", book._id);
+//     // render book to page
+//   },
+//   error: function () {
+//     console.error("Skill did not get created.");
+//   }
+// });
 
 
 

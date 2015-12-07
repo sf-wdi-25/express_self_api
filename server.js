@@ -1,11 +1,18 @@
 // require express and other modules
 var express = require('express'),
     app = express();
-    // bodyParser = require('body-parser');
+
+
+   // bodyParser = require('body-parser');
 
 
 // serve static files from public folder
+// app.use(bodyParser.urlencoded({ extended: true}));
+
 app.use(express.static(__dirname + '/public'));
+
+
+
 
 /************
  * DATABASE *
@@ -16,8 +23,17 @@ app.use(express.static(__dirname + '/public'));
   
 // Change the hardcoded data into an accessible array
 var travel = [
-  { _id: 1 , }
+  { _id: 1, destination: 'Thailand', reason: 'Full moon party, elephant riding, great weather, and beautiful scenery. ' },
+  { _id: 2, destination: 'Alaska', reason: 'Wildlife, glaciers, nature, and fishing.' },
+  { _id: 3, destination: 'Japan', reason: 'Culture, food, technology.' },
 ];
+
+var skills = [
+{ _id: 1, skills: 'Basic construction'},
+{ _id: 2, skills: 'Basic mechanic'},
+{ _id: 3, skills: 'Scuba diving certification'},
+];
+
 
 
   app.use(function(req, res, next) {
@@ -37,14 +53,8 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-// var family_members =
-// var travel_plans = [{Destination: Thailand,
-// Interesting aspects: BLAH BLAH BLAH,},
-// {Destination: China, Interesting aspects: Great Wall of China, Culture},
-// {Destination: Patagonia:},{Destination: Alaska}, {Destination: Japan}, {Destination: South Africa},{},{},{},]
-// var movies =
-// var skills = {Scuba diving Certification, Sky diving certification, Hunting License, basic construction, basic machanics,}
-// var wish_list = 
+var id = skills._id;
+
 
 /*
  * JSON API Endpoints
@@ -79,58 +89,72 @@ app.get('/api/profile', function profile (req, res) {
   });
 });
 
-app.get('/api/travel', function travel (req, res) {
-  res.send({
-    travel: [{ destination: 'Thailand', Reasons: 'Full moon party, elephant riding, great weather, and beautiful scenery'  }
-    // {destination: 'Patagonia', Reasons:},
-    // {destination: 'China', Reasons:},
-    // {destination: 'Japan', Reasons:},
-    // {destination: 'Alaska', Reasons:}
-      ]
-         });
+app.get('/api/skills', function index(req, res) {
+  // res.send('hello world');
+  res.json({skills: skills});
+});
 
+app.get('/api/travel', function index (req, res) {
+  res.json({travel: travel});
 });
   
-
-
-app.get('/api/skills', function skills (req, res) {
-  res.send({
-    skills: [{skills: 'Basic Construction'}
-//     skills: 'Basic Mechanic',
-//     skills: 'Scuba diving certification'
-          ]
-            });
-}); 
-
-
-// Use this to create new travel.
-// app.post('/api/travel', function create(req, res) {
-//   var newTravel = req.body;
-
-
-//   if (travel.length > 0) {
-//     newTravel._id = todos[todos.length - 1]._id + 1;
-//   }
-//   else {
-//     newTodo._id = 1;
-//   }
-
-//   todos.push(newTodo);
-
-//   res.json(newTodo);
   
+app.get('/api/skills/:id', function skills (req, res) {
+  var skillsId = parseInt(req.params.id);
+  console.log('welp', sklillsId);
+  var foundSkills = skills.filter(function (tacos) {
+    return tacos._id == skillsId;
+  })[0];
+  res.json(foundSkills); 
+
+  });
+  
+    // use this to create functionality for your buttons
+
+  
+
+// click event on button
+// $('button').on('click', function (event) {
+//   event.preventDefault();
+//   $.ajax({
+//     method: 'POST',
+//     url: '/api/skills',
+//     dataType: 'json',
+//     success: function (data) {
+//       console.log(data);
+//     }
+//   });
 // });
+
+
+// Use this to create new skills.
+app.post('/api/skills', function create(req, res) {
+  var newSkills = req.body;
+
+
+  if (skills.length > 0) {
+    newSkills._id = skills[skills.length - 1]._id + 1;
+  }
+  else {
+    newSkills._id = 1;
+  }
+
+  skills.push(newSkills);
+
+  res.json(newSkills);
+  
+});
 
 // use this to DESTROY certain things.
-// app.delete('/api/todos/:id', function destroy(req, res) {
-//   var todoId = parseInt(req.params.id);
-//   var todoToDelete = todos.filter(function (todo){
-//     return todo._id == todoId;
-//   })[0];
-//   todos.splice(todos.indexOf(todoToDelete), 1);
+app.delete('/api/skills/:id', function destroy(req, res) {
+  var skillsId = parseInt(req.params.id);
+  var skillsToDelete = skills.filter(function (todo){
+    return skills._id == skillsId;
+  })[0];
+  skills.splice(skills.indexOf(skillsToDelete), 1);
   
-//   res.json(todoToDelete);
-// });
+  res.json(todoToDelete);
+});
 
 
 
