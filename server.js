@@ -21,7 +21,7 @@ app.use(express.static(__dirname + '/public'));
  * DATABASE *
  ************/
 
-// your hardcoded data here
+// My Favorite Movies
 var favoriteMovies = [
     { _id: 1,
       title: "Citizen Kane",
@@ -100,15 +100,17 @@ app.get('/api/profile', function api_profile (req, res){
     res.sendFile('views/index.html' , { root : __dirname});
   });
 
-  //Profile
+  //My Profile API
   app.get('/api/profile', function (req, res) {
     res.json();
   });  
 
+  //My Favorite Movie API
   app.get('/api/favoriteMovies', function (req, res) {
     res.json(favoriteMovies);  
   });
 
+  //POST of Favorite Movies for creating a new entry.
   app.post('/api/favoriteMovies', function create(req, res) {
     var newID = req.body;
 
@@ -123,6 +125,7 @@ app.get('/api/profile', function api_profile (req, res){
     res.json(favoriteMovies);
   });
 
+  //POST of Favorite Movies for an update of an existing movie.
   app.put('/api/favoriteMovies/:id', function update(req, res) {
   var editID = parseInt(req.params.id);
 
@@ -149,6 +152,7 @@ app.get('/api/profile', function api_profile (req, res){
   res.json(favoriteMovies);
 });
 
+//Delete of a Movie.
   app.delete('/api/favoriteMovies/:id', 
     function destroy(req, res) {
       var getID = parseInt(req.params.id);

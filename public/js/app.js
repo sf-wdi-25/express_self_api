@@ -31,7 +31,7 @@ $.ajax({
          success: function(data) {
          	data.forEach(function (movie){
          		console.log(movie.year);
-         	$('#movie').append("<p>" + movie._id + "." + " " + movie.title + " " + "\(" + movie.year + "\)" + " - " + movie.director + "</p>" )		
+         	$('#movie').append("<p>" + movie._id + "." + " " + movie.title + " " + "\(" + movie.year + "\)" + " - " + movie.genre + " - " + movie.director + "</p>" )		
          	});
          	//data.data.forEach(function (element){
          		//$('#profile').append("<p>" + element.name + "</p>")
