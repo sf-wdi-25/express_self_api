@@ -78,9 +78,10 @@ app.get('/api', function api_index (req, res){
   })
 });
 
-app.get('/api/profile', function api_index (req, res){
+app.get('/api/profile', function api_profile (req, res){
   res.json({
       name: "Colbert Tse",
+      url: 'localhost:3000',
       github_link: "https://github.com/trebloc",
       github_profile_image: "https://avatars1.githubusercontent.com/u/6238249?v=3&u=d66fb4b7d60254f849f08c8dee354f0a5b74cc91&s=140",
       current_city: "San Francisco",
@@ -97,8 +98,9 @@ app.get('/api/profile', function api_index (req, res){
   //Profile
   app.get('/api/profile', function (req, res) {
     res.json();
+  });  
 
-  app.get('/api/profile/favoriteMovies', function (req, res) {
+  app.get('/api/favoriteMovies', function (req, res) {
     res.json(favoriteMovies);  
   });
 
