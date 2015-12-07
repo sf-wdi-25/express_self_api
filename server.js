@@ -53,7 +53,7 @@ app.get('/api', function api_index (req, res){
     message: "Is Angieri's first api",
     documentation_url: "https://github.com/isangieri/express_self_api/blob/master/APIREADME.md", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "http://gentle-shore-4526.herokuapp.com",
-    endpoints: {api: api, profile: profile},
+    endpoints: {api: api, profile: profile, designProjects: designProjects},
   });
 });
 
@@ -85,9 +85,37 @@ app.get('/api/:id', function show(req, res) {
   {name: "Clementina", relationship: "sister"}]}
 ];
 
-//retrieve all apis
-app.get('/api/profile', function api_index (req, res){
+//retrieve all profile properties
+app.get('/api/profile', function (req, res){
   res.json(profile);
+});
+
+ /**********
+ * /api/design_projects *
+ **********/
+
+var designProjects = [
+  {design: [{_id: 1, date: "", title: "", description: "", images: 
+    [{_id: 1, title: "", caption: "", src: "url"},
+    {_id: 2, title: "", caption: "", src: "url"}]},
+    {_id: 1, date: "", title: "", description: "", images: 
+    [{_id: 1, title: "", caption: "", src: "url"},
+    {_id: 2, title: "", caption: "", src: "url"}]},
+    {_id: 1, date: "", title: "", description: "", images: 
+    [{_id: 1, title: "", caption: "", src: "url"},
+    {_id: 2, title: "", caption: "", src: "url"}]},
+    {_id: 1, date: "", title: "", description: "", images: 
+    [{_id: 1, title: "", caption: "", src: "url"},
+    {_id: 2, title: "", caption: "", src: "url"}]},
+    {_id: 1, date: "", title: "", description: "", images: 
+    [{_id: 1, title: "", caption: "", src: "url"},
+    {_id: 2, title: "", caption: "", src: "url"}]},
+]}
+];
+
+//retrieve all design_projects properties
+app.get('/api/design_projects', function (req, res){
+  res.json(designProjects);
 });
 
 /**********

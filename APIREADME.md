@@ -1,4 +1,4 @@
-# <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Personal API - Weekend Lab
+#  Personal API - Weekend Lab
 
 My API incorporates:
 * some basic details about me
@@ -7,33 +7,29 @@ My API incorporates:
 * CRUDing (of at least one resource)
 
 
-## API
+## API Endpoints
 The list below specifies what endpoints are available on my API.
 
-#### Endpoints
+#### (`/api/profile`)
+- **(`/api/profile`)**: expects to get my personal information from the request, and will respond with value of the desired property. To use this API, see the documentation below. Here's what RESTful routing looks like for `profile`:
 
-- **(`/api/profile`)**: (`/api/profile`) expects to get FILLINTHISBLANK from the request (verb + route + data), and will respond with (structure of JSON). To use this API, see the documentation below:
-    + `name` - a string
-    + `github_link` - a url to your github profile
-    + `github_profile_image` - the url of your github profile image
-    + `current_city`
-    + `family_members` - an array of family member objects
-        + e.g. `[{name: "foo", relationship: "father"}, {name: "bar", relationship: "mother"}]`
-    + `At least one resource` that you can _*CRUD*_ using _*RESTful Routes*_
-        + That means endpoints for `index`, `show`, `create` `update`, `delete`!
-        + Here are some ideas:
-            * Wish list (e.g. `gifts` or `wishes`)
-                - _id, description, price, amazon_link
-            * `books` you've read
-                - _id, title, author, genre, notes
-            * `quotes` you like, or `tweets`
-                - _id, text, date, author
-            * `movies` or `shows` you like
-                - _id, title, season, director
-            * `projects` or `poems`
-                - _id, title, body, date
-
-All API Endpoints must return JSON.
+    | HTTP Method | URL | Example | a.k.a. |
+    | :--- | :--- | :--- | :--- |
+    | `GET` | `/profile` | _read_ all the profile properties | display list |
+    | `POST` | `/profile` | _create_ a new profile property | new property |
+    | `GET` | `/profile/:id` | _read_ profile property #3 | show property |
+    | `PUT` | `/profile/:id` | _update_ property #1 | edit property |
+    | `DELETE` | `/profile/:id` | _destroy_ property #3 | destroy property |
+   
+    + `firstname` - string
+    + `lastname` - string
+    + `github_link` - url to your github profile
+    + `github_profile_image` - url of github profile image
+    + `current_city` - string
+    + `family_members` - value is an array
+    + `Design Projects resource` that you can _*CRUD*_ using _*RESTful Routes*_
+        + Endpoints for `index`, `show`, `create` `update`, `delete`.
+            *  _id, title, description, images, date
 
 #### API Stretch Goals
 * Profile info stretch goals
