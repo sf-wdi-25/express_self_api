@@ -105,7 +105,7 @@ $(document).ready(function(){
 				return book._id == bookId;
 			}) [0];
 
-			$.ajak({
+			$.ajax({
 				type: 'DELETE',
 				url: baseUrlBooks + '/' + bookId,
 				success: function(data) {
