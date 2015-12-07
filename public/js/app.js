@@ -6,7 +6,20 @@ $(document).ready(function(){
 
 	$.ajax({
 		method:"GET",
-		url: "http://murmuring-chamber-7862.herokuapp.com/api/articles",
+		url: "http://localhost:3000/api/profile",
+		success: function(data) {
+			var name = "<strong>Name </strong>" + data.name;
+			var location = "<strong>Current Location: </strong>" + data.current_location;
+			var hobbies = "<strong>Hobbies: </strong>" + data.hobbies;
+			var image = "<img src=" + data.github_profile_image + ">";
+			$("#profile").append(image + "<br>" + name + "<br>" + location + "<br>" + hobbies);
+   		}
+	});
+
+
+	$.ajax({
+		method:"GET",
+		url: "http://localhost:3000/api/articles",
 		success: function(data) {
    			data.articles.forEach(function(e) {
    				var title = "<strong>Title: </strong>" + e.title;
@@ -27,7 +40,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$.ajax({
 			method:"GET",
-			url: "http://murmuring-chamber-7862.herokuapp.com/api/articles/",
+			url: "http://localhost:3000/api/articles/",
 			data: {
 	        	searchTitle: $("#subImage").val(),
 	        },
@@ -43,7 +56,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$.ajax({
 	      method: "POST",
-	      url: "http://murmuring-chamber-7862.herokuapp.com/api/articles",
+	      url: "http://localhost:3000/api/articles",
       	  success: function (data) {
       	  	newImage = $("#subImage").val();
 	        newTitle = $("#subTitle").val();
@@ -70,7 +83,7 @@ $(document).ready(function(){
 	function deleteArticle(id) {
 	  $.ajax({
 	    method: 'DELETE',
-	    url: "http://murmuring-chamber-7862.herokuapp.com/api/articles/:id",
+	    url: "http://localhost:3000/api/articles/:id",
 	    success: function (data) {
 	      $('div[dataID='+id+']').remove();
 
