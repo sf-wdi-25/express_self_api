@@ -5,6 +5,13 @@ var express = require('express'),
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
 
+// Allow CORS: we'll use this today to reduce security so we can more easily test our code in the browser.
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 /************
  * DATABASE *
  ************/
@@ -16,8 +23,7 @@ var profile = {
   family_members: [{name: "Erich", relationship: "partner"}, {name: "Joule", relationship: "Minister of Hay"}, {name: "Newton", relationship: "Secretary of Greens"}]
 }
 
-var places = ["Singapore", "Taiwan", "Okinawa", "South Africa", "Slovenia", "France", "Zion National Park", "Volcanoes National Park", "Canyonlands National Park", "Yosemite National Park", "Seattle", "Australia", "Berlin", "Chile", "Peru", "Argentina", "Costa Rica", "Aruba"];
-
+var places = [ {id: 1, location: "Singapore"}, {id: 2, location: "Taiwan"}, {id: 3, location: "Okinawa"}, {id: 4, location: "South Africa"}, {id: 5, location: "Slovenia"}, {id: 6, location: "France"}, {id: 7, location: "Zion National Park"}, {id: 8, location: "Volcanoes National Park"}, {id: 9, location: "Canyonlands National Park"}, {id: 10, location: "Yosemite National Park"}, {id: 11, location: "Seattle"}, {id: 12, location: "Australia"}, {id: 13, location: "Berlin"}, {id: 14, location: "Chile"}, {id: 15, location: "Peru"}, {id: 16, location: "Argentina"}, {id: 17, location: "Costa Rica"}, {id: 18, location: "Aruba"}];
 /**********
  * ROUTES *
  **********/
@@ -52,12 +58,18 @@ app.get('/api', function api_index (req, res){
 });
 
 app.get('/api/profile', function api_index (req, res){
-  res.json({
-    message: "hay gurl hayyy",
-    takeThisObject: profile
-  })
+  res.json(profile)
 });
 
+app.get('/api/places', function add_place(req, res) {
+  res.json(places);
+});
+
+app.post('/api/places', function add_place(req, res) {
+  console.log(req);
+});
+
+app.create 
 /**********
  * SERVER *
  **********/
