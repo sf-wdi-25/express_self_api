@@ -27,12 +27,12 @@ var profileInfo = [
     city: "San Francisco",
     family: [
       {
-        dname: "Papa Bear",
+        dname: "<strong>Papa Bear</strong>",
         relationship: "Father",
         photo: "'http://i.imgur.com/a3oOA6l.jpg' target='_blank'"
       },
       {
-        mname: "Mama Bear",
+        mname: "<strong>Mama Bear</strong>",
         relationship: "Mother",
         photo: "'http://i.imgur.com/zSJmRLa.jpg' target='_blank'"
       }
