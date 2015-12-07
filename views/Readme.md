@@ -1,1 +1,1 @@
-On my API my goal is to have  available endpoints are the create read put and destroy. Have the REST routes available. With the each section of variable of profile and favoriteMovies. 
+On my API my goal is to have  available endpoints are the create read put and destroy. Have the REST routes available. With the each section of variable of profile and favoriteMovies. Have the index and show in the favoriteMovies variable. using the ajax method for profile.
