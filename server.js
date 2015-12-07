@@ -43,7 +43,6 @@ app.get('/', function homepage (req, res) {
   { method: "GET", path: "/api", description: "retrieve all apis"},
   { method: "GET", path: "/APIREADME.md", description: "retrieves documentation"},
   { method: "GET", path: "/api/profile", description: "retrieves profile api"},
-  { method: "GET", path: "/api/:id", description: "retrieve specific api"},
   { method: "GET", path: "/api/designProjects", description: "retrieves designProjects api"},
   { method: "GET", path: "/api/design/:id", description: "retrieves selected designProject by id"},
   { method: "POST", path: "/api/designProjects", description: "creates designProjects property"},
@@ -97,37 +96,11 @@ app.get('/api/profile', function index(req, res) {
  **********/
 
 var designProjects = [
-  {design: [{ _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", url: "url"},
-    { _id: 2, title: "", caption: "", url: "url"}]},
-    { _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", url: "url"},
-    { _id: 2, title: "", caption: "", url: "url"}]},
-    { _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", url: "url"},
-    { _id: 2, title: "", caption: "", url: "url"}]},
-    { _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", url: "url"},
-    { _id: 2, title: "", caption: "", url: "url"}]},
-    { _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", url: "url"},
-    { _id: 2, title: "", caption: "", url: "url"}]},
-  ]},
-  {art: [{ _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", url: "url"},
-    { _id: 2, title: "", caption: "", url: "url"}]},
-    { _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", url: "url"},
-    { _id: 2, title: "", caption: "", url: "url"}]},
-    { _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", url: "url"},
-    { _id: 2, title: "", caption: "", url: "url"}]},
-    { _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", url: "url"},
-    { _id: 2, title: "", caption: "", url: "url"}]},
-    { _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", url: "url"},
-    { _id: 2, title: "", caption: "", url: "url"}]},
+  { date: "",
+  title: "",
+  description: "",
+  images: [ 
+    { _id: 1, title: "", caption: "", url: "url"},
   ]}
 ];
 
@@ -138,12 +111,71 @@ app.get('/api/design_projects', function index(req, res) {
 
 //retrieve designProjects property by id
 app.get('/api/design_projects/:id', function show(req, res) {
-  api.forEach(function (element, index) {
-    if (element. _id === req.params.id) {
-      res.json(req.body);
+  designProjects.forEach(function (element, index) {
+    if (element. _id === parseInt(req.params.id, 10)) {
+      res.json(element);
     }
   });
 });
+
+function makeID (item) {
+  var previous_id = item[item.length - 1]._id;
+  return previous_id + 1;
+}
+
+//retrieve designProjects property by id
+app.post('/api/design_projects', function create(req, res) {
+  var data = req.body;
+  var images = data.images;
+  var newDesignProject = { 
+    _id: makeID(designProjects), 
+    date: data.date, 
+    title: data.title, 
+    description: data.description,
+    images: [
+      { _id: 1, title: images.title, caption: images.caption, url: images.url}
+    ]
+  };
+  res.json(newDesignProject);
+});
+
+app.delete('/api/design_projects/:id', function destroy(req, res) {
+  designProjects.forEach(function (element, index) {
+    if (element._id === parseInt(req.params.id, 10)) {
+      res.json(designProjects[index]);
+      designProjects.splice(index, 1);
+    }
+  });
+});
+
+app.put('/api/design_projects/:id', function update(req, res) {
+  design_projects.forEach(function (element, index) {
+    var data = req.body;
+    if (element._id === parseInt(req.params.id, 10)) {
+      design_projects.splice(index, 1, { 
+        _id: element._id, 
+        date: data.date,
+        title: data.title, 
+        description: data.description,
+        images: [
+          { _id: 1, title: images.title, caption: images.caption, url :images.url}
+        ]
+      });
+      res.json(design_projects[index]);
+    }
+  });
+});
+
+// app.post('/api/design_projects', function create(req, res) {
+//   // var previous_id = design_projects[design_projects.length-1]._id;
+//   // var data = {_id: previous_id + 1, title: 'Walk Dog', description: 'Take Fluffy for a walk'};
+//   // res.json(data);
+//   var previous_id = design_projects[design_projects.length-1]._id;
+//   var data = req.body;
+//   var newToDo = {_id: previous_id + 1, title: data.title, description: data.description};
+//   res.json(newToDo);
+//   design_projects.push(newToDo);
+// });
 
 /**********
  * SERVER *
