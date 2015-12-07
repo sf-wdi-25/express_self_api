@@ -24,7 +24,7 @@ var my_profile = [
   {
     name: "Doug",
     github_link: "https://github.com/bachtsui",
-    github_profile_image:"www.google.com",
+    github_profile_image:"http://vignette3.wikia.nocookie.net/rickandmorty/images/7/70/Snuffles-helmet.jpg/revision/latest?cb=20131212193614",
     current_city: "Palo Alto",
     family_members: 
       [

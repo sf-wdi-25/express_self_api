@@ -2,6 +2,18 @@ console.log("Sanity Check: JS is working!");
 
 $(document).ready(function(){
 
+	$.ajax({
+		method: "GET",
+		url:"/api/profile",
+		success: function(pizza){
+			$("h1").append("<img src=\"" + pizza[0].github_profile_image + "\">");
+		},
+
+		error: function(){
+			console.log("Error with displaying Image");
+		}
+	});
+
 	// READ for Videogame DataStructure
 	$.ajax({
 		method: "GET",
@@ -10,6 +22,11 @@ $(document).ready(function(){
 
 			pizza.forEach(function (element){
 				console.log(element);
+				$(".showList").append("Title: " + element.title);
+				$(".showList").append("<br> Developer: " + element.developer);
+				$(".showList").append("<br> Year: " + element.year);
+				$(".showList").append("<br> Description: " + element.description + "<p></p>");
+				//can be refactored
 			});	
 		},
 
@@ -56,7 +73,7 @@ $(document).ready(function(){
 	// UPDATE for Videogame DataStructure
 	// Hardcoded for now
 	// Server side haven't made a path yet
-	
+
 	$.ajax({
 		method:"PUT",
 		url:"/api/videogames/1",
