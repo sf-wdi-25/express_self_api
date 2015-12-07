@@ -13,7 +13,7 @@ $.ajax({
          	// 	console.log(member.name, member.relationship);
          	// })
          	$('#profile').append("<p><strong>Name:</strong> " + data.name + "</p>")
-         	$('#profile').append("<p><strong>GitHub Link:</strong> " + data.github_link + "</p>")
+         	$('#profile').append("<p><strong>GitHub Link: </strong><a href=\"" + data.github_link + "\">"+ data.github_link +"</a></p>")
          	$('#profile').append("<p><img src=" + data.github_profile_image + "</img>")
          	$('#profile').append("<p><strong>City:</strong> " + data.current_city + "</p>")
          	$('#profile').append("<p><strong>Family Members:</strong></p>" + 

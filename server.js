@@ -2,6 +2,11 @@
 var express = require('express'),
     app = express();
 
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({extended: true})); // parse POSTed data
+
+
+
 // Allow CORS: we'll use this today to reduce security so we can more easily test our code in the browser.
   app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -104,6 +109,46 @@ app.get('/api/profile', function api_profile (req, res){
     res.json(favoriteMovies);  
   });
 
+  app.post('/api/favoriteMovies', function create(req, res) {
+    var newID = req.body;
+
+    if (favoriteMovies.length > 0) {
+      newID._id = favoriteMovies[favoriteMovies.length - 1]._id + 1;
+    } else {
+      newID._id = 1;
+    }
+
+    favoriteMovies.push(newID);
+
+    res.json(favoriteMovies);
+  });
+
+  app.put('/api/favoriteMovies/:id', function update(req, res) {
+  var editID = parseInt(req.params.id);
+
+  var editMovie = favoriteMovies.filter(function (edit) {
+    return edit._id == editID;
+  })[0];
+
+  if(req.body.year) {
+    editMovie.year = req.body.year;  
+  }
+
+  if(req.body.title) {
+    editMovie.title = req.body.title;  
+  }
+  
+  if(req.body.director) {
+    editMovie.director = req.body.director;  
+  }
+  
+  if(req.body.genre) {
+    editMovie.genre = req.body.genre;    
+  }  
+
+  res.json(favoriteMovies);
+});
+
   app.delete('/api/favoriteMovies/:id', 
     function destroy(req, res) {
       var getID = parseInt(req.params.id);
@@ -114,22 +159,6 @@ app.get('/api/profile', function api_profile (req, res){
 
       favoriteMovies.splice(favoriteMovies.indexOf(deleteID), 1);
       res.json(favoriteMovies);
-      // var idToDelete = parseInt(req.params.id);
-      // var indexToDelete = -1;
-      // for(i=0; i < favoriteMovies.length; i++) {
-      //   //get movie at index i
-      //   var currentMovieId = favoriteMovies[i]._id;
-      //   //if current movie have the same id as the id passed in
-      //   if (currentMovieId === idToDelete) {
-      //     //set indexToDelete to i and break
-      //     indexToDelete = i;
-      //     break;  
-      //   }        
-      // }
-
-      // //remove "idToDelete" from favoriteMovie list
-      // favoriteMovies.splice(indexToDelete, 1);
-      // res.json(favoriteMovies);
   });
 
 /**********
