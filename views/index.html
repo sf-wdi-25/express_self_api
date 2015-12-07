@@ -58,6 +58,9 @@
             <input type="text" name="synopsis" class="form-control" placeholder="Synopsis" autofocus>
           </div>
           <div class="form-group">
+            <input type="text" name="image" class="form-control" placeholder="Image url here" autofocus>
+          </div>
+          <div class="form-group">
             <input type="submit" class="btn btn-default" value="Add Book">
           </div>
         </form>
@@ -70,7 +73,7 @@
          <script id="books-template" type="text/x-handlebars-template">
             {{#each books}}
               <li class="list-group-item book" data-id="{{_id}}">
-                <img src="/images/reality_dysfunction.jpg" alt="Book Jacket">
+                <img src={{image}} alt="Book Jacket">
                 <p><b>Contributor: </b>{{contributor}}</p>
                 <p><b>Title:  </b>{{title}}</p>
                 <p><b>Author:  </b>{{author}}</p>
@@ -94,7 +97,9 @@
                   <br>
                   <form class="form-inline update-book">
                    
-
+                    <div class="form-group">
+                      <input type="text" name="image" class="form-control" placeholder="Image url here" value="{{image}}">
+                    </div>
                     <div class="form-group">
                       <input type="text" name="contributor" class="form-control" placeholder="Contributor" value="{{contributor}}">
                     </div>
