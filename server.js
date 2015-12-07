@@ -22,19 +22,19 @@ app.use(express.static(__dirname + '/public'));
 var profileInfo = [
   {
     name: "Nathan",
-    githubLink: "<a href = 'https://github.com/anonym0us3' target='_blank'>Link</a>",
+    githubLink: "<a href = 'https://github.com/anonym0us3' target='_blank'><strong>Link</strong></a>",
     githubProfilePic: "<img src= 'https://avatars1.githubusercontent.com/u/15662297?v=3&s=460' width='50' height='auto'>",
     city: "San Francisco",
     family: [
       {
         dname: "Papa Bear",
         relationship: "Father",
-        photo: "<a href = 'http://4.bp.blogspot.com/-2TiLn_WHK7o/UwFyc96Bl9I/AAAAAAAAHRk/ZqDBK0eF_Vg/s1600/polar-bear-with-cub-1134-1920x1200.jpg' target='_blank'>Dad</a>"
+        photo: "'http://i.imgur.com/a3oOA6l.jpg' target='_blank'"
       },
       {
         mname: "Mama Bear",
         relationship: "Mother",
-        photo: "<a href = 'http://i.dailymail.co.uk/i/pix/2014/12/18/2423FC8100000578-0-image-a-31_1418912663847.jpg' target='_blank'>Mom</a>"
+        photo: "'http://i.imgur.com/zSJmRLa.jpg' target='_blank'"
       }
     ]
   }
@@ -71,6 +71,9 @@ var goodMuzac = [
     youtube: "https://www.youtube.com/watch?v=h_iTHKVEbAs"
   }
 ];
+
+var tvShows = ["Suits", "The Walking Dead", "South Park", "Family Guy", "Arrow", "The Flash", "Legends", "Elementary",
+              "Heroes Reborn", "Top Chef", "Quantico", "Scream Queens", "The Player", "Minority Report"];
 
 /**********
  * ROUTES *
