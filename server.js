@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
  ************/
 
  //messages
-
+var url ='https://frozen-bayou-5536.herokuapp.com';
 
 
 var music = [{
@@ -67,7 +67,7 @@ app.get('/api/', function api_index (req, res) {
 app.get('/api/profile', function api_profile (req, res) {
 res.json({ 
   message: "About Me",
-  base_url: "localhost:3000/",
+  base_url: url,
   data: [{
       name: "Danny Chan",
       github_link: "http://github.com/chan-d/",
@@ -88,7 +88,7 @@ res.json({
 
 app.get('/api/music', function api_music(req, res){
     res.json({
-        base_url: 'localhost:3000',
+        base_url: url,
         data: music
     });
 });
