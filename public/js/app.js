@@ -44,15 +44,21 @@ $(document).ready(function(){
 		$.ajax({
 	      method: "POST",
 	      url: "http://murmuring-chamber-7862.herokuapp.com/api/articles",
-	      data: {
-	        image: $("#subImage").val(),
-	        title: $("#subTitle").val(),
-	        link: $("#subLink").val(),
-	        link: $("#subAuthor").val()
-      	  },
-      	  success: function (response) {
-        	console.log("Added Article!");
-      	  },
+      	  success: function (data) {
+      	  	newImage = $("#subImage").val();
+	        newTitle = $("#subTitle").val();
+	        newLink = $("#subLink").val();
+	        newAuthor = $("#subAuthor").val();
+        	var title = "<strong>Title: </strong>" + newTitle;
+			var author = "<strong>Author: </strong>" + newAuthor;
+			var link = "<strong>Source: </strong><a href='"+ newLink + "'>Link</a>";
+			var image = "<img src=" + newImage + ">";
+			var editButton = "<button class='btn-primary'>edit</button>";
+			var deleteButton = "<button class='btn-primary delete'>delete</button>";
+			$("#index").append("<div class='articles' dataID='" + data._id + "'><div class='article-divs' id='article-image'>" + image + "</div>" + 
+				"<div class='article-divs' id='article-list'><p>" + "<br>" + title + "<br>" + author + "<br>" + link + "<br>" + 
+				editButton + deleteButton + "</p></div></div><hr />");
+      	  }
       	});
 	});	
 

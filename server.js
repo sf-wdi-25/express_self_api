@@ -5,6 +5,8 @@ var express = require('express'),
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
 
+var bodyParser = require("body-parser"); app.use(bodyParser.urlencoded({extended: true}));
+
   // Allow CORS: we'll use this today to reduce security so we can more easily test our code in the browser.
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
