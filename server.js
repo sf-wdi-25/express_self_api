@@ -92,14 +92,15 @@ app.get('/api/animes', function index(req, res) {
 
 
 app.post('/api/animes', function newAnime(req, res) {
-  var anime = req.body;
-  console.log("The request: " + JSON.stringify(req.body));
-  console.log("The anime: " + JSON.stringify(anime));
+  var requestBody = req.body;
+  var animeName = requestBody['animeName'];
+  var anime_id;
   if (favAnimes > 0) {
-    anime._id = favAnimes[favAnimes.length - 1] + 1;
+    anime_id = favAnimes[favAnimes.length - 1] + 1;
   }else{
-    anime._id = 1;
+    anime_id = 1;
   }
+  anime = {"_id": anime_id, "title": animeName, "genre": ""};
   favAnimes.push(anime);
   res.json(anime);
 });

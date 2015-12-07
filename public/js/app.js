@@ -83,7 +83,7 @@ $createAnime.on('click', function (event){
 	var newAnime = $('#name').val();
 	console.log('Posting newAnime:' + newAnime);
 
-	$.post('https://murmuring-waters-9411.herokuapp.com/api/animes', newAnime, function (favAnimes){
+	$.post('https://murmuring-waters-9411.herokuapp.com/api/animes', {"animeName": newAnime}, function (favAnimes){
 		console.log("Upon success, the POST returned ");
 		console.log(JSON.stringify(favAnimes));
 		console.log("Adding " + favAnimes.title + " to the array " + myanimes);
