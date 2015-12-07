@@ -34,39 +34,34 @@ app.get('/', function homepage (req, res) {
 /*
  * JSON API Endpoints
  */
-
- /**********
+ 
+  /**********
  * /api *
  **********/
 
-var api = [
-  { _id: 1, method: "GET", path: "/api", description: "retrieve all apis"},
-  { _id: 2, method: "POST", path: "/api", description: "create new api"},
-  { _id: 3, method: "PUT", path: "/api/:id", description: "update existing api"},
-  { _id: 4, method: "DELETE", path: "/api/:id", description: "delete existing api"},
-  { _id: 5, method: "GET", path: "/api/:id", description: "retrieve specific api"}
+ var api =  [
+  { method: "GET", path: "/api", description: "retrieve all apis"},
+  { method: "GET", path: "/APIREADME.md", description: "retrieves documentation"},
+  { method: "GET", path: "/api/profile", description: "retrieves profile api"},
+  { method: "GET", path: "/api/:id", description: "retrieve specific api"},
+  { method: "GET", path: "/api/designProjects", description: "retrieves designProjects api"},
+  { method: "GET", path: "/api/design/:id", description: "retrieves selected designProject by id"},
+  { method: "POST", path: "/api/designProjects", description: "creates designProjects property"},
+  { method: "PUT", path: "/api/designProjects/:id", description: "updates selected designProjects property"},
+  { method: "DELETE", path: "/api/designProjects/id", description: "deletes selected designProjects property"}
 ];
 
 //retrieve all apis
 app.get('/api', function api_index (req, res){
   res.json({
     message: "Is Angieri's first api",
-    documentation_url: "https://github.com/isangieri/express_self_api/blob/master/APIREADME.md", // CHANGE THIS TO LINK TO YOUR README.md
+    documentation_url: "https://github.com/isangieri/express_self_api/blob/master/APIREADME.md",
     base_url: "http://gentle-shore-4526.herokuapp.com",
-    endpoints: {api: api, profile: profile, designProjects: designProjects},
+    endpoints: api
   });
 });
 
-//retrieve api by id
-app.get('/api/:id', function show(req, res) {
-  api.forEach(function (element, index) {
-    if (element. _id == req.params.id + 1) {
-      res.json(api[index]);
-    }
-  });
-});
-
- /**********
+  /**********
  * /api/profile *
  **********/
 
@@ -87,7 +82,7 @@ app.get('/api/:id', function show(req, res) {
 
 //retrieve all profile properties
 app.get('/api/profile', function index(req, res) {
-  res.json({ profile: profile });
+  res.json({ "profile": profile });
 });
 
  /**********
@@ -96,26 +91,51 @@ app.get('/api/profile', function index(req, res) {
 
 var designProjects = [
   {design: [{ _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", src: "url"},
-    { _id: 2, title: "", caption: "", src: "url"}]},
+    [{ _id: 1, title: "", caption: "", url: "url"},
+    { _id: 2, title: "", caption: "", url: "url"}]},
     { _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", src: "url"},
-    { _id: 2, title: "", caption: "", src: "url"}]},
+    [{ _id: 1, title: "", caption: "", url: "url"},
+    { _id: 2, title: "", caption: "", url: "url"}]},
     { _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", src: "url"},
-    { _id: 2, title: "", caption: "", src: "url"}]},
+    [{ _id: 1, title: "", caption: "", url: "url"},
+    { _id: 2, title: "", caption: "", url: "url"}]},
     { _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", src: "url"},
-    { _id: 2, title: "", caption: "", src: "url"}]},
+    [{ _id: 1, title: "", caption: "", url: "url"},
+    { _id: 2, title: "", caption: "", url: "url"}]},
     { _id: 1, date: "", title: "", description: "", images: 
-    [{ _id: 1, title: "", caption: "", src: "url"},
-    { _id: 2, title: "", caption: "", src: "url"}]},
-]}
+    [{ _id: 1, title: "", caption: "", url: "url"},
+    { _id: 2, title: "", caption: "", url: "url"}]},
+  ]},
+  {art: [{ _id: 1, date: "", title: "", description: "", images: 
+    [{ _id: 1, title: "", caption: "", url: "url"},
+    { _id: 2, title: "", caption: "", url: "url"}]},
+    { _id: 1, date: "", title: "", description: "", images: 
+    [{ _id: 1, title: "", caption: "", url: "url"},
+    { _id: 2, title: "", caption: "", url: "url"}]},
+    { _id: 1, date: "", title: "", description: "", images: 
+    [{ _id: 1, title: "", caption: "", url: "url"},
+    { _id: 2, title: "", caption: "", url: "url"}]},
+    { _id: 1, date: "", title: "", description: "", images: 
+    [{ _id: 1, title: "", caption: "", url: "url"},
+    { _id: 2, title: "", caption: "", url: "url"}]},
+    { _id: 1, date: "", title: "", description: "", images: 
+    [{ _id: 1, title: "", caption: "", url: "url"},
+    { _id: 2, title: "", caption: "", url: "url"}]},
+  ]}
 ];
 
 //retrieve all design_projects properties
 app.get('/api/design_projects', function index(req, res) {
   res.json({ designProjects: designProjects });
+});
+
+//retrieve designProjects property by id
+app.get('/api/design_projects/:id', function show(req, res) {
+  api.forEach(function (element, index) {
+    if (element. _id === req.params.id) {
+      res.json(req.body);
+    }
+  });
 });
 
 /**********
