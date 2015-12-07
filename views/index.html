@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   
-
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -17,8 +15,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-      
-
     <!-- APPLICATION SCRIPTS -->
     <script src="js/app.js"></script>
 
@@ -27,7 +23,7 @@
   </head>
 
     <!-- header -->
-
+ <body>
   <div class="well">
     <div class="container">
       <div class="page-header">
@@ -35,66 +31,37 @@
       </div>
     </div>
   </div>
-
-<!--   <body>
-         <form class="form-inline" id="create-book">
-          <div class="form-group">
-            <input type="text" name="contributor" id="contributor" class="form-control" placeholder="Contributor" autofocus>
-          </div>
-          <div class="form-group">
-            <input type="text" name="title" id="title" class="form-control" placeholder="Title">
-          </div>
-          <div class="form-group">
-            <input type="text" name="author" id="author" class="form-control" placeholder="Author">
-          </div>
-          <div class="form-group">
-            <input type="text" name="genre" id="genre" class="form-control" placeholder="Genre">
-          </div>
-         <div class="form-group">
-            <input type="text" name="notes" id="notes" class="form-control" placeholder="Notes">
-          </div>
-          <div class="form-group">
-            <input type="text" name="synopsis" id="synopsis" class="form-control" placeholder="Synopsis">
-          </div>
-          <div class="form-group">
-            <input type="submit" class="btn btn-default" value="Add Book">
-          </div>
-        </form>
-      <div class = "bookList">
-
-            <br>
-      </div>
-  </body>
  
-  <body>
-    <div class="container">
+ 
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
         
         <!-- new books form-->
-         <<form class="form-inline" id="create-book">
+         <form class="form-inline" id="create-book">
           <div class="form-group">
-            <input type="text" name="contributor" id="contributor" class="form-control" placeholder="Contributor" autofocus>
+            <input type="text" name="contributor" class="form-control" placeholder="Contributor" autofocus>
           </div>
           <div class="form-group">
-            <input type="text" name="title" id="title" class="form-control" placeholder="Title">
+            <input type="text" name="title" class="form-control" placeholder="Title" autofocus>
           </div>
           <div class="form-group">
-            <input type="text" name="author" id="author" class="form-control" placeholder="Author">
+            <input type="text" name="author" class="form-control" placeholder="Author" autofocus>
           </div>
           <div class="form-group">
-            <input type="text" name="genre" id="genre" class="form-control" placeholder="Genre">
+            <input type="text" name="genre" class="form-control" placeholder="Genre" autofocus>
           </div>
          <div class="form-group">
-            <input type="text" name="notes" id="notes" class="form-control" placeholder="Notes">
+            <input type="text" name="notes" class="form-control" placeholder="Notes" autofocus>
           </div>
           <div class="form-group">
-            <input type="text" name="synopsis" id="synopsis" class="form-control" placeholder="Synopsis">
+            <input type="text" name="synopsis" class="form-control" placeholder="Synopsis" autofocus>
           </div>
           <div class="form-group">
             <input type="submit" class="btn btn-default" value="Add Book">
           </div>
         </form>
+        <br>
 
         <!-- list of books -->
          <ul class="list-group" id="books-list">
@@ -103,7 +70,7 @@
          <script id="books-template" type="text/x-handlebars-template">
             {{#each books}}
               <li class="list-group-item book" data-id="{{_id}}">
-
+                <img src="/images/reality_dysfunction.jpg" alt="Book Jacket">
                 <p><b>Contributor: </b>{{contributor}}</p>
                 <p><b>Title:  </b>{{title}}</p>
                 <p><b>Author:  </b>{{author}}</p>
@@ -113,21 +80,20 @@
                 
                 
                   <!-- pencil icon to toggle update form -->
-                 <a href="javascript:void(0)" data-toggle="collapse" data-target="#update-{{_id}}">
+                  <a href="javascript:void(0)" data-toggle="collapse" data-target="#update-{{_id}}">
                     <span class="glyphicon glyphicon-pencil"></span>
                   </a>
                   
                   <!-- trash can icon to delete book -->
-                <a href="javascript:void(0)" class="delete-book">
+                  <a href="javascript:void(0)" class="delete-book">
                     <span class="glyphicon glyphicon-trash"></span>
                   </a>
-                </div>
                 
                 <!-- form to update book -->
-              <div class="collapse" id="update-{{_id}}">
+                <div class="collapse" id="update-{{_id}}">
                   <br>
                   <form class="form-inline update-book">
-                    <div class="form-group">
+                   
 
                     <div class="form-group">
                       <input type="text" name="contributor" class="form-control" placeholder="Contributor" value="{{contributor}}">
@@ -158,7 +124,7 @@
         </ul>
       </div>
     </div>
-  </div> -->
+  </div> 
 
   <!-- jquery -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -170,5 +136,5 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
 
 
-  </body>
+</body>
 </html>
