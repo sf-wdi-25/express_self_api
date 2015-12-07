@@ -12,7 +12,7 @@ The list below specifies what endpoints are available on my API.
 
 #### Endpoints
 
-- **(`/api/profile`)**: (`/api/profile`) expects to get FILLINTHISBLANK from the request (verb + route + data), and what will respond with (structure of JSON). To use this API, see the documentation below:
+- **(`/api/profile`)**: (`/api/profile`) expects to get FILLINTHISBLANK from the request (verb + route + data), and will respond with (structure of JSON). To use this API, see the documentation below:
     + `name` - a string
     + `github_link` - a url to your github profile
     + `github_profile_image` - the url of your github profile image

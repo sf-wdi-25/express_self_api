@@ -42,6 +42,19 @@ var api = [
   {_id: 5, method: "GET", path: "/api/:id", description: "retrieve specific api"}
 ];
 
+var profile = [
+  {name: "Nicolette", relationship: "mother"},
+  {name: "Gabriele", relationship: "father"},
+  {name: "Faith", relationship: "step-mother"},
+  {name: "Dominic", relationship: "brother"},
+  {name: "Gabriel", relationship: "brother"},
+  {name: "Yvonne", relationship: "sister"},
+  {name: "Ghislaine", relationship: "sister"},
+  {name: "Jean-Paul", relationship: "brother"},
+  {name: "Denise", relationship: "sister"},
+  {name: "Clementina", relationship: "sister"}
+];
+
 //retrieve all apis
 app.get('/api', function api_index (req, res){
   res.json({
