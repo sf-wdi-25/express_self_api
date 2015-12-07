@@ -40,11 +40,11 @@ app.get('/', function homepage (req, res) {
  **********/
 
 var api = [
-  {_id: 1, method: "GET", path: "/api", description: "retrieve all apis"},
-  {_id: 2, method: "POST", path: "/api", description: "create new api"},
-  {_id: 3, method: "PUT", path: "/api/:id", description: "update existing api"},
-  {_id: 4, method: "DELETE", path: "/api/:id", description: "delete existing api"},
-  {_id: 5, method: "GET", path: "/api/:id", description: "retrieve specific api"}
+  { _id: 1, method: "GET", path: "/api", description: "retrieve all apis"},
+  { _id: 2, method: "POST", path: "/api", description: "create new api"},
+  { _id: 3, method: "PUT", path: "/api/:id", description: "update existing api"},
+  { _id: 4, method: "DELETE", path: "/api/:id", description: "delete existing api"},
+  { _id: 5, method: "GET", path: "/api/:id", description: "retrieve specific api"}
 ];
 
 //retrieve all apis
@@ -60,7 +60,7 @@ app.get('/api', function api_index (req, res){
 //retrieve api by id
 app.get('/api/:id', function show(req, res) {
   api.forEach(function (element, index) {
-    if (element._id == req.params.id + 1) {
+    if (element. _id == req.params.id + 1) {
       res.json(api[index]);
     }
   });
@@ -87,7 +87,7 @@ app.get('/api/:id', function show(req, res) {
 
 //retrieve all profile properties
 app.get('/api/profile', function (req, res){
-  res.json({profile});
+  res.json({profile: profile});
 });
 
  /**********
@@ -95,27 +95,27 @@ app.get('/api/profile', function (req, res){
  **********/
 
 var designProjects = [
-  {design: [{_id: 1, date: "", title: "", description: "", images: 
-    [{_id: 1, title: "", caption: "", src: "url"},
-    {_id: 2, title: "", caption: "", src: "url"}]},
-    {_id: 1, date: "", title: "", description: "", images: 
-    [{_id: 1, title: "", caption: "", src: "url"},
-    {_id: 2, title: "", caption: "", src: "url"}]},
-    {_id: 1, date: "", title: "", description: "", images: 
-    [{_id: 1, title: "", caption: "", src: "url"},
-    {_id: 2, title: "", caption: "", src: "url"}]},
-    {_id: 1, date: "", title: "", description: "", images: 
-    [{_id: 1, title: "", caption: "", src: "url"},
-    {_id: 2, title: "", caption: "", src: "url"}]},
-    {_id: 1, date: "", title: "", description: "", images: 
-    [{_id: 1, title: "", caption: "", src: "url"},
-    {_id: 2, title: "", caption: "", src: "url"}]},
+  {design: [{ _id: 1, date: "", title: "", description: "", images: 
+    [{ _id: 1, title: "", caption: "", src: "url"},
+    { _id: 2, title: "", caption: "", src: "url"}]},
+    { _id: 1, date: "", title: "", description: "", images: 
+    [{ _id: 1, title: "", caption: "", src: "url"},
+    { _id: 2, title: "", caption: "", src: "url"}]},
+    { _id: 1, date: "", title: "", description: "", images: 
+    [{ _id: 1, title: "", caption: "", src: "url"},
+    { _id: 2, title: "", caption: "", src: "url"}]},
+    { _id: 1, date: "", title: "", description: "", images: 
+    [{ _id: 1, title: "", caption: "", src: "url"},
+    { _id: 2, title: "", caption: "", src: "url"}]},
+    { _id: 1, date: "", title: "", description: "", images: 
+    [{ _id: 1, title: "", caption: "", src: "url"},
+    { _id: 2, title: "", caption: "", src: "url"}]},
 ]}
 ];
 
 //retrieve all design_projects properties
 app.get('/api/design_projects', function (req, res){
-  res.json({designProjects});
+  res.json({ designProjects: designProjects});
 });
 
 /**********
