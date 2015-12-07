@@ -31,7 +31,7 @@ var travel = [
 var skills = [
 { _id: 1, skills: 'Basic construction'},
 { _id: 2, skills: 'Basic mechanic'},
-{ _id: 3, skills: 'Scuba diving certification'},
+{ _id: 3, skills: 'Scuba diving'},
 ];
 
 
