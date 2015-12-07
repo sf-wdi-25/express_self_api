@@ -51,7 +51,7 @@ app.get('/', function homepage (req, res) {
  */
 
 app.get('/api', function api_index (req, res){
-  res.json({m ,
+  res.json({
     message: "Welcome to my personal api!",
     documentation_url: "https://github.com/bw-giraffe/express_self_api", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "https://sheltered-dawn-4760.herokuapp.com/api",
@@ -70,7 +70,7 @@ app.get('/api/places', function aget_place(req, res) {
 });
 
 app.post('/api/places', function add_place(req, res) {
-  var newPlace = req.body; s
+  var newPlace = req.body;
   newPlace.id = parseInt(newPlace.id);
   console.log(newPlace);
   places.push(newPlace);
@@ -78,9 +78,9 @@ app.post('/api/places', function add_place(req, res) {
 });
 
 app.delete('/api/place/:id', function delete_place (req, res) {
- // var id = req.params.id; 
- // console.log(id);
-  //res.send(id);
+  var id = req.params.id; 
+  console.log(id);
+  res.send(id);
 });
 
 app.create 
