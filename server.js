@@ -53,7 +53,7 @@ app.get('/api', function api_index (req, res){
     message: "Is Angieri's first api",
     documentation_url: "https://github.com/isangieri/express_self_api/blob/master/APIREADME.md", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "http://gentle-shore-4526.herokuapp.com",
-    endpoints: api + profile,
+    endpoints: {api: api, profile: profile},
   });
 });
 
