@@ -22,17 +22,17 @@ app.use(express.static(__dirname + '/public'));
 var profileInfo = [
   {
     name: "Nathan",
-    githubLink: "https://github.com/anonym0us3",
-    githubProfilePic: "https://avatars1.githubusercontent.com/u/15662297?v=3&s=460",
+    githubLink: "<a href = 'https://github.com/anonym0us3' target='_blank'>Link</a>",
+    githubProfilePic: "<img src= 'https://avatars1.githubusercontent.com/u/15662297?v=3&s=460' width='50' height='auto'>",
     city: "San Francisco",
     family: [
       {
-        name: "Papa Bear",
+        dname: "Papa Bear",
         relationship: "Father",
         photo: "<a href = 'http://4.bp.blogspot.com/-2TiLn_WHK7o/UwFyc96Bl9I/AAAAAAAAHRk/ZqDBK0eF_Vg/s1600/polar-bear-with-cub-1134-1920x1200.jpg' target='_blank'>Dad</a>"
       },
       {
-        name: "Mama Bear",
+        mname: "Mama Bear",
         relationship: "Mother",
         photo: "<a href = 'http://i.dailymail.co.uk/i/pix/2014/12/18/2423FC8100000578-0-image-a-31_1418912663847.jpg' target='_blank'>Mom</a>"
       }
@@ -84,14 +84,15 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/api/profile', function profile(req, res) {
-
-});
-
 
 /*
  * JSON API Endpoints
  */
+
+app.get('/api/profile', function profile(req, res) {
+  res.json({profileInfo: profileInfo});
+});
+
 
 app.get('/api', function api_index (req, res){
   res.json({
@@ -99,10 +100,14 @@ app.get('/api', function api_index (req, res){
     documentation_url: "https://github.com/anonym0us3/express_self_api/blob/master/ReamDe.md", // CHANGE THIS TO LINK TO YOUR README.md
     base_url: "https://mysterious-earth-5591.herokuapp.com",
     endpoints: [
-      {method: "GET", path: "/api", description: "Describes available endpoints"}
+      {
+        method: "GET",
+        path: "/api",
+        description: "Describes available endpoints"}
     ]
   });
 });
+
 
 /**********
  * SERVER *

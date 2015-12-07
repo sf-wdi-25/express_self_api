@@ -4,16 +4,48 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+h1 {
+  color: black;
+}
+
+/*a {
+  color: rgba(255, 255, 255, 0.8);
+}*/
+
 header {
 	margin-top: -20px;
 	padding-top: 5px;
-	padding-bottom: 10px;
+  padding-bottom: 10px;
 	text-align: center;
 	background-color: deepskyblue; /* Sanity Check! */
 }
 
-@media (max-width: 200px) {
-  h1 {
-    font-size: 20px;
-  }
+.navbar {
+  text-align: center;
+}
+
+ul {
+  background-color: rgba(192, 192, 192, 0.1);
+}
+
+li {
+  display: inline;
+  font-size: 20px;
+  padding: 0px 10px 0px 10px;
+  margin-bottom: -20px;
+}
+
+.container {
+  text-align: center;
+  display: inline;
+  color: white;
+}
+
+.col-md-4 {
+  margin-left: 15px;
+}
+
+#col1 {
+  text-align: left;
+
 }
