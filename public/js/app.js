@@ -14,10 +14,21 @@ var $createAnime = $('#create-anime');
 var render = function() {
 
 	$animeList.empty();
-
-	var animeToHTML = {favAnimes: myAnimes};
-
-	$animeList.append(animeToHTML);
+	$.ajax({
+		type: 'GET',
+		url: 'https://murmuring-waters-9411.herokuapp.com/api/animes',
+		success: function(favAnimes){
+			favAnimes.favAnimes.forEach(function (element){
+				$animeList.append("<ul class='list-group'>" + "<li class='list-group-item' data-id='" + element._id + "'>" + "Anime Title: " + element.title + "<br>"
+					+ "Genre: " + element.genre + "<br>" + "Finished: " + element.finished + "</li>" + "</ul>");
+			});
+		}
+	});
+	$('.dlt').each(function() {
+		$(this).on('click', function (event){
+			console.log('hello');
+		})
+	});
 }
 
 
@@ -26,7 +37,7 @@ $.ajax({
 	url: 'https://murmuring-waters-9411.herokuapp.com/api/profile',
 	success: function(pInfo){
 		console.log(pInfo);
-		console.log(Object.keys(pInfo).length)
+		console.log(Object.keys(pInfo).length);
 
 		// pInfo.forEach(function dispInfo(element){
 			var myName = pInfo.name;
@@ -40,27 +51,16 @@ $.ajax({
 			var mom = pInfo.familyMembers[2].fname;
 			var momR = pInfo.familyMembers[2].relationship;
 			$('#myInfo').append(
-				"<div>" +  "<h2>" +"Hi, I'm " + myName + "</h2>" 
-				+ "<br>" + "<a href=" + github + ">" + '<img src="' + githubLink + '"> ' 
-				+"</a>" + "<br>" + "<p>" + "City: " + myCity + "</p>"
-				+ "</p>" + "<br>" + "<p class ='fam'>"+ "Family" + "<br>" + sis1 
-				+ " " + sis1R + "<br>" + sis2 + " " + sis2R 
-				+ "<br>" + mom + " " + momR + "</p>" + "</div>");
+				"<div>" +  "<h2>" +"Hi, I'm " + myName + "</h2>" + "<br>" +  "<p>" + "I LOVE Software. " + "<br>"+ " I live in " + myCity + " California " +  "</p>"   
+				+ "<br>" + "<a href='" + github + "'>" + '<img src="' + githubLink + '"> ' 
+				+"</a>" + "<br>" + "<br>" + 
+				"<p class ='fam'>" + "I have a " + sis1R 
+				+ " named " + sis1 + " and a " + sis2R + " named " + sis2 + "."
+				+ "<br>" + "My " + momR + "'s name is " + mom +"."+ "<br>" + "<br>" + " Below is a list of my favorite animes and you can create new favorites if you read my READ.MD for your own anime list."+ "</p>" + "</div>");
 		// });
 	}
 
 });
-
-$.get('https://murmuring-waters-9411.herokuapp.com/api/animes', function (favAnimes){
-	console.log(favAnimes);
-	myanimes = favAnimes.favAnimes;
-	render();
-
-});
-
-
-
-
 
 $.ajax({
 	type: 'GET',
@@ -69,10 +69,23 @@ $.ajax({
 
 		favAnimes.favAnimes.forEach(function (element){
 			console.log(element);
-			$animeList.append("<ul class='list-group'>" + "<li class='list-group-item' data-id='" + element._id + "'>" + "Anime Title: " + element.title + "<br>"
-				+ "Genre: " + element.genre + "<br>" + "Finished: " + element.finished + "</li>" + "</ul>");
+			$animeList.append("<ul class='list-group'>" + "<li class='list-group-item'>" + "Anime Title: " + element.title + "<br>"
+				+ "Genre: " + element.genre + "<br>" + "Finished: " + element.finished +"<br>"+  "<input class='btn btn-default dlt' data-id='" + element._id + "' type='submit' value='Delete'>" + "</li>" + "</ul>");
 		});
 		console.log([favAnimes.favAnimes.title]);
+		$('.dlt').each(function() {
+			$(this).on('click', function (event){
+				var current_id = $(this).data('id');
+				console.log(current_id);
+				$.ajax({
+					type: 'DELETE',
+					url: 'https://murmuring-waters-9411.herokuapp.com/api/animes/' + current_id,
+					success: function(favAnimes){
+						render();
+					}
+				})
+			})
+		});
 	}
 });
 
@@ -81,14 +94,9 @@ $createAnime.on('click', function (event){
 	//allows me to save my anime title
 	// var newAnime = $(this).serialize();
 	var newAnime = $('#name').val();
-	console.log('Posting newAnime:' + newAnime);
 
 	$.post('https://murmuring-waters-9411.herokuapp.com/api/animes', {"animeName": newAnime}, function (favAnimes){
-		console.log("Upon success, the POST returned ");
-		console.log(JSON.stringify(favAnimes));
-		console.log("Adding " + favAnimes.title + " to the array " + myanimes);
 		myAnimes.push({favAnimes: favAnimes.title});
-		console.log(favAnimes.title)
 
 		render();
 
@@ -97,9 +105,8 @@ $createAnime.on('click', function (event){
 
 });
 
+
 });
-
-
 
 
 /*

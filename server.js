@@ -100,7 +100,7 @@ app.post('/api/animes', function newAnime(req, res) {
   }else{
     anime_id = 1;
   }
-  anime = {"_id": anime_id, "title": animeName, "genre": ""};
+  anime = {"_id": anime_id, "title": animeName, "genre": "", "finished": false};
   favAnimes.push(anime);
   res.json(anime);
 });
@@ -126,7 +126,7 @@ app.put('/api/animes/:id', function updateAnime(req, res) {
   });
 });
 //Deleting Anime from server
-app.delete('/api/animes:id', function deleteAnime(req, res) {
+app.delete('/api/animes/:id', function deleteAnime(req, res) {
   favAnimes.forEach(function (element, index) {
     if (element._id === req.params.id) {
       res.json(favAnimes[index]);
