@@ -69,6 +69,12 @@ app.get('/api/places', function aget_place(req, res) {
   res.json(places);
 });
 
+app.get('/api/places/:id', function aget_place(req, res) {
+  var placeId = parseInt(req.params.id);
+  placeId = placeId - 1;
+  res.send(places[placeId]);
+});
+
 app.post('/api/places', function add_place(req, res) {
   var newPlace = req.body;
   newPlace.id = parseInt(newPlace.id);
