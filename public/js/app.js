@@ -90,10 +90,28 @@ $(document).ready(function(){
 				url: baseUrlBooks + '/' + bookId,
 				data: updatedBook,
 				success: function(data) {
-					allBooks.splice(allBooks.indexOf(bookToUpdate), 1);
+					allBooks.splice(allBooks.indexOf(bookToUpdate), 1, data);
 				render();
 				}
 
+			});
+		})
+
+		.on('click', '.delete-book', function (event) {
+			event.preventDefault();
+			var bookId = $(this).closest('.book').attr('data-id');
+
+			var bookToDelete = allBooks.filter(function (book) {
+				return book._id == bookId;
+			}) [0];
+
+			$.ajak({
+				type: 'DELETE',
+				url: baseUrlBooks + '/' + bookId,
+				success: function(data) {
+					allBooks.splice(allBooks.indexOf(bookToDelete), 1);
+					render();
+				}
 			});
 		});
 

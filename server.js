@@ -119,9 +119,17 @@ app.put('/api/books/:id', function books_update(req, res){
     }
   });
 
-
 });
 
+app.delete('/api/books/:id', function destroy( req, res) {
+  var id = parseInt(req.params.id);
+  books.forEach(function(element, index) {
+    if (element._id === id) {
+      books.splice(index, 1);
+    }
+  });
+  res.json({});
+});
 
 /**********
  * SERVER *
