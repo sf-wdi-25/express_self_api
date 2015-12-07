@@ -1,7 +1,7 @@
 console.log("Sanity Check: JS is working!");
 
 $(document).ready(function(){
-			var base_url= 'https://frozen-bayou-5536.herokuapp.com';
+			var base_url= 'localhost:3000';
 	  		var toAddUser; 
 	  		var toAddMessage;
 	  		
@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 	$.ajax({
 		method: "GET",
-		url: base_url + '/api/profile',
+		url: '/api/profile',
 		success: function(element){
 			element.data.forEach(function (e){
 				var family = e.family_members;
@@ -22,7 +22,7 @@ $(document).ready(function(){
 
 	$.ajax({
 		method: 'GET',
-		url: base_url + '/api/music',
+		url: '/api/music',
 		success: function(data){
 			data.data.forEach(function (element){
 				$('.white').append("<p>"+ "<strong>Artist: </strong>" + element.artist + "</p>");
@@ -33,7 +33,7 @@ $(document).ready(function(){
 
 	$.ajax({
 		method: 'GET',
-		url: base_url + '/api/messages',
+		url: '/api/messages',
 		success: function getMessages (i) {
 			i.data.forEach(function (element){
 				$('.messages').append("<p> <strong> user: " + element.user + "</p>" + "<br>" + "<p> <strong> message: </strong>" + element.message + "</p>" + "<hr />");
@@ -50,7 +50,7 @@ $(document).ready(function(){
 			var toAdddata= {user: toAddUser, message: toAddMessage};
 	  	$.ajax({
 	  		method: "POST",
-	  		url: base_url + '/api/messages',
+	  		url: '/api/messages',
 	  		data: toAdddata,
 	  		success: function(data){
 	  			$('.messages').append("<p> <strong> user: " + toAddUser + "</p>" + "<br>" + 
@@ -58,7 +58,7 @@ $(document).ready(function(){
 	  								"<p> <button type='button' class='btn btn-primary'>Edit</button>" + "<button type='button' class='btn btn-danger'>Delete</button> </p> <hr />");	
 	  					$.ajax({
          					method: 'GET',
-         					url: base_url + 'api/messages',
+         					url: 'api/messages',
          				});
 	  		
          	}	
