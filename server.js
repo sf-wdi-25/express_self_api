@@ -86,8 +86,8 @@ app.get('/api/:id', function show(req, res) {
 ];
 
 //retrieve all profile properties
-app.get('/api/profile', function (req, res){
-  res.json({profile: profile});
+app.get('/api/profile', function index(req, res) {
+  res.json({ profile: profile });
 });
 
  /**********
@@ -114,8 +114,8 @@ var designProjects = [
 ];
 
 //retrieve all design_projects properties
-app.get('/api/design_projects', function (req, res){
-  res.json({ designProjects: designProjects});
+app.get('/api/design_projects', function index(req, res) {
+  res.json({ designProjects: designProjects });
 });
 
 /**********
