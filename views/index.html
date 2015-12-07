@@ -4,26 +4,149 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Blank</title>
-
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 
-    <!-- VENDOR SCRIPTS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>Daniel's World</title>
 
-    <!-- APPLICATION SCRIPTS -->
-    <script src="js/app.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h1>Under Construction</h1>
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <h1>Daniel Page</h1>
+          <hr>
         </div>
+        <div class="row">
+          <div class="col-md-4 well" id="right-well">
+            <div class="list-group" id="profile">
+            </div>
+          </div>
+          <div class="col-md-7 col-md-offset-1 well">
+            <div class="col-md-12">
+
+              <!-- new book form-->
+              <button class="btn btn-default" data-toggle="collapse" data-target="#create-book">Add New Book</button>
+              <form class="form collapse" id="create-book">
+                <br>
+                <div class="form-group">
+                  <input type="text" name="title" class="form-control" placeholder="Title">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="author" class="form-control" placeholder="Author">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="image" class="form-control" placeholder="Image URL">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="releaseDate" class="form-control" placeholder="Release Date">
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-default btn-block" value="Add Book">
+                </div>
+              </form>
+              <br><br>
+
+              <!-- list of books -->
+              <div id="books-list">
+                <!-- handlebars template -->
+                <script id="books-template" type="text/x-handlebars-template">
+                  {{#each books}}
+                    <div class="book row" data-id="{{_id}}">
+                      <div class='col-xs-4'>
+                        <img src="{{image}}" class='img-responsive'>
+                      </div>
+                      <div class='col-xs-8'>
+                        <p><strong>Title:</strong>{{title}}</p>
+                        <p><strong>Author:</strong>{{author}}</p>
+                        <p><strong>Released:</strong>{{releaseDate}} </p>
+                        <div class="pull-right">
+                          <!-- pencil icon to toggle update form -->
+                          <a href="javascript:void(0)" data-toggle="collapse" data-target="#update-{{_id}}">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                          </a>
+
+                          <!-- trash can icon to delete todo -->
+                           <a href="javascript:void(0)" class="delete-todo">
+                            <span class="glyphicon glyphicon-trash"></span>
+                          </a>
+                        </div>
+
+                        <!-- form to update book -->
+                        <div class="collapse" id="update-{{_id}}">
+                          <br>
+                          <form class="form update-book">
+                              <input type="text" name="title" class="form-control input-sm" placeholder="Title" value="{{title}}">
+                              <input type="text" name="author" class="form-control input-sm" placeholder="Author" value="{{author}}">
+                              <input type="text" name="image" class="form-control input-sm" placeholder="Image URL" value="{{image}}">
+                              <input type="text" name="releaseDate" class="form-control input-sm" placeholder="Release Date" value="{{releaseDate}}">
+                              <input type="submit" class="btn btn-default btn-block" value="Edit Book">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                  {{/each}}
+                </script>
+              </div>
+
+              <ul class="list-group" id="books-list">
+
+                <!-- handlebars template -->
+                <script id="books-template" type="text/x-handlebars-template">
+                  {{#each books}}
+                    <li class="list-group-item todo" data-id="{{_id}}">
+
+                      <!-- todo label (task) -->
+                      <span class="label label-default">{{task}}</span>
+
+                      <!-- todo description -->
+                      {{description}}
+
+                      <div class="pull-right">
+                        <!-- pencil icon to toggle update form -->
+                        <a href="javascript:void(0)" data-toggle="collapse" data-target="#update-{{_id}}">
+                          <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+
+                        <!-- trash can icon to delete todo -->
+                         <a href="javascript:void(0)" class="delete-todo">
+                          <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                      </div>
+
+                      <!-- form to update todo -->
+                      <div class="collapse" id="update-{{_id}}">
+                        <br>
+                        <form class="form-inline update-todo">
+                          <div class="form-group">
+                            <input type="text" name="task" class="form-control" placeholder="Task" value="{{task}}">
+                          </div>
+                          <div class="form-group">
+                            <input type="text" name="description" class="form-control" placeholder="Description" value="{{description}}">
+                          </div>
+                          <div class="form-group">
+                            <input type="submit" class="btn btn-block btn-default" value="Update">
+                          </div>
+                        </form>
+                      </div>
+                    </li>
+                  {{/each}}
+                </script>
+              </ul>
+            </div>
+          </div>
       </div>
     </div>
   </body>
+
+  <!-- VENDOR SCRIPTS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+
+  <!-- APPLICATION SCRIPTS -->
+  <script src="js/app.js"></script>
+
 </html>
