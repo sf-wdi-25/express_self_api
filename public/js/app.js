@@ -2,6 +2,11 @@ console.log("Sanity Check: JS is working!");
 
 $(document).ready(function(){
 
+	var userTitle = $("#inputTitle").val();
+	var userDeveloper = $("#inputDeveloper").val();
+	var userYear = $("#inputYear").val();
+	var userDescription = $("#inputDescription").val();
+
 	$.ajax({
 		method: "GET",
 		url:"/api/profile",
@@ -48,31 +53,50 @@ $(document).ready(function(){
 	});
 
 	// CREATE for Videogame DataStructure
-	// Hardcoded for now
-	// Server side haven't made a path yet
+	// Hardcoded Version
 
-	$.ajax({
-		method: "POST",
-		url:"/api/videogames",
-		data: {
-			title:"Final Fantasy VII",
-	    	developer: "SquareSoft",
-	    	year: 1997,
-	    	description: "The start of mixing video games and cinematics."
-		},
-		success: function(pizza){
-			console.log("Your videogame was added!");
-			console.log(pizza);
-		},
+	// $.ajax({
+	// 	method: "POST",
+	// 	url:"/api/videogames",
+	// 	data: {
+	// 		title:"Final Fantasy VII",
+	//     	developer: "SquareSoft",
+	//     	year: 1997,
+	//     	description: "The start of mixing video games and cinematics."
+	// 	},
+	// 	success: function(pizza){
+	// 		console.log("Your videogame was added!");
+	// 		console.log(pizza);
+	// 	},
 
-		error: function(){
-			console.log("Error with Videogame CREATE/POST");
-		}
+	// 	error: function(){
+	// 		console.log("Error with Videogame CREATE/POST");
+	// 	}
+	// });
+
+	$("#submitButton").on("click", function(){
+		$.ajax({
+			method: "POST",
+			url:"/api/videogames",
+			data: {
+				title:userTitle,
+		    	developer: userDeveloper,
+		    	year: userYear,
+		    	description: userDescription
+			},
+			success: function(pizza){
+				console.log("Your videogame was added!");
+				console.log(pizza);
+			},
+
+			error: function(){
+				console.log("Error with Videogame CREATE/POST");
+			}
+		});
 	});
 
 	// UPDATE for Videogame DataStructure
-	// Hardcoded for now
-	// Server side haven't made a path yet
+	// Hardcode Version
 
 	$.ajax({
 		method:"PUT",
@@ -95,7 +119,6 @@ $(document).ready(function(){
 
 	// DESTROY for Videogame DataStructure
 	// Hardcoded for now
-	// Server side haven't made a path yet
 	$.ajax({
 		method: "DELETE",
 		url:"/api/videogames/3",
@@ -108,3 +131,12 @@ $(document).ready(function(){
 		}
 	});
 });
+
+
+/*
+Notes: Still haven't completed Put and Delete methods for user input. 
+Currently both my put and delete are hardcoded, so it won't work
+quite the way intended.
+
+Haven't figured out how to do it yet, still need to think about it some more.
+*/
