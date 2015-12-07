@@ -20,10 +20,19 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-6 pull-left divcolor"  id="myInfo">
-        
+        <div class="col-md-12 pull-left divcolor"  id="myInfo">
         </div>
-        <div class="col-md-6">
+        </div>
+      <div class="row">
+         <div class="col-md-6">
+          <form method="POST" action="/page">
+              <label for="anime">Anime!</label>
+              <input id="name" type="text" name="page_name" />
+              <input type="submit" value="New Anime" />
+              <input type="submit" value="Find" />
+          </form>
+        <div class="col-md-6"  id ="anime-list">
+      </div>
         </div>
       </div>
     </div>
