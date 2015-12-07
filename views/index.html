@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Blank</title>
+    <title>J.R. - The API</title>
 
     <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- VENDOR SCRIPTS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="jquery-1.11.3.js"></script>
+    <script src="bootstrap.min.js"></script>
 
     <!-- APPLICATION SCRIPTS -->
     <script src="js/app.js"></script>
@@ -21,7 +21,24 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <h1>Under Construction</h1>
+          <h1>the j.r. api</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2" id="sidebar">
+          <li><a href="#" class="about">About</a></li>
+          <li><a href="#" class="shows">Current Shows</a></li>
+        </div>
+        <div class="col-md-6 col-md-offset-1 about-me">
+        </div>
+        <div class="col-md-6 col-md-offset-1 shows-list form">
+          <input type="text" class="post name" placeholder="Name of the Show" required>
+          <input type="text" class="post creator" placeholder="Who is the creator/writer?" required>
+          <input type="text" class="post show_status" placeholder="What's the current status of the show?">
+          <input type="text" class="post marathon_status" placeholder="Are you up to date?">
+          <button class="btn btn-primary post">Save</button>
+        </div>
+        <div class="col-md-6 col-md-offset-3 shows-list data">
         </div>
       </div>
     </div>
