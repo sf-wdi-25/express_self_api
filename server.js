@@ -47,6 +47,61 @@ app.get('/api', function api_index (req, res){
   });
 });
 
+app.get('/api/profile', function api_profile (req, res) {
+  res.json({
+    name: "Joe Roers",
+    github_link: "https://github.com/jroers/",
+    github_profile_image: "https://avatars0.githubusercontent.com/u/15789101?v=3&s=460",
+    current_city: "Berkeley, CA",
+    family_members: [{ name: "Susan",
+                      relation: "Mother"
+                    }, { name: "Jeff",
+                      relation: "Father"
+                    }, { name: "Andrew",
+                      relation: "Brother"
+                    }, { name: "Tom",
+                      relation: "Brother"
+                    }, { name: "Danny",
+                      relation: "Brother"
+                    }, { name: "Ben",
+                      relation: "Brother"
+                    }]
+  });
+});
+
+app.get('/api/shows', function api_shows (req, res) {
+ res.json([
+    {
+      _id: 1,
+      name: 'Sense8',
+      creator: 'J. Michael Straczynski',
+      series_status: 'season break',
+      marathon_status: 'up to date'
+    },
+    { 
+      _id: 2,
+      name: 'Criminal Minds',
+      creator: 'Jeff Davis',
+      series_status: 'ongoing',
+      marathon_status: 'behind'
+    },
+    {
+      _id: 3,
+      name: "30 Rock",
+      creator: "Tina Fey",
+      series_status: "ended",
+      marathon_status: "up to date"
+    },
+    {
+      _id: 4,
+      name: "How to Get Away With Murder",
+      creator: "Shonda Rhimes",
+      series_status: "season break",
+      marathon_status: "up to date"
+    }
+  ]);
+});
+
 /**********
  * SERVER *
  **********/

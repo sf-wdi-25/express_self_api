@@ -12,40 +12,72 @@ Please fork & clone this repo to get started.
 
 Here's a list of what I did!
 
-An example API for 'Jon Snow' might have endpoints like:
-
     JSON API Endpoint           Response JSON
     =============               =============
-    GET /api/profile            {
-                                  name: "Jon Snow",
-                                  github_link: "http://github.com/u-know-nothing-jon-snow",
-                                  current_city: "The Wall",
-                                  is_awake: false,
-                                  family_members: [ { name: 'Arya Stark', relationship: 'sister' }, { name: 'Bran Stark', relationship: 'brother' }]
-                                }
+    GET /api/profile		{
+								name: "Joe Roers",
+								github_link: "https://github.com/jroers/",
+								github_profile_image: "https://avatars0.githubusercontent.com/u/15789101?v=3&s=460",
+								current_city: "Berkeley, CA",
+								family_members: [{
+    										name: "Susan",
+                      					relation: "Mother"
+				                    }, { 
+				                    	name: "Jeff",
+				                      	relation: "Father"
+				                    }, { 
+				                    	name: "Andrew",
+				                      	relation: "Brother"
+				                    }, {
+				                    	name: "Tom",
+				                      	relation: "Brother"
+				                    }, {
+				                    	name: "Danny",
+				                      	relation: "Brother"
+				                    }, {
+				                    	name: "Ben",
+				                      	relation: "Brother"
+				                    }]
+		                    }
 
-    GET /api/projects           [
+    GET /api/shows      	[
                                  {
-                                    _id: 2,
-                                    name: 'Defeat the wildlings',
-                                    type: 'quest',
-                                    opponents: [ 'Mance Rayder', 'Lord of Bones'],
-                                    status: 'resolved'
+										_id: 1,
+										name: 'Sense8',
+										creator: 'J. Michael Straczynski',
+										series_status: 'season break',
+										marathon_status: 'up to date'
                                  },
                                  { 
-                                    _id: 3,
-                                    name: 'Save the wildlings',
-                                    type: 'campaign',
-                                    opponents: ['the Night Watch', 'the Others'],
-                                    status: 'pending'
-                                 }
-                                ]
+										_id: 2,
+										name: 'Criminal Minds',
+										creator: 'Jeff Davis',
+										series_status: 'ongoing',
+										marathon_status: 'behind'
+                                 },
+                                 {
+										_id: 3,
+										name: "30 Rock",
+										creator: "Tina Fey",
+										series_status: "ended",
+										marathon_status: "up to date"
+                             	   },
+                             	   {
+										_id: 4,
+										name: "How to Get Away With Murder",
+										creator: "Shonda Rhimes",
+										series_status: "season break",
+										marathon_status: "up to date"
+                         	   	   }
+                            ]
     
-    GET /api/projects?limit=1   [ { _id: 2, name:'Defeat...' } ]
+    GET /api/shows?limit=1   [ { _id: 1, name:'Sense8', creator: ... } ]
 
-    GET /api/projects?status=pending
-                                [ { _id: 3, name:'Save...' } ]                                
-    GET /api/projects/2         { _id: 2, name:'Defeat...' }
+    GET /api/shows?series_status=season+break
+                                [ { _id: 1, name:'Sense 8' ... },
+                                  { _id: 4, name: 'How to Get Away With Murder ...} ]                                
+    
+    GET /api/shows/2         { _id: 2, name:'Criminal...' }
 
     POST /api/projects          etc
     PUT /api/projects/2         etc
@@ -58,8 +90,8 @@ An example API for 'Jon Snow' might have endpoints like:
 _A good express file tree structure_:
 
 ```
-├── server.js  // your server code
-├── package.json    // lists dependencies; changed by npm install --save somePackage
+├── server.js
+├── package.json
 ├── public  // i.e. client-side
 │   ├── images  // images to serve to client
 │   ├── javascripts
