@@ -42,7 +42,7 @@ $(document).ready(function(){
 	});
 
 	$('#inputForm').on('submit', function (event) {
-			//parseInt(toAddId++);
+	
 			event.preventDefault();
 	  		toAddUser= $('#name').val();
 	  		toAddMessage= $('#message').val();
@@ -63,35 +63,8 @@ $(document).ready(function(){
 	  		
          	}	
          });
-		
 	});
-	  		//res.json(messages);
-	  	
-      //    			$.ajax({
-      //    				method: 'GET',
-      //    				url: base_url + 'api/messages',
-      //    				success: function getMessages (i) {
-						// 	i.data.forEach(function (element){
-						// 			console.log(toAdddata);
-						// 		//$('.messages').append("<br><p>" + element + "</p>");
-						// 	});
-						// }
-      //    			}
-      //          		);
-      //          }
-	  			// element.forEach(function (e){
-	  			// 	$('messages').append(e);
-	  			// })
-	  // 			success: function(data) {
-	  // 		 	messages.append(data);
-	  // 			}
-			// });
 
-
-			
-
-
-	//});	
 });
 
 

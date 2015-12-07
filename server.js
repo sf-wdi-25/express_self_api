@@ -18,7 +18,6 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
- //messages
 var url ='https://frozen-bayou-5536.herokuapp.com';
 
 
@@ -95,17 +94,8 @@ app.get('/api/music', function api_music(req, res){
 
 app.post('/api/messages', function post (req,res) {
 
-   
-    
-   // console.log('new message : '+ messages);
-     // if (messages.length > 0) {
-     //   messages._id = messages[messages.length] + 1;
-     // }else{
-     //   messages._id = messages._id + 1;
-     // }
      var newMessage =req.body; 
      messages.push(newMessage); 
-    //console.log("after new message added : " + messages);
        res.send({data: newMessage});
   
   });
