@@ -20,7 +20,7 @@ app.use(function(req, res, next) {
 var profile = {
   name: "Reva",
   current_location: "California",
-  github_profile_image: "/images/tumblr.jpg"
+  github_profile_image: "/images/tumblr.jpg",
   hobbies: ""
 };
 
