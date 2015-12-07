@@ -85,7 +85,7 @@ app.get('/api/profile', function api_profile (req, res){
       github_link: "https://github.com/trebloc",
       github_profile_image: "https://avatars1.githubusercontent.com/u/6238249?v=3&u=d66fb4b7d60254f849f08c8dee354f0a5b74cc91&s=140",
       current_city: "San Francisco",
-      family_members: [ { name: 'Taffany Hwang', relationship: 'fiańce' }, { name: 'Ankey Tse', relationship: 'mother' }, { name: 'Nicole Tse', relationship: 'sister' } ]
+      family_members: [ { name: 'Taffany Hwang', relationship: 'Fiańcee' }, { name: 'Ankey Tse', relationship: 'Mother' }, { name: 'Nicole Tse', relationship: 'Sister' } ]
       })
 });
 
