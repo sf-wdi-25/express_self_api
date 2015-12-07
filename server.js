@@ -87,7 +87,7 @@ app.get('/api/:id', function show(req, res) {
 
 //retrieve all profile properties
 app.get('/api/profile', function (req, res){
-  res.json(profile);
+  res.json({profile});
 });
 
  /**********
@@ -115,7 +115,7 @@ var designProjects = [
 
 //retrieve all design_projects properties
 app.get('/api/design_projects', function (req, res){
-  res.json(designProjects);
+  res.json({designProjects});
 });
 
 /**********
