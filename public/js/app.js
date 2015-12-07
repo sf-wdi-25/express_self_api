@@ -13,7 +13,7 @@ var $designProjectsList = $('#design-projects-list');
 var $createdesignProject = $('#create-design-project');
 
  // form to search designProjects api
-var $searchdesignProject = $('#search-design-project');
+var $searchDesignProject = $('#search-design-project');
 
 // helper function to render all designProjects to view
 // note: we empty and re-render the collection each time our designProject data changes
@@ -40,15 +40,15 @@ $.get(baseUrl, function (data) {
 });
 
 //listen to submit event on form for search input
-$searchdesignProject.on('submit', function (even) {
+$searchDesignProject.on('submit', function (even) {
   event.preventDefault();
-  console.log($searchdesignProject);
+  console.log($searchDesignProject);
 
   // serialze form data
-  var searchdesignProject = $(this).serialize();
+  var searchDesignProject = $(this).serialize();
 
   //GET request to search query in designProjects api
-  $.get(baseUrl + '/search?' + searchdesignProject, function (data) {
+  $.get(baseUrl + '/search?' + searchDesignProject, function (data) {
     console.log(data);
 
     alldesignProjects = data.designProjects;
@@ -57,8 +57,8 @@ $searchdesignProject.on('submit', function (even) {
   });
 
   // reset the form
-  $searchdesignProject[0].reset();
-  $searchdesignProject.find('input').first().focus();
+  $searchDesignProject[0].reset();
+  $searchDesignProject.find('input').first().focus();
 
 });
 

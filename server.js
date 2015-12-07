@@ -97,9 +97,9 @@ app.get('/api/profile', function index(req, res) {
 
 var designProjects = [
   { _id: 1,
-  date: "",
-  title: "",
-  description: "",
+  date: "today",
+  title: "today",
+  description: "today",
   images: [ 
     { _id: 1, title: "", caption: "", url: "url"},
   ]}
