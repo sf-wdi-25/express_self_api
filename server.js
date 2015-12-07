@@ -109,7 +109,6 @@ app.get('/api/shows', function api_shows (req, res) {
 });
 
 app.post('/api/shows', function (req, res) {
-  console.log(req.body);
   var newItem = req.body;
   newItem._id = shows.length + 1;
   shows.push(req.body);
