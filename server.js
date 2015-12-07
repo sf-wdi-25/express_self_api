@@ -104,9 +104,33 @@ app.get('/api/profile', function api_profile (req, res){
     res.json(favoriteMovies);  
   });
 
-  app.delete('/api/favoriteMovies/:id', function destroy(req, res) {
-    // How do you know which todo to delete?
-});
+  app.delete('/api/favoriteMovies/:id', 
+    function destroy(req, res) {
+      var getID = parseInt(req.params.id);
+
+      var deleteID = favoriteMovies.filter(function (favoriteMovie) {
+          return favoriteMovie._id == getID;
+      })[0];
+
+      favoriteMovies.splice(favoriteMovies.indexOf(deleteID), 1);
+      res.json(favoriteMovies);
+      // var idToDelete = parseInt(req.params.id);
+      // var indexToDelete = -1;
+      // for(i=0; i < favoriteMovies.length; i++) {
+      //   //get movie at index i
+      //   var currentMovieId = favoriteMovies[i]._id;
+      //   //if current movie have the same id as the id passed in
+      //   if (currentMovieId === idToDelete) {
+      //     //set indexToDelete to i and break
+      //     indexToDelete = i;
+      //     break;  
+      //   }        
+      // }
+
+      // //remove "idToDelete" from favoriteMovie list
+      // favoriteMovies.splice(indexToDelete, 1);
+      // res.json(favoriteMovies);
+  });
 
 /**********
  * SERVER *
