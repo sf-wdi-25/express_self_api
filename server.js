@@ -111,6 +111,18 @@ app.get('/api', function api_index (req, res){
   });
 });
 
+app.get('/api/tv', function api_index (req, res){
+  res.json({
+    message: "I sure as heck watch a lot of TV!",
+    base_url: "https://mysterious-earth-5591.herokuapp.com",
+    endpoints: [
+      {
+        method: "GET",
+        path: "/api/tv"}
+    ]
+  });
+});
+
 
 /**********
  * SERVER *

@@ -11,10 +11,14 @@ $(document).ready(function(){
 				"<p>Photo: " + data.profileInfo[0].githubProfilePic + "</p><br\>" +
 				"<p>City: " + data.profileInfo[0].city + "</p><br\>" +
 				"<p>Family: <a href = " + data.profileInfo[0].family[0].photo + ">" + data.profileInfo[0].family[0].dname + "</a>" + "</p><br\>" + 
-				"<p>Family: <a href = " + data.profileInfo[0].family[1].photo + ">" + data.profileInfo[0].family[1].mname + "</a>" + "</p><br\>");
+				"<p>Family: <a href = " + data.profileInfo[0].family[1].photo + ">" + data.profileInfo[0].family[1].mname + "</a>");
 		},
 		error: function profileData (data) {
 			console.log("stop the presses");
 		}
 	});
+
+// This section will contain the AJAX code to CRUD stuff, specifically showing the list of TV shows that I watch (haven't decided yet whether or
+// not I'd alpha-sort 'em, or leave them disordered as they are in server.js). CRUD would allow for me to delete shows that I've finished watching,
+// and to append new shows as well.
 });
