@@ -13,9 +13,10 @@ Enpoints avaliable
 
     This endpoint expects to be created, read, updated and destroyed; however, the update does not work and I really have no idea why. Also, after something is added it does not seem to stay in the database for long. If any change to the page is made then the new objects melt away.
 
-    To use the API place new data in the new books fields. To delete existing ones, ht the trashcan icon. To theoretically update, hit the pencil icon, enter your updated info and watch your info turn back into the original information!!
+    To use the API place new data in the new books fields. To delete existing ones, hit the trashcan icon. To theoretically update, hit the pencil icon, enter your updated info and watch your info turn back into the original information!!
 
     The data lives in the books array.
 
     I think I'm missing the point of this README file.
 
+# espress_self_api
