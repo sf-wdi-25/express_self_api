@@ -34,7 +34,7 @@ app.get('/', function homepage (req, res) {
 /*
  * JSON API Endpoints
  */
- 
+
   /**********
  * /api *
  **********/
@@ -65,9 +65,16 @@ app.get('/api', function api_index (req, res){
  * /api/profile *
  **********/
 
+    //  + `github_link` - url to your github profile
+    // + `github_profile_image` - url of github profile image
+    // + `current_city` - string
+
  var profile = [
   {firstname: "Is"},
   {lastname: "Angieri"},
+  {github_link: "https://github.com/isangieri"},
+  {github_profile_image: "https://avatars2.githubusercontent.com/u/15096174?v=3&s=460"},
+  {current_city: "Oakland, CA"},
   { family_members: [{name: "Nicolette", relationship: "mother"},
   {name: "Gabriele", relationship: "father"},
   {name: "Faith", relationship: "step-mother"},
