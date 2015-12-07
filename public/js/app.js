@@ -23,7 +23,7 @@ $(document).ready(function(){
 	    		console.log(favoriteMovies.favoriteMovies);
 	    		$('.favoriteMovies').forEach(favoriteMovies.movies);
 	    	}
-	    });
+	    }); 
 	   		
 	 
 	// $.ajax ({
