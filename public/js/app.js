@@ -6,15 +6,30 @@ $(document).ready(function(){
 
 	$.ajax({
   	method: "GET",
-	url: "https://stormy-temple-5156.herokuapp.com/api/profile",
+	url: "http://stormy-temple-5156.herokuapp.comapi/profile",
   	success: function (data) {
-   console.log(data.profile);
-	// function render(info) {
-    	// info.forEach(function (info){
-       	// $("div#target").append("<p>" + message.message + "</p>");
-//     	});
-//   	}
-//   	//render(response.data);
-	}
- });
- });
+
+  		$("div#profile").append("<img id='selfie' src=" + data.github_profile_image + "</img>");
+		$("div#profile").append("<a href=" + data.github_link + ">");
+   		$("div#profile").append("<h3>" + data.name+ "</h3>");
+   		$("div#profile").append("<p>" + "Current City: " + data.current_city + "</p>");
+   		$("div#profile").append("<p>" + data.family_members[0].relationship + ": " + data.family_members[0].name +  "</p>");
+   		$("div#profile").append("<p>" + data.family_members[1].relationship + ": " + data.family_members[1].name +  "</p>");
+   		}
+	}); 
+
+$.ajax({
+  	method: "GET",
+	url: "http://stormy-temple-5156.herokuapp.comapi/movies",
+  	success: function (data) { 	
+  	console.log(data);	
+   		$("div#movies").append("<p>" + data.data[0].title + "</p>");
+   		$("div#movies").append("<p>" + data.data[1].title + "</p>");
+   		$("div#movies").append("<p>" + data.data[2].title + "</p>");
+   		$("div#movies").append("<p>" + data.data[3].title + "</p>");
+
+		}
+
+	});
+  
+});

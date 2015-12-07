@@ -17,14 +17,20 @@ app.use(express.static(__dirname + '/public'));
  ************/
 
  //put data here
- var info = ({   name: 'Kehontas',
+ var info = {   name: 'Kehontas Rowe',
       github_link: 'http://github.com/kehontas',
       github_profile_image: 'https://avatars2.githubusercontent.com/u/2671587?v=3&u=45586c8ceefc66e4fef4f31490a0ed248e10d7d4&s=140',
       current_city: 'San Francisco',
       family_members: [{
-        name: 'Charice', relationship: 'mother'}, {name: 'Doug', relationship: 'father'}]
-    });
+        name: 'Charice Malone', relationship: 'Mother'}, {name: 'Doug Wilson', relationship: 'Father'}]
+    };
 
+var movies = { data: [
+    {title: 'The Matrix'},
+    {title: 'The Matrix Reloaded'},
+    {title: 'The Matrix Revolutions'},
+    {title: 'Napolean Dynamite'}
+  ]};
 // your hardcoded data here
 
 /**********
@@ -55,9 +61,14 @@ app.get('/api', function api_index (req, res){
   });
 });
 
-app.get('/api/profile', function profile (re, res){
+app.get('/api/profile', function profile (req, res){
         res.send(info);
 });
+
+ app.get('/api/movies', function (req, res) {
+  console.log(movies);
+      res.send(movies);
+  });
 
 /**********
  * SERVER *
