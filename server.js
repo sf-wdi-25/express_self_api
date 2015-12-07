@@ -66,7 +66,7 @@ app.get('/api/profile', function api_index (req, res){
 });
 
 app.get('/api/places/:id', function aget_place(req, res) {
-  //res.json(places);
+  res.json(places);
 });
 
 app.post('/api/places', function add_place(req, res) {
