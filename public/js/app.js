@@ -51,6 +51,17 @@ $.ajax({
 
 });
 
+$.get('https://murmuring-waters-9411.herokuapp.com/api/animes', function (favAnimes){
+	console.log(favAnimes);
+	myanimes = favAnimes.favAnimes;
+	render();
+
+});
+
+
+
+
+
 $.ajax({
 	type: 'GET',
 	url: 'https://murmuring-waters-9411.herokuapp.com/api/animes',
@@ -65,13 +76,18 @@ $.ajax({
 	}
 });
 
-$createAnime.on('submit', function (event){
+$createAnime.on('click', function (event){
 	event.preventDefault();
 	//allows me to save my anime title
-	var newAnime = $(this).serialize();
+	// var newAnime = $(this).serialize();
+	var newAnime = $('#name').val();
+	console.log('Posting newAnime:' + newAnime);
 
 	$.post('https://murmuring-waters-9411.herokuapp.com/api/animes', newAnime, function (favAnimes){
-		myAnimes.push(favAnimes.title);
+		console.log("Upon success, the POST returned ");
+		console.log(favAnimes);
+		console.log("Adding " + favAnimes.title + " to the array " + myanimes);
+		myAnimes.push({favAnimes: favAnimes.title});
 		console.log(favAnimes.title)
 
 		render();
