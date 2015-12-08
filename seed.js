@@ -11,7 +11,8 @@ var data = {name: "Kayvon Ranjbar",
   github_link: "https://github.com/Kranjbar",
   github_profile_image: "https://avatars2.githubusercontent.com/u/14255298?v=3&s=460",
   current_city: 'San Francisco',
-  family_members: [{name: 'Hossein Ranjbar', relationship: 'father'},
+  family_members: [{name: 'Anne Sophie Ranjbar', title: 'wife'},
+  	{name: 'Hossein Ranjbar', relationship: 'father'},
     {name: 'Maria Ranjbar', relationship: 'mother'},
     {name: 'Noshene Ranjbar', relationship: 'sister'}
     ],
@@ -46,12 +47,12 @@ Movie.remove({}, function(err){
 		process.exit();
 	}
 
-		Movie.create(movies[0], movies[1], movies[2], function(err, movies) {
+		Movie.create(movies[0], movies[1], movies[2], function(err, movie1, movie2, movie3) {
 			if(err) {
 				console.log(err);
 				process.exit();
 			} else {
-				console.log('Created:', movies);
+				console.log(movie1, movie2, movie3);
 				process.exit();
 			}
 		});

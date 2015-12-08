@@ -2,6 +2,8 @@
 var express = require('express'),
     app = express();
     bodyParser = require('body-parser');
+    Profile = require('./models/profile');
+    Movie = require('./models/movie');
 
 // Allow CORS: we'll use this today to reduce security so we can more easily test our code in the browser.
 app.use(function(req, res, next) {
@@ -20,23 +22,23 @@ app.use(express.static(__dirname + '/public'));
  ************/
 
 // your hardcoded data here
-var birthday = new Date('December 29, 1988 00:00:00');
+// var birthday = new Date('December 29, 1988 00:00:00');
 
-var profile = {name: "Kayvon Ranjbar",
-  github_link: "https://github.com/Kranjbar",
-  github_profile_image: "https://avatars2.githubusercontent.com/u/14255298?v=3&s=460",
-  current_city: 'San Francisco',
-  family_members: [{name: 'Hossein Ranjbar', relationship: 'father'},
-    {name: 'Maria Ranjbar', relationship: 'mother'},
-    {name: 'Noshene Ranjbar', relationship: 'sister'}
-    ],
-  days_old: Math.round((Date.now() - birthday.getTime()) / (1000 * 60 * 60 * 24))};
+// var profile = {name: "Kayvon Ranjbar",
+//   github_link: "https://github.com/Kranjbar",
+//   github_profile_image: "https://avatars2.githubusercontent.com/u/14255298?v=3&s=460",
+//   current_city: 'San Francisco',
+//   family_members: [{name: 'Hossein Ranjbar', relationship: 'father'},
+//     {name: 'Maria Ranjbar', relationship: 'mother'},
+//     {name: 'Noshene Ranjbar', relationship: 'sister'}
+//     ],
+//   days_old: Math.round((Date.now() - birthday.getTime()) / (1000 * 60 * 60 * 24))};
 
-var movies = [
-  {title: "The Lion King", director: "Roger Allers"},
-  {title: "Pocahontas", director: "Mike Gabriel"},
-  {title: "Aladdin", director: "Ron Clements"}
-  ];
+// var movies = [
+//   {title: "The Lion King", director: "Roger Allers"},
+//   {title: "Pocahontas", director: "Mike Gabriel"},
+//   {title: "Aladdin", director: "Ron Clements"}
+//   ];
 
 
 
@@ -84,13 +86,15 @@ app.get('/api/profile', function profile_index (req, res) {
 });
 
 app.get('/api/movies', function movies_index (req, res) {
-  if (req.query.limit) {
-    var limit = req.query.limit;
-    var returnArr = movies.slice(0, limit);
-    res.json(returnArr);
-  } else {
-      res.json(movies);
-    }
+  // if (req.query.limit) {
+  //   var limit = req.query.limit;
+  //   var returnArr = movies.slice(0, limit);
+  //   res.json(returnArr);
+  // } else {
+  Movie.find(function (err, allMovies) {
+    res.json({ movies: allMovies });
+  });
+    // }
 });
 
 app.get('/api/movies/:id', function movies_show (req, res) {
