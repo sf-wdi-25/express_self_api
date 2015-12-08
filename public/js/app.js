@@ -27,7 +27,7 @@ $.ajax({
    		$("div#movies").append("<p>" + data.data[1].title + "</p>");
    		$("div#movies").append("<p>" + data.data[2].title + "</p>");
    		$("div#movies").append("<p>" + data.data[3].title + "</p>");
-}
+      }
 		});
 
 
@@ -44,15 +44,14 @@ $.ajax({
       success: function (data) {  
       console.log(data);  
       $("div#movies").append("<p>" + data.title + "</p>");
-      
-    }
-});
+      }
+    });
 
 
 
-  //     $('form').on('submit', function (event){
-  //   event.preventDefault();
-  //   console.log('hello delete');
+      $('form').on('submit', function (event){
+    event.preventDefault();
+    console.log('hello delete');
   //   var newMovie = $('#deleteMovie').val();
   //   var movieToDelete = movies.filter(function (movie){
   //     return movie.title == movie;
@@ -70,8 +69,8 @@ $.ajax({
 
   //     }
   //       });
-
-      });
+      
+    });
+  });
 });
-
 
