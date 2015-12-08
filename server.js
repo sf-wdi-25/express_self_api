@@ -122,7 +122,11 @@ app.get('/api/tv', function api_index (req, res){
   res.json({tvShows: tvShows});
 });
 
-// Not working; couldn't get post functionality to work, nor update the tvShows array
+// Not working; couldn't get post functionality to work, nor update the tvShows array.
+// This describes the POST method for creating new entries to tvShows array.
+// Moar explaining: Upon clicking the #btn submit button, I want to push to the tvShows array the value received from req.body.name, +
+// + which is what is submitted in the form field. After that, I want to ajax the new data, now including the additional entry +
+// + back into the #tv div space. Dunno if this is overly complicated, or just broken.
 app.post('/api/tv', function (req, res) {
   console.log(req.body.name);
   tvShows.push(req.body.name);
