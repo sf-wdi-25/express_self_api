@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Blank</title>
+    <title>Colbert Tse</title>
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -20,9 +20,25 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h1>Under Construction</h1>
+        <div class="col-md-8 col-md-offset-2" id="profile">
+          <h1>Colbert Tse</h1>
+        </div> 
+        <div class="col-md-8 col-md-offset-2" id="movie">
+          <h1>Movies</h1>  
         </div>
+        <div class="col-md-8 col-md-offset-2" id="new_movie">  
+          <h2>New Movie</h2>    
+          <form method="POST" action="/api/favoriteMovies">
+            <label for="title">Movie Title</label>
+            <input id="title" type="text" name="title" />
+            <label for="genre">Genre</label>
+            <input id="genre" type="text" name="genre" />
+            <label for="director">Director</label>
+            <input id="director" type="text" name="director" />
+            <label for="year">Year</label>
+            <input id="year" type="text" name="year" />
+            <input type="submit" value="Create" />
+          </form>                              
       </div>
     </div>
   </body>
