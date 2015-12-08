@@ -122,6 +122,23 @@ app.get('/api/tv', function api_index (req, res){
   res.json({tvShows: tvShows});
 });
 
+// Not working; couldn't get post functionality to work, nor update the tvShows array
+app.post('/api/tv', function (req, res) {
+  console.log(req.body.name);
+  tvShows.push(req.body.name);
+  $('#btn').click(function () {
+      $.ajax ({
+      method: "POST",
+      url: "/api/tv",
+      success: function (data) {
+        console.log(data);
+        data.tvShows.forEach(function (ele) {
+          $('#tv').append("<p>" + ele + "</p><br\>");
+          });
+      }
+      });
+  });
+});
 
 /**********
  * SERVER *

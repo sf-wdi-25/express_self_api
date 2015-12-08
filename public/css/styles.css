@@ -65,9 +65,13 @@ li {
 }
 
 #tv {
-  /*display: none;*/
+  display: none;
 }
 
 #btn {
+  color: black;
+}
+
+input {
   color: black;
 }

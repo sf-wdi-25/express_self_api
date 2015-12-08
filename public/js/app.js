@@ -1,6 +1,9 @@
 console.log("Sanity Check: Braaaaaaaaaaaaiiiiiiiins!");
 
 $(document).ready(function(){
+
+
+	// Grabs (GET) profile data via profile API, and displays it in left-hand assigned div space on page load
 	$.ajax ({
 		method: "GET",
 		url: "/api/profile",
@@ -18,37 +21,53 @@ $(document).ready(function(){
 		}
 	});
 
-function muzac (data) {
-	data.goodMuzac.forEach(function (ele) {
-		$('#muzac').append("<p>" + ele.artist + " - " + ele.track + ": <a href = '" + ele.url + "' target='_blank'>" +
-			ele.url + "</a></p><br\>");
-	});
-}
 
-$.ajax({
-	method: "GET",
-	url: "/api/muzac",
-	success: function goodMuzac (data) {
-		muzac(data);
-	},
-	error: function (error) {
-		console.log("404 - w3bsit3 h@s ph@il3d");
+
+
+	// Function describes how to append data from goodMuzac object (associative array) into muzac div
+	function muzac (data) {
+		data.goodMuzac.forEach(function (ele) {
+			$('#muzac').append("<p>" + ele.artist + " - " + ele.track + ": <a href = '" + ele.url + "' target='_blank'>" +
+				ele.url + "</a></p><br\>");
+		});
 	}
-});
 
-$('#tvlink').click(function () {
-	$('#profile').hide();
-	$('#muzac').hide();
-	$('#tv').show();
-	$.ajax ({
+	// Uses previously-described muzac function to display music data within homepage's right-hand assigned div space on page load
+	$.ajax({
 		method: "GET",
-		url: "/api/tv",
-		success: function (data) {
-			console.log(data);
-			data.tvShows.forEach(function (ele) {
-				$('#tv').append("<p>" + ele + "</p><br\>");
-			});
+		url: "/api/muzac",
+		success: function goodMuzac (data) {
+			muzac(data);
+		},
+		error: function (error) {
+			console.log("404 - w3bsit3 h@s ph@il3d");
 		}
 	});
-});
+
+
+
+
+	// Describes functionality for handling clicking the "TV Shows!" link in navbar
+	$('#tvlink').click(function () {
+		
+		// Hides the by-default-visible profile and music div spaces
+		$('#profile').hide();
+		$('#muzac').hide();
+		
+		// Makes the previously-hidden tv div space appear (see styles.css - #tv)
+		$('#tv').show();
+
+		// Describes how to place elements from tvShows array into assigned, now-visible tv div space
+		$.ajax ({
+			method: "GET",
+			url: "/api/tv",
+			success: function (data) {
+				console.log(data);
+				data.tvShows.forEach(function (ele) {
+					$('#tv').append("<p>" + ele + "</p><br\>");
+				});
+			}
+		});
+	});
+
 });
