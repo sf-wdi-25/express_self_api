@@ -10,8 +10,8 @@ $(document).ready(function(){
 				"<p>github " + data.profileInfo[0].githubLink + "</p><br\>" +
 				"<p>Photo: " + data.profileInfo[0].githubProfilePic + "</p><br\>" +
 				"<p>City: " + data.profileInfo[0].city + "</p><br\>" +
-				"<p>Family: <a href = " + data.profileInfo[0].family[0].photo + ">" + data.profileInfo[0].family[0].dname + "</a>" + "</p><br\>" + 
-				"<p>Family: <a href = " + data.profileInfo[0].family[1].photo + ">" + data.profileInfo[0].family[1].mname + "</a>");
+				"<p>Mom: <a href = " + data.profileInfo[0].family[0].photo + ">" + data.profileInfo[0].family[0].dname + "</a>" + "</p><br\>" + 
+				"<p>Dad: <a href = " + data.profileInfo[0].family[1].photo + ">" + data.profileInfo[0].family[1].mname + "</a>");
 		},
 		error: function profileData (data) {
 			console.log("stop the presses");
@@ -20,8 +20,8 @@ $(document).ready(function(){
 
 function muzac (data) {
 	data.goodMuzac.forEach(function (ele) {
-		$('#muzac').append("<p>" + ele.artist + " - " + ele.track + ": <a href = '" + ele.youtube + "' target='_blank'>" +
-			ele.youtube + "</a></p><br\>");
+		$('#muzac').append("<p>" + ele.artist + " - " + ele.track + ": <a href = '" + ele.url + "' target='_blank'>" +
+			ele.url + "</a></p><br\>");
 	});
 }
 

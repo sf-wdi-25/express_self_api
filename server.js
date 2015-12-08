@@ -2,7 +2,10 @@
 var express = require('express'),
     app = express();
     app.use(express.static('public'));
-    
+
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({extended: true})); // parse POSTed data
+
 	// Allow CORS: we'll use this today to reduce security so we can more easily test our code in the browser.
 	app.use(function(req, res, next) {
 		res.header("Access-Control-Allow-Origin", "*");
@@ -44,31 +47,31 @@ var goodMuzac = [
   {
     artist: "Tropicana",
     track: "Things to Come",
-    youtube: "https://www.youtube.com/watch?v=TH0R2YRnpe0"
+    url: "https://www.youtube.com/watch?v=TH0R2YRnpe0"
   },
   { artist: "Hanz Zimmer",
     track: "He\'s a Pirate (Tiesto Remix)",
-    youtube: "https://www.youtube.com/watch?v=_R1jRAe-asU"
+    url: "https://www.youtube.com/watch?v=_R1jRAe-asU"
   },
   { artist: "Aram Khachaturian",
     track: "Masquerade: Waltz",
-    youtube: "https://www.youtube.com/watch?v=YCoLUMURunQ"
+    url: "https://www.youtube.com/watch?v=YCoLUMURunQ"
   },
   { artist: "The Beatles",
     track: "For No One",
-    youtube: "https://www.youtube.com/watch?v=4t-qlgF_vwY"
+    url: "https://www.youtube.com/watch?v=4t-qlgF_vwY"
   },
   { artist: "Cosmic Gate",
     track: "Tomorrow - 12 Inch version",
-    youtube: "https://www.youtube.com/watch?v=wUG0vPILIWA"
+    url: "https://www.youtube.com/watch?v=wUG0vPILIWA"
   },
   { artist: "Bones Domingo",
     track: "Violate",
-    youtube: "https://www.youtube.com/watch?v=_Ierk_i6Sd4"
+    url: "https://www.youtube.com/watch?v=_Ierk_i6Sd4"
   },
   { artist: "Yngwie Malmsteen",
     track: "Asylum I: Asylum",
-    youtube: "https://www.youtube.com/watch?v=h_iTHKVEbAs"
+    url: "https://www.youtube.com/watch?v=h_iTHKVEbAs"
   }
 ];
 
