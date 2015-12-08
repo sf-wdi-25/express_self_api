@@ -36,15 +36,15 @@ $.ajax({
 	}
 });
 
-// $('#tvlink').click(function () {
-// 	$('#profile').hide();
-// 	$('#muzac').hide();
+$('#tvlink').click(function () {
+	$('#profile').hide();
+	$('#muzac').hide();
 // 	$('#tv').show();
 // 	$.ajax ({
 // 		method: "GET",
 // 		url: "/api/tv",
 // 		success
 // 	})
-// });
+});
 
 });
