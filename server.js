@@ -93,19 +93,19 @@ app.get('/api/profile', function profile (req, res){
       console.log(movieTitle);
       res.send(movieTitle);
   });
-});
+//});
 
 
- app.delete('/api/movies', function destroy(req, res) {
-  var newMovie = {};
-  newMovie.title = req.body.movie;
+ // app.delete('/api/movies', function destroy(req, res) {
+ //  var newMovie = {};
+ //  newMovie.title = req.body.movie;
 
-  console.log(req.body);
-  db.Movie.remove({title: newMovie.title}, function (err, movieTitle){
-      console.log(err);
-      console.log(movieTitle);
-      res.send(movieTitle);
-    });
+ //  console.log(req.body);
+ //  db.Movie.remove({title: newMovie.title}, function (err, movieTitle){
+ //      console.log(err);
+ //      console.log(movieTitle);
+ //      res.send(movieTitle);
+ //    });
  
  });
 /**********
