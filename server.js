@@ -1,13 +1,12 @@
 // require express and other modules
 var express = require('express'),
-    app = express();
-
-
-   // bodyParser = require('body-parser');
+    app = express(),
+    bodyParser = require('body-parser');
 
 
 // serve static files from public folder
-// app.use(bodyParser.urlencoded({ extended: true}));
+
+app.use(bodyParser.urlencoded({ extended: true}));
 
 app.use(express.static(__dirname + '/public'));
 
@@ -34,6 +33,7 @@ var skills = [
 { _id: 3, skills: 'Scuba diving'},
 ];
 
+var check = [];
 
 
   app.use(function(req, res, next) {
@@ -99,62 +99,36 @@ app.get('/api/travel', function index (req, res) {
 });
   
   
-app.get('/api/skills/:id', function skills (req, res) {
-  var skillsId = parseInt(req.params.id);
-  console.log('welp', sklillsId);
-  var foundSkills = skills.filter(function (tacos) {
-    return tacos._id == skillsId;
-  })[0];
-  res.json(foundSkills); 
+// app.get('/api/skills/:id', function skills (req, res) {
+//   var skillsId = parseInt(req.params.id);
+//   console.log('welp', sklillsId);
+//   var foundSkills = skills.filter(function (tacos) {
+//     return tacos._id == skillsId;
+//   })[0];
+//   res.json(foundSkills); 
 
-  });
-  
-    // use this to create functionality for your buttons
-
-  
-
-// click event on button
-// $('button').on('click', function (event) {
-//   event.preventDefault();
-//   $.ajax({
-//     method: 'POST',
-//     url: '/api/skills',
-//     dataType: 'json',
-//     success: function (data) {
-//       console.log(data);
-//     }
 //   });
+  
+app.post('/taco', function (req, res) {
+  console.log(req.body.name);
+  check.push(req.body.name);
+});
+
+
+
+
+
+
+// // use this to DESTROY certain things.
+// app.delete('/api/skills/:id', function destroy(req, res) {
+//   var skillsId = parseInt(req.params.id);
+//   var skillsToDelete = skills.filter(function (todo){
+//     return skills._id == skillsId;
+//   })[0];
+//   skills.splice(skills.indexOf(skillsToDelete), 1);
+  
+//   res.json(todoToDelete);
 // });
-
-
-// Use this to create new skills.
-app.post('/api/skills', function create(req, res) {
-  var newSkills = req.body;
-
-
-  if (skills.length > 0) {
-    newSkills._id = skills[skills.length - 1]._id + 1;
-  }
-  else {
-    newSkills._id = 1;
-  }
-
-  skills.push(newSkills);
-
-  res.json(newSkills);
-  
-});
-
-// use this to DESTROY certain things.
-app.delete('/api/skills/:id', function destroy(req, res) {
-  var skillsId = parseInt(req.params.id);
-  var skillsToDelete = skills.filter(function (todo){
-    return skills._id == skillsId;
-  })[0];
-  skills.splice(skills.indexOf(skillsToDelete), 1);
-  
-  res.json(todoToDelete);
-});
 
 
 

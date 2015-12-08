@@ -95,7 +95,7 @@ $.ajax({
 //   },
 //   success: function (data) {
 //     console.log("your skill was created");
-//     console.log("your book has an id of", book._id);
+//     console.log("your book has an id of", skills._id);
 //     // render book to page
 //   },
 //   error: function () {
