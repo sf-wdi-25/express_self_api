@@ -27,16 +27,16 @@ $.ajax({
    		$("div#movies").append("<p>" + data.data[1].title + "</p>");
    		$("div#movies").append("<p>" + data.data[2].title + "</p>");
    		$("div#movies").append("<p>" + data.data[3].title + "</p>");
+}
+		});
 
-		}
-});
 
   $('form').on('submit', function (event){
     event.preventDefault();
     console.log('hello');
     var newMovie = $('#userInput').val();
    console.log("new movie", newMovie);
-    });  
+     
       $.ajax({
       method: "POST",
       url: "api/movies",
@@ -71,7 +71,7 @@ $.ajax({
   //     }
   //       });
 
-     // });
+      });
 });
 
 
