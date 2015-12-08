@@ -30,13 +30,15 @@ var profile = {name: "Kayvon Ranjbar",
     {name: 'Maria Ranjbar', relationship: 'mother'},
     {name: 'Noshene Ranjbar', relationship: 'sister'}
     ],
-    days_old: Math.round((Date.now() - birthday.getTime()) / (1000 * 60 * 60 * 24))};
+  days_old: Math.round((Date.now() - birthday.getTime()) / (1000 * 60 * 60 * 24))};
 
 var movies = [
-  {_id: 1, title: "The Lion King", director: "Roger Allers"},
-  {_id: 2, title: "Pocahontas", director: "Mike Gabriel"},
-  {_id: 3, title: "Aladdin", director: "Ron Clements"}
+  {title: "The Lion King", director: "Roger Allers"},
+  {title: "Pocahontas", director: "Mike Gabriel"},
+  {title: "Aladdin", director: "Ron Clements"}
   ];
+
+
 
 /**********
  * ROUTES *
@@ -100,14 +102,10 @@ app.get('/api/movies/:id', function movies_show (req, res) {
 });
 
 app.post('/api/movies', function movies_create (req, res) {
-  var newMovie = req.body;
-  if (movies.length > 0) {
-    newMovie._id = movies[movies.length - 1]._id + 1;
-  } else {
-    newMovie._id = 1;
-  }
-  movies.push(newMovie);
-  res.json(newMovie);
+  var newMovie = new Movie(req.body);
+  newMovie.save(function(err, savedMovie) {
+    res.json(savedMovie);
+  });
 });
 
 app.put('/api/movies/:id', function movies_update (req, res) {
