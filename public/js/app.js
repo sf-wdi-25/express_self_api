@@ -52,7 +52,7 @@ $.ajax({
       $('form').on('submit', function (event){
     event.preventDefault();
     console.log('hello delete');
-  //   var newMovie = $('#deleteMovie').val();
+    //var selectedMovie = $('#deleteMovie').val();
     var movieToDelete = movies.filter(function (movie){
        return movie.title == movie;
      })[0];
@@ -64,7 +64,7 @@ $.ajax({
        success: function (data) {  
        console.log(data);  
    
-         movies.splice(movies.indoexOf(movieToDelete), 1);
+         movies.splice(movies.indexOf(movieToDelete), 1);
          render();
 
        }
