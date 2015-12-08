@@ -96,9 +96,31 @@ var videoGameData = [
   }
 ];
 
+//Creates a videogame
 VideoGame.create(videoGameData, function (err, VG){
   if(err){console.log("Your error: " + err);}
   console.log(VG);
+});
+
+//Reads all videogames
+VideoGame.find({}, function (err,VG){
+ if(err){console.log("Your error: " + err);}
+ console.log("Videogame Database: " + character);
+});
+
+//Reads one videogame from ID
+VideoGame.findById("req.params.id", function (err, VG){ //Don't believe this quite works as intended
+  if(err){console.log("Your error: " + err); }
+  console.log("From ID the Videogame is: " + VG);
+});
+
+//Updates a videogame from the database
+//TBD...
+
+//Removes all videogames from the database
+VideoGame.remove({}, function (err, VG){
+  if(err){console.log("Youre error: " + err); }
+  console.log("Videogame Database Deleted!");
 });
 
 // your hardcoded data here
