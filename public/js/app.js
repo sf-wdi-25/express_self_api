@@ -4,7 +4,7 @@ $(document).ready(function(){
 	$.ajax ({
 		method: "GET",
 		url: "/api/profile",
-		success: function profileInfo (data) {
+		success: function (data) {
 			console.log(data);
 			$('#profile').append("<p>Name: " + data.profileInfo[0].name + "</p><br\>" +
 				"<p>github " + data.profileInfo[0].githubLink + "</p><br\>" +
@@ -13,7 +13,7 @@ $(document).ready(function(){
 				"<p>Mom: <a href = " + data.profileInfo[0].family[0].photo + ">" + data.profileInfo[0].family[0].dname + "</a>" + "</p><br\>" + 
 				"<p>Dad: <a href = " + data.profileInfo[0].family[1].photo + ">" + data.profileInfo[0].family[1].mname + "</a>");
 		},
-		error: function profileData (data) {
+		error: function (data) {
 			console.log("stop the presses");
 		}
 	});
@@ -36,10 +36,15 @@ $.ajax({
 	}
 });
 
-// This section will contain the AJAX code to CRUD stuff, specifically showing the list of TV shows that I watch (haven't decided yet whether or
-// not I'd alpha-sort 'em, or leave them disordered as they are in server.js). CRUD would allow for me to delete shows that I've finished watching,
-// and to append new shows as well. Clicking the TV link in the navbar would ideally hide the profile and muzac DIVs and make the tv DIV appear,
-// populating with a CRUD form, as well as listing the shows.
-
+// $('#tvlink').click(function () {
+// 	$('#profile').hide();
+// 	$('#muzac').hide();
+// 	$('#tv').show();
+// 	$.ajax ({
+// 		method: "GET",
+// 		url: "/api/tv",
+// 		success
+// 	})
+// });
 
 });

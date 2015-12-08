@@ -63,3 +63,11 @@ li {
 #muzac {
   text-align: left;
 }
+
+#tv {
+  /*display: none;*/
+}
+
+#btn {
+  color: black;
+}
