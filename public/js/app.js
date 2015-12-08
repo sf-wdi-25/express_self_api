@@ -39,12 +39,16 @@ $.ajax({
 $('#tvlink').click(function () {
 	$('#profile').hide();
 	$('#muzac').hide();
-// 	$('#tv').show();
-// 	$.ajax ({
-// 		method: "GET",
-// 		url: "/api/tv",
-// 		success
-// 	})
+	$('#tv').show();
+	$.ajax ({
+		method: "GET",
+		url: "/api/tv",
+		success: function (data) {
+			console.log(data);
+			data.tvShows.forEach(function (ele) {
+				$('#tv').append("<p>" + ele + "</p><br\>");
+			});
+		}
+	});
 });
-
 });
