@@ -53,22 +53,22 @@ $.ajax({
     event.preventDefault();
     console.log('hello delete');
   //   var newMovie = $('#deleteMovie').val();
-  //   var movieToDelete = movies.filter(function (movie){
-  //     return movie.title == movie;
-  //   })[0];
+    var movieToDelete = movies.filter(function (movie){
+       return movie.title == movie;
+     })[0];
   // //  console.log("new movie", newMovie);
-  //     $.ajax({
-  //     method: "DELETE",
-  //     url: "api/movies",
-  //     data: { movie: movieToDelete },
-  //     success: function (data) {  
-  //     console.log(data);  
+       $.ajax({
+       method: "DELETE",
+      url: "api/movies",
+       data: { movie: movieToDelete },
+       success: function (data) {  
+       console.log(data);  
    
-  //       movies.splice(movies.indoexOf(movieToDelete), 1);
-  //       render();
+         movies.splice(movies.indoexOf(movieToDelete), 1);
+         render();
 
-  //     }
-  //       });
+       }
+         });
       
     });
   });
