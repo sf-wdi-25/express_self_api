@@ -2,6 +2,11 @@
 var express = require('express'),
     app = express();
 
+var db = require("./models");
+
+
+var bodyParser= require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true}));
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
 
@@ -66,22 +71,43 @@ app.get('/api/profile', function profile (req, res){
 });
 
  app.get('/api/movies', function (req, res) {
-  console.log(movies);
+  // console.log(movies);
       res.send(movies);
   });
 
- app.delete('/api/movies', function destroy(req, res) {
+//  app.post('/users', function(req, res) {
+//   var user = req.body.user;
+//   User.create(user, function (err, user) {
+//     res.status(200).json(user);
+//   });
+// });
+
+ app.post('/api/movies', function (req, res) {
   
-  var id = parseInt(req.params.id);
-  var newArr = movies.find(function (element, index){
-    if (element.title === title) {
-      movies.splice(index, 1);
-      return movies;
-    }
-    
-  }); 
-  res.send(newArr);
+  var newMovie = {};
+  newMovie.title = req.body.movie;
+
+  console.log(req.body);
+  db.Movie.create({title: newMovie.title}, function (err, movieTitle){
+      console.log(err);
+      console.log(movieTitle);
+      res.send(movieTitle);
+  });
 });
+
+
+ app.delete('/api/movies', function destroy(req, res) {
+  var newMovie = {};
+  newMovie.title = req.body.movie;
+
+  console.log(req.body);
+  db.Movie.remove({title: newMovie.title}, function (err, movieTitle){
+      console.log(err);
+      console.log(movieTitle);
+      res.send(movieTitle);
+    });
+ 
+ });
 /**********
  * SERVER *
  **********/
