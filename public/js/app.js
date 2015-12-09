@@ -64,6 +64,7 @@ $(document).ready(function(){
 		$('#muzac').hide();
 		// Makes the previously-hidden TV div appear (see styles.css - #tv)
 		$('#tv').show();
+		$('#tvform').show();
 	});
 
 
@@ -73,11 +74,14 @@ $(document).ready(function(){
 		$.ajax ({
 			method: "POST",
 			url: "/api/tv",
-			data: formInput,
+			data: { formInput: formInput },
 			success: function (data) {
+				$('#tv').empty();
+				$('#tvform').trigger('reset');
 				console.log(data);
 				data.tvShows.forEach(function (ele) {
-				$('#tvform').prepend("<p>" + ele + "</p><br\>");
+				$('#tv').append("<p>" + ele + "</p><br\>");
+				$('#tvform').find("input[type='text']").focus();
 			});
 		}
 	});
