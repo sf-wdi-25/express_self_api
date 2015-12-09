@@ -8,7 +8,7 @@ $(document).ready(function(){
 		method: "GET",
 		url: "/api/profile",
 		success: function (data) {
-			console.log(data);
+			// console.log(data);
 			$('#profile').append("<p>Name: " + data.profileInfo[0].name + "</p><br\>" +
 				"<p>github " + data.profileInfo[0].githubLink + "</p><br\>" +
 				"<p>Photo: " + data.profileInfo[0].githubProfilePic + "</p><br\>" +
@@ -44,30 +44,42 @@ $(document).ready(function(){
 		}
 	});
 
+	// Describes how to place elements from tvShows array into assigned, now-visible TV div space
+	$.ajax ({
+		method: "GET",
+		url: "/api/tv",
+		success: function (data) {
+			// console.log(data);
+			data.tvShows.forEach(function (ele) {
+				$('#tv').append("<p>" + ele + "</p><br\>");
+			});
+		}
+	});
 
-
-
-	// Describes functionality for handling clicking the "TV Shows!" link in navbar
-	$('#tvlink').click(function () {
-		
-		// Hides the by-default-visible profile and music div spaces
+		// Describes functionality for handling clicking the "TV Shows!" link in navbar
+	$('#tvlink').click( function (event) {
+		// Hides the visible-by-default PROFILE and MUZAC divs
+		// event.preventDefault();
 		$('#profile').hide();
 		$('#muzac').hide();
-		
-		// Makes the previously-hidden tv div space appear (see styles.css - #tv)
+		// Makes the previously-hidden TV div appear (see styles.css - #tv)
 		$('#tv').show();
+	});
 
-		// Describes how to place elements from tvShows array into assigned, now-visible tv div space
+
+	$('#tvform').submit(function (event) {
+		event.preventDefault();
+		var formInput = $(this).find("input[type='text']").val();
 		$.ajax ({
-			method: "GET",
+			method: "POST",
 			url: "/api/tv",
+			data: formInput,
 			success: function (data) {
 				console.log(data);
 				data.tvShows.forEach(function (ele) {
-					$('#tv').append("<p>" + ele + "</p><br\>");
-				});
-			}
-		});
+				$('#tvform').prepend("<p>" + ele + "</p><br\>");
+			});
+		}
 	});
-
+	});
 });
