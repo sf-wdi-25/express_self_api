@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Blank</title>
+    <title>The day is mine! I'll take famous "Titles" for $400!</title>
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -18,11 +19,34 @@
     <script src="js/app.js"></script>
   </head>
   <body>
+    <header>
+      <h1>I can haz website?</h1>
+      <img src="http://i.imgur.com/3TKxzWL.jpg" height=175px>
+    </header>
+    <div class="navbar">
+      <ul>
+        <li id="homelink"><a href="/">Home</a></li>
+        <li id="tvlink"><a href="/#TV">TV Shows!</a></li>
+      </ul>
+    </div>
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h1>Under Construction</h1>
+        <div class="col-md-4" id="profile">
         </div>
+        <div class="col-md-7" id="muzac">
+        <h2>Some of the deliciousness from my Pandora playlists:</h2>
+        <hr />
+        </div>
+      <div class="row">
+        <form action="" method="post" id="tvform">
+          <label>Add a New Show - </label>
+          <input type="text" name="name" placeholder="Show's Title" autofocus>
+          <input type="submit" value="Submit">
+          <hr />
+        </form>
+        <div class="col-md-8 col-md-offset-2" id="tv">
+        </div>
+      </div>
       </div>
     </div>
   </body>

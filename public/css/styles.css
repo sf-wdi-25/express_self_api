@@ -1,10 +1,81 @@
 body {
   color: #333;
   font-family: Helvetica, Arial, sans-serif;
-  background-color: skyblue; /* Sanity Check! */
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 h1 {
-  margin-top: 100px;
+  color: black;
+}
+
+h2 {
+  margin: 0;
+  font-weight: bold;
+  font-family: arial;
+}
+
+p {
+  font-size: 20px;
+}
+
+/*a {
+  color: rgba(255, 255, 255, 0.8);
+}*/
+
+header {
+	margin-top: -20px;
+	padding-top: 5px;
+  padding-bottom: 10px;
+	text-align: center;
+	background-color: deepskyblue; /* Sanity Check! */
+}
+
+.navbar {
   text-align: center;
+}
+
+ul {
+  background-color: rgba(192, 192, 192, 0.1);
+}
+
+li {
+  display: inline;
+  font-size: 20px;
+  padding: 0px 10px 0px 10px;
+  margin-bottom: -20px;
+}
+
+.container {
+  text-align: center;
+  display: inline;
+  color: white;
+}
+
+.col-md-4 {
+  margin-left: 15px;
+}
+
+#profile {
+  text-align: left;
+
+}
+
+#muzac {
+  text-align: left;
+}
+
+#tvform {
+  display: none;
+}
+
+#tv {
+  display: none;
+}
+
+#btn {
+  color: black;
+}
+
+input {
+  color: black;
 }

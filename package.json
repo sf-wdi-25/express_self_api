@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/sf-wdi-25/express_self_api/issues"
   },
-  "homepage": "https://github.com/sf-wdi-25/express_self_api#readme"
+  "homepage": "https://github.com/sf-wdi-25/express_self_api#readme",
+  "dependencies": {
+    "express": "~4.13.3",
+    "body-parser": "~1.14.1"
+  }
 }
