@@ -2,9 +2,10 @@
 var express = require('express'),
     app = express();
 
-// serve static files from the public folder (stylesheets, scripts, images)
-app.use(express.static(__dirname + '/public'));
-
+// parse incoming urlencoded form data
+// and populate the req.body object
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /**********
  * ROUTES *
