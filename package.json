@@ -1,19 +1,24 @@
 {
   "name": "express_self_api",
   "version": "1.0.0",
-  "description": "Building an API about yourself",
+  "description": "Build an API about yourself",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sf-wdi-25/express_self_api.git"
+    "url": "git+https://github.com/SF-WDI-LABS/express_self_api.git"
   },
   "author": "WDI 25",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sf-wdi-25/express_self_api/issues"
+    "url": "https://github.com/SF-WDI-LABS/express_self_api/issues"
   },
-  "homepage": "https://github.com/sf-wdi-25/express_self_api#readme"
+  "homepage": "https://github.com/SF-WDI-LABS/express_self_api",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.10"
+  }
 }
