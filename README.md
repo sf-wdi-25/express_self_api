@@ -82,7 +82,10 @@ An example API for 'Jon Snow' might have endpoints like:
                                   github_link: "http://github.com/u-know-nothing-jon-snow",
                                   current_city: "The Wall",
                                   is_awake: false,
-                                  family_members: [ { name: 'Arya Stark', relationship: 'sister' }, { name: 'Bran Stark', relationship: 'brother' }]
+                                  family_members: [ 
+                                    { name: 'Arya Stark', relationship: 'sister' }, 
+                                    { name: 'Bran Stark', relationship: 'brother' }
+                                  ]
                                 }
 
     GET /api/projects           [
