@@ -1,10 +1,12 @@
 # <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Personal API - Weekend Lab
 
-Your goal is to build a API about yourself. Your API will incorporate:
+It's time to have some fun and play with the technologies you've learned in the past week. Your goal is to build a API about yourself. Your API will incorporate:
 * Well-documented **JSON API** Endpoints
 * A full set of **REST-ful Routes** (GET, POST, UPDATE, DELETE)
 * At least one **CRUD-able resource** (Create, Read, Update, Destroy)
 * and an `/api/profile` endpoint with some basic **details about you**
+
+Finally, you will **consume your API** using AJAX and **render the results** to the page using jQuery.
 
 Please fork & clone this repo to get started.
 
@@ -35,7 +37,7 @@ Now that we're deployed, it's time to start coding your "personal" api!
     - One cool way to do this is to create an endpoint that describes all the available endpoints(!). We've set you up with an example in `server.js`. Don't forget to update it!
         + See the [Open API Initiative](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#paths-object-example) for a neat example of this.
     - This is also a great way to plan out the features you want to develop. So we _highly recommend that you do this step first_!
-- **A Profile Endpoint** (`/api/profile`) that responds with hard-coded data:
+- **A Profile Endpoint** (`/api/profile`) that responds with *hard-coded* data:
     + `name` - a string
     + `github_link` - a url to your github profile
     + `github_profile_image` - the url of your github profile image
@@ -47,24 +49,21 @@ Now that we're deployed, it's time to start coding your "personal" api!
     - Here are some ideas:
         * Wish list (e.g. `gifts` or `wishes`)
             - _id, description, price, amazon_link
-        * `action_figures` or `toys` you've owned
-            - _id, title, maker, genre, condition
-        * `destinations` you like, or `vacations`
+        * `destinations` you've visited, or `vacations` you're planning
             - _id, country, date, duration, photo
         * `movies` or `shows` you like
             - _id, title, season, director
-        * `portfolio_projects` or `freestyle_rap_lyrics`
+        * `portfolio_projects` or `lyrics` you've written
             - _id, title, body, date
 
 All API Endpoints must return JSON.
 
-> **Pro-Tip**: One good strategy is to add the database last. Start with your api routes and some hard-coded data. Make sure it's working the way you want before tackling the database layer!
+> **Pro-Tip**: One good strategy is to add the database *last*. Start with your api routes and some hard-coded data. Make sure it's working the way you want before tackling the database layer!
 
 #### API Stretch Goals
 * Profile info stretch goals
     * Add a `days_old` field that calculates how many days old you are.
     * Add an `is_awake` field that's only `true` between 8am and 10pm!
-    * Add an `is_hungry` field that's only `true` around lunch and dinner!
 * CRUD resource stretch goals
     * Use query parameters to filter results from one of your CRUD endpoints:
         - e.g. `?limit=2` only return two results
@@ -128,3 +127,8 @@ Consume the Personal API you just created, and use it to build your own personal
 * Display **at least one image/gif** that you retrieved from your Personal API.
 * Create **at least one form**, so you can CRUD at least one of your resources.
 * Get rid of that ugly blue background. Style it up! **Make your momma proud**.
+
+<br>
+<br>
+
+<img src="https://media.giphy.com/media/mWUuD8qPSi5B6/giphy.gif" width="400">
