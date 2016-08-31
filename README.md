@@ -33,8 +33,10 @@ Now that we're deployed, it's time to start coding your "personal" api!
 
 - **Documented API Endpoints**
     - You must document your API endpoints. We really want to know *how* to use your API! And for starters, we need to know what endpoints exist!
-        +  Don't make us [dictionary attack](https://en.wikipedia.org/wiki/Dictionary_attack) your site with guesses!
-    - One cool way to do this is to create an endpoint that describes all the available endpoints(!). We've set you up with an example in `server.js`. Don't forget to update it!
+    - One cool way to do this is to create an endpoint at `/api` that describes all the available endpoints. We've set you up with an example in `server.js`.
+        + currently, the `/api` endpoint looks like this:
+        ![image](https://cloud.githubusercontent.com/assets/6520345/18147254/a480f802-6f88-11e6-8ee5-1fb15615f8d5.png)
+        Make sure to update it to fill it in with your own information!
         + See the [Open API Initiative](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#paths-object-example) for a neat example of this.
     - This is also a great way to plan out the features you want to develop. So we _highly recommend that you do this step first_!
 - **A Profile Endpoint** (`/api/profile`) that responds with *hard-coded* data:
@@ -81,8 +83,8 @@ An example API for 'Jon Snow' might have endpoints like:
                                   github_link: "http://github.com/u-know-nothing-jon-snow",
                                   current_city: "The Wall",
                                   is_awake: false,
-                                  family_members: [ 
-                                    { name: 'Arya Stark', relationship: 'sister' }, 
+                                  family_members: [
+                                    { name: 'Arya Stark', relationship: 'sister' },
                                     { name: 'Bran Stark', relationship: 'brother' }
                                   ]
                                 }
@@ -95,7 +97,7 @@ An example API for 'Jon Snow' might have endpoints like:
                                     opponents: [ 'Mance Rayder', 'Lord of Bones'],
                                     status: 'resolved'
                                  },
-                                 { 
+                                 {
                                     _id: 3,
                                     name: 'Save the wildlings',
                                     type: 'campaign',
@@ -103,7 +105,7 @@ An example API for 'Jon Snow' might have endpoints like:
                                     status: 'pending'
                                  }
                                 ]
-    
+
     GET /api/projects?limit=1   [ { _id: 2, name:'Defeat...' } ]
 
     GET /api/projects?status=pending
