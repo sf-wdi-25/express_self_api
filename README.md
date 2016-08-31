@@ -38,19 +38,20 @@ Now that we're deployed, it's time to start coding your "personal" api!
         ![image](https://cloud.githubusercontent.com/assets/6520345/18147254/a480f802-6f88-11e6-8ee5-1fb15615f8d5.png)
         Make sure to update it to fill it in with your own information!
         + See the [Open API Initiative](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#paths-object-example) for a neat example of this.
-    - This is also a great way to plan out the features you want to develop. So we _highly recommend that you do this step first_!
+    - This is also a great way to plan out the features you want to develop. So  _do this step first_!
 - **A Profile Endpoint** (`/api/profile`) that responds with *hard-coded* data:
     + `name` - a string
-    + `github_link` - a url to your github profile
-    + `github_profile_image` - the url of your github profile image
-    + `current_city`
+    + `githubLink` - a url to your github profile
+    + `githubProfileImage` - the url of your github profile image
+    + `personalSiteLink` - a link to your personal site.
+    + `currentCity`
     + `pets` - an array of your pets
         + e.g. `[{name: "foo", type: "Cat", breed: "Siamese"}, {name: "bar", type: "Dog", breed: "Dalmation"}]`
 - **At least one resource (mongoose model)** that you can _*CRUD*_ using _*RESTful Routes*_
     - That means endpoints for `index`, `show`, `create` `update`, `delete`!
     - Here are some ideas:
         * Wish list (e.g. `gifts` or `wishes`)
-            - _id, description, price, amazon_link
+            - _id, description, price, amazonLink
         * `destinations` you've visited, or `vacations` you're planning
             - _id, country, date, duration, photo
         * `movies` or `shows` you like
@@ -64,8 +65,8 @@ All API Endpoints must return JSON.
 
 #### API Stretch Goals
 * Profile info stretch goals
-    * Add a `days_old` field that calculates how many days old you are.
-    * Add an `is_awake` field that's only `true` between 8am and 10pm!
+    * Add a `daysOld` field that calculates how many days old you are.
+    * Add an `isAwake` field that's only `true` between 8am and 10pm!
 * CRUD resource stretch goals
     * Use query parameters to filter results from one of your CRUD endpoints:
         - e.g. `?limit=2` only return two results
@@ -80,10 +81,10 @@ An example API for 'Jon Snow' might have endpoints like:
     =============               =============
     GET /api/profile            {
                                   name: "Jon Snow",
-                                  github_link: "http://github.com/u-know-nothing-jon-snow",
-                                  current_city: "The Wall",
-                                  is_awake: false,
-                                  family_members: [
+                                  githubLink: "http://github.com/u-know-nothing-jon-snow",
+                                  currentCity: "The Wall",
+                                  isAwake: false,
+                                  familyMembers: [
                                     { name: 'Arya Stark', relationship: 'sister' },
                                     { name: 'Bran Stark', relationship: 'brother' }
                                   ]
