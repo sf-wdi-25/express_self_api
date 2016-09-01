@@ -50,14 +50,18 @@ Now that we're deployed, it's time to start coding your "personal" api!
 - **At least one resource (mongoose model)** that you can _*CRUD*_ using _*RESTful Routes*_
     - That means endpoints for `index`, `show`, `create` `update`, `delete`!
     - Here are some ideas:
-        * Wish list (e.g. `gifts` or `wishes`)
-            - _id, description, price, amazonLink
+        * `places` that you've lived or that are important to you
+            - _id, description, town, state, country, years, gps: {lat, lon}, photo
         * `destinations` you've visited, or `vacations` you're planning
             - _id, country, date, duration, photo
+        * `books` you've read or love
+            - _id, title, author, image, releaseDate, characters
         * `movies` or `shows` you like
             - _id, title, season, director
-        * `portfolio_projects` or `lyrics` you've written
+        * `portfolioProjects` or `lyrics` you've written
             - _id, title, body, date
+        * Wish list (e.g. `gifts` or `wishes`)
+            - _id, description, price, amazonLink
 
 All API Endpoints must return JSON.
 
@@ -130,6 +134,10 @@ Consume the Personal API you just created, and use it to build your own personal
 * Display **at least one image/gif** that you retrieved from your Personal API.
 * Create **at least one form**, so you can CRUD at least one of your resources.
 * Get rid of that ugly blue background. Style it up! **Make your momma proud**.
+
+#### Possible Challenge
+
+If your data includes locations, add a google map to show pins of those places.
 
 <br>
 <br>
