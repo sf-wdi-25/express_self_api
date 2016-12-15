@@ -1,17 +1,19 @@
 # <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Personal API - Weekend Lab
 
-Your goal is to build a API about yourself. Your API will incorporate:
-* some basic details about you
-* `/api` endpoints that return JSON
-* RESTful Routing (GET, POST, UPDATE, DELETE)
-* CRUDing (of at least one resource)
+It's time to have some fun and play with the technologies you've learned in the past week. Your goal is to build a API about yourself. Your API will incorporate:
+* Well-documented **JSON API** Endpoints
+* A full set of **REST-ful Routes** (GET, POST, UPDATE, DELETE)
+* At least one **CRUD-able resource** (Create, Read, Update, Destroy)
+* and an `/api/profile` endpoint with some basic **details about you**
+
+Finally, you will **consume your API** using AJAX and **render the results** to the page using jQuery.
 
 Please fork & clone this repo to get started.
 
 ## Part 0. Deploy to Heroku
 Before we start coding, our first goal together is to configure our application so that it can be deployed to Heroku (a web application host).
 
-Follow the instructions here: [Deploying Express Apps to Heroku](https://github.com/sf-wdi-25/notes/blob/master/how-tos/deploy-nodejs-app-to-heroku.md)
+Follow the instructions here: [Deploying Express Apps to Heroku](https://github.com/SF-WDI-LABS/shared_modules/blob/master/how-to/heroku-mean-stack-deploy.md)
 
 As you continue to work on this project, you'll need to remember to push your changes to heroku (just like you would with github!):
 
@@ -29,35 +31,46 @@ Now that we're deployed, it's time to start coding your "personal" api!
 
 #### Minimum Requirements
 
-- **Documentation**: You must create a README.md file that specifies what endpoints are available on your API, what your endpoints expect from the request (verb + route + data), and what they will respond with (structure of JSON). We really want to know how to use your API! And we _highly recommend that you do this first_!
-- A **profile endpoint** (`/api/profile`) that responds with:
+- **Documented API Endpoints**
+    - You must document your API endpoints. We really want to know *how* to use your API! And for starters, we need to know what endpoints exist!
+    - One cool way to do this is to create an endpoint at `/api` that describes all the available endpoints. We've set you up with an example in `server.js`.
+        + currently, the `/api` endpoint looks like this:
+        ![image](https://cloud.githubusercontent.com/assets/6520345/18149824/7380cc0a-6f97-11e6-949b-40191e29891f.png)
+        Make sure to update it to fill it in with your own information!
+        + See the [Open API Initiative](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#paths-object-example) for a neat example of this.
+    - This is also a great way to plan out the features you want to develop. So  _do this step first_!
+- **A Profile Endpoint** (`/api/profile`) that responds with *hard-coded* data:
     + `name` - a string
-    + `github_link` - a url to your github profile
-    + `github_profile_image` - the url of your github profile image
-    + `current_city`
-    + `family_members` - an array of family member objects
-        + e.g. `[{name: "foo", relationship: "father"}, {name: "bar", relationship: "mother"}]`
-- **At least one resource** that you can _*CRUD*_ using _*RESTful Routes*_
+    + `githubLink` - a url to your github profile
+    + `githubProfileImage` - the url of your github profile image
+    + `personalSiteLink` - a link to your personal site.
+    + `currentCity`
+    + `pets` - an array of your pets
+        + e.g. `[{name: "foo", type: "Cat", breed: "Siamese"}, {name: "bar", type: "Dog", breed: "Dalmation"}]`
+- **At least one resource (mongoose model)** that you can _*CRUD*_ using _*RESTful Routes*_
     - That means endpoints for `index`, `show`, `create` `update`, `delete`!
     - Here are some ideas:
-        * Wish list (e.g. `gifts` or `wishes`)
-            - _id, description, price, amazon_link
-        * `books` you've read
-            - _id, title, author, genre, notes
-        * `quotes` you like, or `tweets`
-            - _id, text, date, author
+        * `places` that you've lived or that are important to you
+            - _id, description, town, state, country, years, gps: {lat, lon}, photo
+        * `destinations` you've visited, or `vacations` you're planning
+            - _id, country, date, duration, photo
+        * `books` you've read or love
+            - _id, title, author, image, releaseDate, characters
         * `movies` or `shows` you like
             - _id, title, season, director
-        * `projects` or `poems`
+        * `portfolioProjects` or `lyrics` you've written
             - _id, title, body, date
+        * Wish list (e.g. `gifts` or `wishes`)
+            - _id, description, price, amazonLink
 
 All API Endpoints must return JSON.
 
+> **Pro-Tip**: One good strategy is to add the database *last*. Start with your api routes and some hard-coded data. Make sure it's working the way you want before tackling the database layer!
+
 #### API Stretch Goals
 * Profile info stretch goals
-    * Add a `days_old` field that calculates how many days old you are.
-    * Add an `is_awake` field that's only `true` between 8am and 10pm!
-    * Add an `is_hungry` field that's only `true` around lunch and dinner!
+    * Add a `daysOld` field that calculates how many days old you are.
+    * Add an `isAwake` field that's only `true` between 8am and 10pm!
 * CRUD resource stretch goals
     * Use query parameters to filter results from one of your CRUD endpoints:
         - e.g. `?limit=2` only return two results
@@ -72,10 +85,13 @@ An example API for 'Jon Snow' might have endpoints like:
     =============               =============
     GET /api/profile            {
                                   name: "Jon Snow",
-                                  github_link: "http://github.com/u-know-nothing-jon-snow",
-                                  current_city: "The Wall",
-                                  is_awake: false,
-                                  family_members: [ { name: 'Arya Stark', relationship: 'sister' }, { name: 'Bran Stark', relationship: 'brother' }]
+                                  githubLink: "http://github.com/u-know-nothing-jon-snow",
+                                  currentCity: "The Wall",
+                                  isAwake: false,
+                                  familyMembers: [
+                                    { name: 'Arya Stark', relationship: 'sister' },
+                                    { name: 'Bran Stark', relationship: 'brother' }
+                                  ]
                                 }
 
     GET /api/projects           [
@@ -86,7 +102,7 @@ An example API for 'Jon Snow' might have endpoints like:
                                     opponents: [ 'Mance Rayder', 'Lord of Bones'],
                                     status: 'resolved'
                                  },
-                                 { 
+                                 {
                                     _id: 3,
                                     name: 'Save the wildlings',
                                     type: 'campaign',
@@ -94,7 +110,7 @@ An example API for 'Jon Snow' might have endpoints like:
                                     status: 'pending'
                                  }
                                 ]
-    
+
     GET /api/projects?limit=1   [ { _id: 2, name:'Defeat...' } ]
 
     GET /api/projects?status=pending
@@ -105,6 +121,7 @@ An example API for 'Jon Snow' might have endpoints like:
     PUT /api/projects/2         etc
     DELETE /api/projects/2      etc
 
+Make sure to spend time planning this part out!
 
 ## Part 2. Personal Dashboard
 
@@ -113,30 +130,16 @@ Consume the Personal API you just created, and use it to build your own personal
 
 * Create an `index.html` **homepage** that's linked to your main javascript and css files.
 * Use **jQuery** and **AJAX** to consume your Personal API.
+* Use **Handlebars** Templating to render data to the page.
 * Display **at least one image/gif** that you retrieved from your Personal API.
 * Create **at least one form**, so you can CRUD at least one of your resources.
-* **Make your momma proud**.
+* Get rid of that ugly blue background. Style it up! **Make your momma proud**.
 
+#### Possible Challenge
 
-## Part 3. Go Crazy Stretch Goals
-* What's the `current_weather` like in your `current_city`? Use this [Weather API](https://developer.forecast.io/). You can decide whether you want to do a front-end (client-side) integration, or a back-end (server-side) integration with the API.
-* Add a `most_recent_tweet` or a `most_recent_instagram` field and consume the [Twitter API] or the [Instagram API] _on the server side_ (hint, you'll need to use the [Request library](https://github.com/request/request)).
-* Embed your favorite youtube videos or soundcloud/spotify tracks.
+If your data includes locations, add a google map to show pins of those places.
 
-##Recommended File Structure
+<br>
+<br>
 
-_A good express file tree structure_:
-
-```
-├── server.js  // your server code
-├── package.json    // lists dependencies; changed by npm install --save somePackage
-├── public  // i.e. client-side
-│   ├── images  // images to serve to client
-│   ├── javascripts
-│   │   └── app.js   // client-side javascript file
-│   └── stylesheets
-│       └── style.css
-├── vendor // includes jQuery & bootstrap if we choose not to use CDN
-├── views  // html files that we'll serve
-│   ├── index.html
-```
+<img src="https://media.giphy.com/media/mWUuD8qPSi5B6/giphy.gif" width="400">
