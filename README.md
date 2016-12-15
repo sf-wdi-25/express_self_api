@@ -24,7 +24,7 @@ git push heroku master
 heroku open
 ```
 
-It's common for code to break "in production" (broken links, different environment, missing dependenies...), so do your best to debug!
+It's common for code to break "in production" (broken links, different environment, missing dependenies...), when worked in development so do your best to debug! Let us know if you get stuck.
 
 ## Part 1. Personal API
 Now that we're deployed, it's time to start coding your "personal" api!
@@ -67,7 +67,7 @@ Now that we're deployed, it's time to start coding your "personal" api!
         * Wish list (e.g. `gifts` or `wishes`)
             - `_id`, description, price, amazonLink
 
-All API Endpoints must return JSON.
+All API Endpoints must return JSON. You will be able to see if your API is up and running because [this api aggregator](https://api-aggregator.herokuapp.com/) will be able to consume your data. Check back on it to see if it's working for your code! Note: This won't be set up until you send your instructors the name of your Heroku app!
 
 > **Pro-Tip**: One good strategy is to add the database *last*. Start with your api routes and some hard-coded data. Make sure it's working the way you want before tackling the database layer!
 
@@ -132,12 +132,12 @@ Make sure to spend time planning this part out!
 #### Minimum Requirements
 Consume the Personal API you just created, and use it to build your own personal dashboard.
 
-* Create an `index.html` **homepage** that's linked to your main javascript and css files.
+* Create an `index.html` **homepage** that's linked to your main JavaScript and CSS files.
 * Use **jQuery** and **AJAX** to consume your Personal API.
-* Use **Handlebars** Templating to render data to the page.
+* Use **Handlebars** templating to render data to the page.
 * Display **at least one image/gif** that you retrieved from your Personal API.
 * Create **at least one form**, so you can CRUD at least one of your resources.
-* Get rid of that ugly blue background. Style it up! **Make your momma proud**.
+* Get rid of that ugly blue background. Style it up!
 
 #### Possible Challenge
 
