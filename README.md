@@ -36,11 +36,13 @@ Now that we're deployed, it's time to start coding your "personal" api!
     - One cool way to do this is to create an endpoint at `/api` that describes all the available endpoints. We've set you up with an example in `server.js`.
         + currently, the `/api` endpoint looks like this:
         ![image](https://cloud.githubusercontent.com/assets/6520345/18149824/7380cc0a-6f97-11e6-949b-40191e29891f.png)
+
         Make sure to update it to fill it in with your own information!
         + See the [Open API Initiative](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#paths-object-example) for a neat example of this.
     - This is also a great way to plan out the features you want to develop. So  _do this step first_!
-- **A Profile Endpoint** (`/api/profile`) that responds with *hard-coded* data:
+- **A Profile Endpoint** (`/api/profile`) that responds with *hard-coded* data that is written directly into `server.js`:
     + `name` - a string
+    + `githubUsername` - a string
     + `githubLink` - a url to your github profile
     + `githubProfileImage` - the url of your github profile image
     + `personalSiteLink` - a link to your personal site.
@@ -50,18 +52,20 @@ Now that we're deployed, it's time to start coding your "personal" api!
 - **At least one resource (mongoose model)** that you can _*CRUD*_ using _*RESTful Routes*_
     - That means endpoints for `index`, `show`, `create` `update`, `delete`!
     - Here are some ideas:
+        * **RECOMMENDED:** `projects` that you have built for this class
+            - `_id`, name, description, githubRepoUrl, deployedUrl, screenshot
         * `places` that you've lived or that are important to you
-            - _id, description, town, state, country, years, gps: {lat, lon}, photo
+            - `_id`, description, town, state, country, years, gps: {lat, lon}, photo
         * `destinations` you've visited, or `vacations` you're planning
-            - _id, country, date, duration, photo
+            - `_id`, country, date, duration, photo
         * `books` you've read or love
-            - _id, title, author, image, releaseDate, characters
+            - `_id`, title, author, image, releaseDate, characters
         * `movies` or `shows` you like
-            - _id, title, season, director
+            - `_id`, title, season, director
         * `portfolioProjects` or `lyrics` you've written
-            - _id, title, body, date
+            - `_id`, title, body, date
         * Wish list (e.g. `gifts` or `wishes`)
-            - _id, description, price, amazonLink
+            - `_id`, description, price, amazonLink
 
 All API Endpoints must return JSON.
 
