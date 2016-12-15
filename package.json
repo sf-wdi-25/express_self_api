@@ -1,5 +1,5 @@
 {
-  "name": "express_self_api",
+  "name": "express-personal-api",
   "version": "1.0.0",
   "description": "Build an API about yourself",
   "main": "server.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SF-WDI-LABS/express_self_api.git"
+    "url": "git+https://github.com/SF-WDI-LABS/express-personal-api.git"
   },
-  "author": "WDI 25",
+  "author": "GA SF WDI",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SF-WDI-LABS/express_self_api/issues"
+    "url": "https://github.com/SF-WDI-LABS/express-personal-api/issues"
   },
-  "homepage": "https://github.com/SF-WDI-LABS/express_self_api",
+  "homepage": "https://github.com/SF-WDI-LABS/express-personal-api",
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
