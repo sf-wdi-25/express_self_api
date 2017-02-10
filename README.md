@@ -32,13 +32,12 @@ Now that we're deployed, it's time to start coding your "personal" api!
 #### Minimum Requirements
 
 - **Documented API Endpoints**
-    - You must document your API endpoints. We really want to know *how* to use your API! And for starters, we need to know what endpoints exist!
-    - One cool way to do this is to create an endpoint at `/api` that describes all the available endpoints. We've set you up with an example in `server.js`.
-        + currently, the `/api` endpoint looks like this:
-        ![image](https://cloud.githubusercontent.com/assets/6520345/18149824/7380cc0a-6f97-11e6-949b-40191e29891f.png)
-        Make sure to update it to fill it in with your own information!
-        + See the [Open API Initiative](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#paths-object-example) for a neat example of this.
-    - This is also a great way to plan out the features you want to develop. So  _do this step first_!
+    - You must document your API endpoints. We really want to know *how* to use your API! And for starters, we need to know what endpoints exist! (Do this step first! _Plan plan plan!_)
+    - One cool way to do this is to create an endpoint at `/api` that describes all the available endpoints. We've set you up with an example in `server.js`. Make sure to update it to fill it in with your own information!
+        + Here's a good example student `/api` endpoint:
+        + 
+        <img width="500" alt="example api documentation" src="https://cloud.githubusercontent.com/assets/1489337/22841538/dc0b7f26-ef86-11e6-9a56-013bbe51792a.png">
+        + See the [Open API Initiative](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#paths-object-example) for what this looks like in practice.
 - **A Profile Endpoint** (`/api/profile`) that responds with *hard-coded* data:
     + `name` - a string
     + `githubLink` - a url to your github profile
@@ -47,6 +46,7 @@ Now that we're deployed, it's time to start coding your "personal" api!
     + `currentCity`
     + `pets` - an array of your pets
         + e.g. `[{name: "foo", type: "Cat", breed: "Siamese"}, {name: "bar", type: "Dog", breed: "Dalmation"}]`
+    + Please hardcode it! It would be seriously overkill to save a single profile to the database.
 - **At least one resource (mongoose model)** that you can _*CRUD*_ using _*RESTful Routes*_
     - That means endpoints for `index`, `show`, `create` `update`, `delete`!
     - Here are some ideas:
