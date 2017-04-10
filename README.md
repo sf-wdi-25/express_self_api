@@ -68,7 +68,9 @@ Now that we're deployed, it's time to start coding your "personal" api!
         * Wish list (e.g. `gifts` or `wishes`)
             - `_id`, description, price, amazonLink
 
-All API Endpoints must return JSON. You will be able to see if your API is up and running because [this api aggregator](https://api-aggregator.herokuapp.com/) will be able to consume your data. Check back on it to see if it's working for your code! Note: This won't be set up until you send your instructors the name of your Heroku app!
+All API Endpoints must return JSON. 
+
+<!--- You will be able to see if your API is up and running because [this api aggregator](https://api-aggregator.herokuapp.com/) will be able to consume your data. Check back on it to see if it's working for your code! Note: This won't be set up until you send your instructors the name of your Heroku app! --->
 
 > **Pro-Tip**: One good strategy is to add the database *last*. Start with your api routes and some hard-coded data. Make sure it's working the way you want before tackling the database layer!
 
