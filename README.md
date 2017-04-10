@@ -24,7 +24,7 @@ git push heroku master
 heroku open
 ```
 
-It's common for code to break "in production" (broken links, different environment, missing dependenies...), so do your best to debug!
+It's common for code to break "in production" (broken links, different environment, missing dependenies...), when worked in development so do your best to debug! Let us know if you get stuck.
 
 ## Part 1. Personal API
 Now that we're deployed, it's time to start coding your "personal" api!
@@ -32,6 +32,7 @@ Now that we're deployed, it's time to start coding your "personal" api!
 #### Minimum Requirements
 
 - **Documented API Endpoints**
+
     - You must document your API endpoints. We really want to know *how* to use your API! And for starters, we need to know what endpoints exist! (Do this step first! _Plan plan plan!_)
     - One cool way to do this is to create an endpoint at `/api` that describes all the available endpoints. We've set you up with an example in `server.js`. Make sure to update it to fill it in with your own information!
         + Here's a good example student `/api` endpoint:
@@ -39,7 +40,9 @@ Now that we're deployed, it's time to start coding your "personal" api!
         <img width="500" alt="example api documentation" src="https://cloud.githubusercontent.com/assets/1489337/22841538/dc0b7f26-ef86-11e6-9a56-013bbe51792a.png">
         + See the [Open API Initiative](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#paths-object-example) for what this looks like in practice.
 - **A Profile Endpoint** (`/api/profile`) that responds with *hard-coded* data:
+
     + `name` - a string
+    + `githubUsername` - a string
     + `githubLink` - a url to your github profile
     + `githubProfileImage` - the url of your github profile image
     + `personalSiteLink` - a link to your personal site.
@@ -50,20 +53,22 @@ Now that we're deployed, it's time to start coding your "personal" api!
 - **At least one resource (mongoose model)** that you can _*CRUD*_ using _*RESTful Routes*_
     - That means endpoints for `index`, `show`, `create` `update`, `delete`!
     - Here are some ideas:
+        * **RECOMMENDED:** `projects` that you have built for this class
+            - `_id`, name, description, githubRepoUrl, deployedUrl, screenshot
         * `places` that you've lived or that are important to you
-            - _id, description, town, state, country, years, gps: {lat, lon}, photo
+            - `_id`, description, town, state, country, years, gps: {lat, lon}, photo
         * `destinations` you've visited, or `vacations` you're planning
-            - _id, country, date, duration, photo
+            - `_id`, country, date, duration, photo
         * `books` you've read or love
-            - _id, title, author, image, releaseDate, characters
+            - `_id`, title, author, image, releaseDate, characters
         * `movies` or `shows` you like
-            - _id, title, season, director
+            - `_id`, title, season, director
         * `portfolioProjects` or `lyrics` you've written
-            - _id, title, body, date
+            - `_id`, title, body, date
         * Wish list (e.g. `gifts` or `wishes`)
-            - _id, description, price, amazonLink
+            - `_id`, description, price, amazonLink
 
-All API Endpoints must return JSON.
+All API Endpoints must return JSON. You will be able to see if your API is up and running because [this api aggregator](https://api-aggregator.herokuapp.com/) will be able to consume your data. Check back on it to see if it's working for your code! Note: This won't be set up until you send your instructors the name of your Heroku app!
 
 > **Pro-Tip**: One good strategy is to add the database *last*. Start with your api routes and some hard-coded data. Make sure it's working the way you want before tackling the database layer!
 
@@ -128,12 +133,14 @@ Make sure to spend time planning this part out!
 #### Minimum Requirements
 Consume the Personal API you just created, and use it to build your own personal dashboard.
 
-* Create an `index.html` **homepage** that's linked to your main javascript and css files.
+* Create an `index.html` **homepage** that's linked to your main JavaScript and CSS files.
 * Use **jQuery** and **AJAX** to consume your Personal API.
+
 * Use **Template Strings** and **Array Iteration** to render data to the page.
+
 * Display **at least one image/gif** that you retrieved from your Personal API.
 * Create **at least one form**, so you can CRUD at least one of your resources.
-* Get rid of that ugly blue background. Style it up! **Make your momma proud**.
+* Get rid of that ugly blue background. Style it up!
 
 <br>
 <br>
