@@ -6,7 +6,7 @@ It's time to have some fun and play with the technologies you've learned in the 
 * At least one **CRUD-able resource** (Create, Read, Update, Destroy)
 * and an `/api/profile` endpoint with some basic **details about you**
 
-Finally, you will **consume your API** using AJAX and **render the results** to the page using jQuery.
+Finally, you will **consume your API** using AJAX and **render the results** to the page using jQuery. You must complete *both* of these portions of the assignment.
 
 Please fork & clone this repo to get started.
 
@@ -24,7 +24,7 @@ git push heroku master
 heroku open
 ```
 
-It's common for code to break "in production" (broken links, different environment, missing dependenies...), when worked in development so do your best to debug! Let us know if you get stuck.
+It's common for code to break "in production" (broken links, different environment, missing dependenies...), even if it worked in development, so do your best to debug! Let us know if you get stuck.
 
 ## Part 1. Personal API
 Now that we're deployed, it's time to start coding your "personal" api!
@@ -36,7 +36,7 @@ Now that we're deployed, it's time to start coding your "personal" api!
     - You must document your API endpoints. We really want to know *how* to use your API! And for starters, we need to know what endpoints exist! (Do this step first! _Plan plan plan!_)
     - One cool way to do this is to create an endpoint at `/api` that describes all the available endpoints. We've set you up with an example in `server.js`. Make sure to update it to fill it in with your own information!
         + Here's a good example student `/api` endpoint:
-        + 
+        +
         <img width="500" alt="example api documentation" src="https://cloud.githubusercontent.com/assets/1489337/22841538/dc0b7f26-ef86-11e6-9a56-013bbe51792a.png">
         + See the [Open API Initiative](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#paths-object-example) for what this looks like in practice.
 - **A Profile Endpoint** (`/api/profile`) that responds with *hard-coded* data:
@@ -49,6 +49,7 @@ Now that we're deployed, it's time to start coding your "personal" api!
     + `currentCity`
     + `pets` - an array of your pets
         + e.g. `[{name: "foo", type: "Cat", breed: "Siamese"}, {name: "bar", type: "Dog", breed: "Dalmation"}]`
+        + if you do not have any pets, please get creative, or use hobbies instead
     + Please hardcode it! It would be seriously overkill to save a single profile to the database.
 - **At least one resource (mongoose model)** that you can _*CRUD*_ using _*RESTful Routes*_
     - That means endpoints for `index`, `show`, `create` `update`, `delete`!
@@ -68,7 +69,7 @@ Now that we're deployed, it's time to start coding your "personal" api!
         * Wish list (e.g. `gifts` or `wishes`)
             - `_id`, description, price, amazonLink
 
-All API Endpoints must return JSON. 
+All API Endpoints must return JSON.
 
 <!--- You will be able to see if your API is up and running because [this api aggregator](https://api-aggregator.herokuapp.com/) will be able to consume your data. Check back on it to see if it's working for your code! Note: This won't be set up until you send your instructors the name of your Heroku app! --->
 
@@ -103,14 +104,14 @@ An example API for 'Jon Snow' might have endpoints like:
 
     GET /api/projects           [
                                  {
-                                    _id: 2,
+                                    \_id: 2,
                                     name: 'Defeat the wildlings',
                                     type: 'quest',
                                     opponents: [ 'Mance Rayder', 'Lord of Bones'],
                                     status: 'resolved'
                                  },
                                  {
-                                    _id: 3,
+                                    \_id: 3,
                                     name: 'Save the wildlings',
                                     type: 'campaign',
                                     opponents: ['the Night Watch', 'the Others'],
@@ -118,11 +119,11 @@ An example API for 'Jon Snow' might have endpoints like:
                                  }
                                 ]
 
-    GET /api/projects?limit=1   [ { _id: 2, name:'Defeat...' } ]
+    GET /api/projects?limit=1   [ { \_id: 2, name:'Defeat...' } ]
 
     GET /api/projects?status=pending
-                                [ { _id: 3, name:'Save...' } ]                                
-    GET /api/projects/2         { _id: 2, name:'Defeat...' }
+                                [ { \_id: 3, name:'Save...' } ]                                
+    GET /api/projects/2         { \_id: 2, name:'Defeat...' }
 
     POST /api/projects          etc
     PUT /api/projects/2         etc
